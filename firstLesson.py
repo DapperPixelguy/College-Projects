@@ -87,10 +87,11 @@ def gerund_finder():
 
 def mandelbrot():
     limit = 50
+    res = 500
     colourmap = 'magma'
 
-    xr = np.linspace(-2, 1, 500)
-    yr = np.linspace(-1.5, 1.5, 500)
+    xr = np.linspace(-2, 1, res)
+    yr = np.linspace(-1.5, 1.5, res)
 
     iterArray = []
     for y in yr:
