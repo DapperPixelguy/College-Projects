@@ -8,7 +8,6 @@ root = tk.Tk()
 root.geometry('250x250')
 
 
-
 def perfect_find():
     perfect = []
     for i in range(1,10000):
@@ -19,7 +18,6 @@ def perfect_find():
                 if number % f == 0:
                     sum += f
 
-
             if sum == number:
                 print(f'FOUND! {number}')
                 perfect.append(number)
@@ -28,6 +26,7 @@ def perfect_find():
 
     print('Finished!')
     [print(x) for x in perfect]
+
 
 def prime_find():
     active = True
@@ -50,6 +49,7 @@ def prime_find():
             if count == 1:
                 print(f'{number} is a prime number')
 
+
 def quadratic_solver():                         # x=   -b +/- ROOT  b^2 - 4ac OVER 2a
     results = []
     a = int(input('Enter a: '))
@@ -70,6 +70,7 @@ def fibonacci():
         print(sequence[-1])
         time.sleep(0.1)
 
+
 def array_sort():
     numbers = [9,4,5,3,2,8,6,1,0,7]
     print(numbers)
@@ -78,9 +79,11 @@ def array_sort():
         sorted.append(numbers.pop(numbers.index(min(numbers))))
     print(sorted)
 
+
 def gerund_finder():
     verb = input('Enter a verb: ')
     print(getInflection(verb, 'VBG'))
+
 
 def mandelbrot():
     limit = 50
@@ -112,10 +115,6 @@ def mandelbrot():
     bar = plt.colorbar(graph)
     plt.gcf().set_size_inches(10,8)
     plt.show()
-
-
-
-
 
 
 perfect = tk.Button(root, command= perfect_find, text='Perfect number lister')
