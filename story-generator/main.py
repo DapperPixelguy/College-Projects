@@ -32,29 +32,38 @@ def fill_temp():
     adj = pd.DataFrame(pd.read_csv('WordnetAdjectives.csv'))
     adv = pd.DataFrame(pd.read_csv('WordnetAdverbs.csv'))
     nou = pd.DataFrame(pd.read_csv('WordnetNouns.csv'))
+    vb = pd.DataFrame(pd.read_csv('most-common-verbs-english.csv'))
+    names = pd.DataFrame(pd.read_csv('names.csv'))
+    vb_count = template.count('[verb]')
     adj_count = template.count('[adjective]')
     adv_count = template.count('[adverb]')
     nou_count = template.count('[noun]')
     plrnou_count = template.count('[plrnoun]')
+    name_count = template.count('[name]')
 
     for i in range(adj_count):
-        template = template.replace('[adjective]', adj['Word'].sample().values[0])
+        template = template.replace('[adjective]', adj['Word'].sample().values[0], 1)
 
     for i in range(adv_count):
-        template = template.replace('[adverb]', adv['Word'].sample().values[0])
+        template = template.replace('[adverb]', adv['Word'].sample().values[0], 1)
 
     for i in range(nou_count):
-        template = template.replace('[noun]', nou['Word'].sample().values[0])
+        template = template.replace('[noun]', nou['Word'].sample().values[0], 1)
+
+    for i in range(vb_count):
+        template = template.replace('[verb]', vb['Word'].sample().values[0], 1)
+
+    for i in range(name_count):
+        template = template.replace('[name]', names['Name'].sample().values[0], 1)
 
     for i in range(plrnou_count):
         plrnoun = nou['Word'].sample().values[0]
         inflection = getInflection(plrnoun, tag='NNS')
-
         if inflection:
-            template = template.replace('[plrnoun]', inflection[0])
-
+            template = template.replace('[plrnoun]', inflection[0], 1)
         else:
-            template = template.replace('[plrnoun]', plrnoun + 's')
+            template = template.replace('[plrnoun]', plrnoun + 's', 1)
+
 
     print(template)
 
