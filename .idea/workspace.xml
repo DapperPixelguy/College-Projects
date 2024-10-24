@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="added pandas cars task">
-      <change beforePath="$PROJECT_DIR$/.idea/College-Projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/College-Projects.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc/bubble-srt.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc/bubble-srt.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
