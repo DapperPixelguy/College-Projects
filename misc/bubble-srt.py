@@ -6,11 +6,11 @@ import pandas as pd
 start = time.time()
 
 df = pd.DataFrame(data=[], columns=['time', 'checks', 'swaps', 'items'])
-for k in range(5000):
+for k in range(1000):
     #time.sleep(0.1)
     start_time = time.time()
-    values = random.sample(range(5000), k)
-    print(values)
+    values = random.sample(range(k), k)
+    #print(values)
     checks = 0
     swaps = 0
     pos = 0
@@ -24,11 +24,11 @@ for k in range(5000):
                 values[i], values[i+1] = values[i+1], values[i]
     endtime = time.time()-start_time
     df.loc[len(df.index)] = [endtime, checks, swaps, k]
-    print(values)
+    #print(values)
+    print(f'{1000-k} remaining')
 
 
 print(df.sort_values('time', ascending=False).head(15))
-df.to_csv('checks.csv')
 fig, axs = plt.subplots(2,2)
 
 axs[0,0].scatter(df['checks'], df['time'])
