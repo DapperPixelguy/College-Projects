@@ -3,36 +3,57 @@ import time
 from matplotlib import pyplot as plt
 import pandas as pd
 
-df = pd.DataFrame(data=[], columns=['time', 'checks'])
-for i in range(500):
-    time.sleep(0.1)
+start = time.time()
+
+df = pd.DataFrame(data=[], columns=['time', 'checks', 'swaps', 'items'])
+for k in range(5000):
+    #time.sleep(0.1)
     start_time = time.time()
-    values = random.sample(range(100), 100)
+    values = random.sample(range(5000), k)
+    print(values)
     checks = 0
+    swaps = 0
     pos = 0
 
     for value in values:
         pos += 1
-        for i in range(len(values)-1):
+        for i in range(len(values)-pos):
             checks += 1
-            print(f'checking {len(values)-(1+pos)}')
             if values[i] > values[i+1]:
+                swaps += 1
                 values[i], values[i+1] = values[i+1], values[i]
-            else:
-                pass
     endtime = time.time()-start_time
-    df.loc[len(df.index)] = [endtime, checks]
+    df.loc[len(df.index)] = [endtime, checks, swaps, k]
     print(values)
 
 
-print(df.sort_values('checks', ascending=False).head(15))
+print(df.sort_values('time', ascending=False).head(15))
 df.to_csv('checks.csv')
-plt.scatter(df['checks'], df['time'])
-plt.xlabel('Checks')
-plt.ylabel('Time')
+fig, axs = plt.subplots(2,2)
+
+axs[0,0].scatter(df['checks'], df['time'])
+axs[0,0].set_title('Checks vs Time')
+axs[0,0].set_xlabel('Checks')
+axs[0,0].set_ylabel('Time')
+
+axs[0,1].scatter(df['items'], df['swaps'])
+axs[0,1].set_title('Items vs Swaps')
+axs[0,1].set_xlabel('Items')
+axs[0,1].set_ylabel('Swaps')
+
+axs[1,0].scatter(df['items'], df['time'])
+axs[1,0].set_title('Items vs Time')
+axs[1,0].set_xlabel('Items')
+axs[1,0].set_ylabel('Time')
+
+axs[1,1].scatter(df['checks'], df['swaps'])
+axs[1,1].set_title('Checks vs Swaps')
+axs[1,1].set_xlabel('Checks')
+axs[1,1].set_ylabel('Swaps')
+
 plt.show()
 
-print(f'{round(endtime, 5)}s')
-print(f'Ran {checks} checks')
-print(values)
-
+#print(f'{round(endtime, 5)}s')
+#print(f'Ran {checks} checks')
+#print(values)
+print(f'Took {time.time()-start}')
