@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="added pandas cars task">
+      <change afterPath="$PROJECT_DIR$/pandas-tasks/data/murder-mystery.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pandas-tasks/murder-mystery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +50,10 @@
     "Python.bubble-srt.executor": "Run",
     "Python.cars.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.murder-mystery.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/gabrieltaylor/OneDrive/College-Projects/pandas-tasks/data",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -61,6 +65,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\pandas-tasks\data" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\world-happiness-report" />
       <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\pandas-tasks\data" />
