@@ -5,23 +5,24 @@ from copy import deepcopy
 resolution = WIDTH, HEIGHT = 800, 800
 cell = 25
 W, H = WIDTH // cell, HEIGHT // cell
-FPS = 15
+FPS = 5
 
 pygame.init()
 window = pygame.display.set_mode(resolution)
 clock = pygame.time.Clock()
 
-next = [[0 for i in range (W)] for j in range(H)]
-current = [[randint(0,1) for i in range (W)] for j in range(H)]
+next = [[0 for i in range(W)] for j in range(H)]
+current = [[randint(0, 1) for i in range (W)] for j in range(H)]
 
 active = True
+
 
 def check_cell(current, x, y):
     c = 0
     for j in range(y-1, y+2):
         for i in range(x-1, x+2):
             if current[j][i]:
-                c +=1
+                c += 1
 
     if current[y][x]:
         c -= 1
@@ -35,7 +36,7 @@ def check_cell(current, x, y):
 
 while active:
 
-    window.fill(color=(0,0,0))
+    window.fill(color=(0, 0, 0))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             exit()
@@ -47,7 +48,6 @@ while active:
         for y in range(1, H-1):
             if current[y][x]:
                 pygame.draw.rect(window, (55, 0, 150), (x*cell + 2, y*cell + 2, cell - 2, cell - 2))
-
 
     pygame.display.flip()
     clock.tick(FPS)
