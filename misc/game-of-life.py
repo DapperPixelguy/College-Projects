@@ -1,6 +1,5 @@
 import pygame
 from random import *
-from copy import deepcopy
 
 resolution = WIDTH, HEIGHT = 1500, 1000
 cell = 20
@@ -15,7 +14,8 @@ next = [[0 for i in range(W)] for j in range(H)]
 current = [[randint(0, 1) for i in range (W)] for j in range(H)]
 
 active = True
-gameloop = True # Add a way to toggle this
+gameloop = True
+
 
 def check_cell(current, x, y):
     c = 0
@@ -31,11 +31,11 @@ def check_cell(current, x, y):
 
 def update_board():
     global current
-    global next
+    next = [[0 for i in range(W)] for j in range(H)]
     [pygame.draw.line(window, (55, 55, 55), (x, 0), (x, HEIGHT)) for x in range(0, WIDTH, cell)]
     [pygame.draw.line(window, (55, 55, 55), (0, y), (WIDTH, y)) for y in range(0, HEIGHT, cell)]
 
-    for x in range(1, W - 1):
+    for x in range(1, W - 1):O
         for y in range(1, H - 1):
             neighbors = check_cell(current, x, y)
 
@@ -55,11 +55,10 @@ def update_board():
             if current[y][x]:
                 pygame.draw.rect(window, (255, 255, 255), (x * cell + 2, y * cell + 2, cell - 2, cell - 2))
 
-    print(current)
-
     pygame.display.flip()
-while active:
 
+
+while active:
     window.fill(color=(0, 0, 0))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -81,8 +80,20 @@ while active:
                 pygame.display.flip()
 
         elif event.type == pygame.KEYDOWN:
-            update_board()
-
+            if event.key == pygame.K_k:
+                if gameloop:
+                    gameloop = False
+                else:
+                    gameloop = True
+            if event.key == pygame.K_c:
+                current = [[0 for i in range(W)] for j in range(H)]
+                update_board()
+            if event.key == pygame.K_r:
+                current = [[randint(0,1) for i in range(W)] for j in range(H)]
+            if not gameloop:
+                if event.key == pygame.K_SPACE:
+                    update_board()
 
     if gameloop:
         update_board()
+        clock.tick(FPS)
