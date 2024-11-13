@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="Updated game of life">
-      <change afterPath="$PROJECT_DIR$/misc/numpy-board-game.py" afterDir="false" />
+    <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="numpy board game">
+      <change afterPath="$PROJECT_DIR$/pandas-tasks/charts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +48,7 @@
   "keyToString": {
     "Python.bubble-srt.executor": "Run",
     "Python.cars.executor": "Run",
+    "Python.charts.executor": "Run",
     "Python.game-of-life.executor": "Run",
     "Python.main.executor": "Run",
     "Python.murder-mystery.executor": "Run",
@@ -163,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731056789036</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="numpy board game">
+      <option name="closed" value="true" />
+      <created>1731061403212</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1731061403212</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +182,8 @@
     <MESSAGE value="Create" />
     <MESSAGE value="added pandas cars task" />
     <MESSAGE value="Updated game of life" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated game of life" />
+    <MESSAGE value="numpy board game" />
+    <option name="LAST_COMMIT_MESSAGE" value="numpy board game" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/College_Projects$game_of_life.coverage" NAME="game-of-life Coverage Results" MODIFIED="1730707011115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/misc" />
