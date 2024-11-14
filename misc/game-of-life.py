@@ -1,5 +1,6 @@
 import pygame
 from random import *
+from copy import deepcopy
 
 resolution = WIDTH, HEIGHT = 1500, 1000
 cell = 20
@@ -11,17 +12,18 @@ window = pygame.display.set_mode(resolution, pygame.SRCALPHA)
 clock = pygame.time.Clock()
 
 next = [[0 for i in range(W)] for j in range(H)]
-current = [[randint(0, 1) for i in range (W)] for j in range(H)]
+current = [[randint(0, 1) for i in range(W)] for j in range(H)]
+saved = [[0 for i in range(W)] for j in range(H)]
 
 active = True
-gameloop = True
+game_loop = True
 
 
 def check_cell(current, x, y):
     c = 0
     for H in range(y-1, y+2):
         for W in range(x-1, x+2):
-           c += current[H][W]
+            c += current[H][W]
 
     if current[y][x]:
         c -= 1
@@ -63,11 +65,10 @@ while active:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             exit()
-        elif event.type == pygame.MOUSEBUTTONDOWN:  # Check for mouse click
+        elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             grid_x, grid_y = mouse_x // cell, mouse_y // cell
             if 0 <= grid_x < W and 0 <= grid_y < H:
-                # Toggle the cell state (alive <-> dead)
                 current[grid_y][grid_x] = 1 - current[grid_y][grid_x]
                 [pygame.draw.line(window, (55, 55, 55), (x, 0), (x, HEIGHT)) for x in range(0, WIDTH, cell)]
                 [pygame.draw.line(window, (55, 55, 55), (0, y), (WIDTH, y)) for y in range(0, HEIGHT, cell)]
@@ -81,19 +82,35 @@ while active:
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_k:
-                if gameloop:
-                    gameloop = False
+                if game_loop:
+                    game_loop = False
                 else:
-                    gameloop = True
+                    game_loop = True
             if event.key == pygame.K_c:
                 current = [[0 for i in range(W)] for j in range(H)]
                 update_board()
             if event.key == pygame.K_r:
-                current = [[randint(0,1) for i in range(W)] for j in range(H)]
-            if not gameloop:
+                current = [[randint(0, 1) for i in range(W)] for j in range(H)]
+                update_board()
+            if event.key == pygame.K_s:
+                saved = deepcopy(current)
+                print('saved')
+            if event.key == pygame.K_l:
+                current = deepcopy(saved)
+                [pygame.draw.line(window, (55, 55, 55), (x, 0), (x, HEIGHT)) for x in range(0, WIDTH, cell)]
+                [pygame.draw.line(window, (55, 55, 55), (0, y), (WIDTH, y)) for y in range(0, HEIGHT, cell)]
+
+                for x in range(1, W - 1):
+                    for y in range(1, H - 1):
+                        if current[y][x]:
+                            pygame.draw.rect(window, (255, 255, 255), (x * cell + 2, y * cell + 2, cell - 2, cell - 2))
+
+                pygame.display.flip()
+
+            if not game_loop:
                 if event.key == pygame.K_SPACE:
                     update_board()
 
-    if gameloop:
+    if game_loop:
         update_board()
         clock.tick(FPS)
