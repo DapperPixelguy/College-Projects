@@ -13,6 +13,7 @@ class EqualityGame:
         self.root.mainloop()
 
     def new_scenario(self):
+        pass
 
 
 
