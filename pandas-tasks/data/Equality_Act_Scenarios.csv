@@ -1,0 +1,15 @@
+prosecuting_party,accused_party,scenario,breaksAct/exempt,direct/indirect discrimination,area
+Employee with a disability,Employer,An employer refuses to make reasonable adjustments for an employee's wheelchair access needs.,Breaks Act,Direct discrimination,Work
+Pregnant customer,Restaurant,A pregnant woman is denied entry to a restaurant due to their 'no outside food' policy when she brings a specific diet-required meal.,Breaks Act,Indirect discrimination,Services
+Transgender individual,Gym,A gym refuses to let a transgender man use the men's changing room.,Breaks Act,Direct discrimination,Services
+Older job applicant,Recruitment agency,"An agency advertises a role as 'perfect for young, dynamic individuals.'",Breaks Act,Indirect discrimination,Work
+Religious individual,Employer,An employee is disciplined for wearing a religious symbol visible to clients.,Breaks Act,Direct discrimination,Work
+Lesbian tenant,Landlord,A landlord refuses to rent a property to a lesbian couple.,Breaks Act,Direct discrimination,Housing
+Black student,University,A university only promotes a mentorship program to white students.,Breaks Act,Indirect discrimination,Education
+Single mother,Private club,A private club denies membership to single parents.,Breaks Act,Direct discrimination,Associations
+Male employee,Employer,An employer excludes men from a workplace flexibility program designed for parents.,Breaks Act,Indirect discrimination,Work
+Female applicant,Women's shelter,A women's shelter refuses admission to a male applicant due to the service's specific purpose.,Exempt,Service designed for a protected group.,Services
+Non-religious individual,Religious school,A faith-based school gives admissions preference to children of their religion.,Exempt,Permitted faith-based admissions policy.,Education
+Transgender athlete,Sports organization,A sports league limits participation in a category based on birth sex to ensure fairness in competition.,Exempt,Fair competition exemption.,Sports
+Older individual,Insurance provider,An insurance company charges higher premiums based on the applicant's age.,Exempt,Allowed under actuarial evidence rules.,Services
+Male applicant,Female-only gym,A gym denies membership to men as it is a women-only facility.,Exempt,Designed to meet women's specific needs.,Services

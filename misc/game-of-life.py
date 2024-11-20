@@ -11,9 +11,9 @@ pygame.init()
 window = pygame.display.set_mode(resolution, pygame.SRCALPHA)
 clock = pygame.time.Clock()
 
-next = [[0 for i in range(W)] for j in range(H)]
-current = [[randint(0, 1) for i in range(W)] for j in range(H)]
-saved = [[0 for i in range(W)] for j in range(H)]
+next_grid = [[0 for i in range(W)] for j in range(H)]
+current = [[randint(0, 1) for a in range(W)] for b in range(H)]
+saved = [[0 for x in range(W)] for y in range(H)]
 
 active = True
 game_loop = True
@@ -33,7 +33,7 @@ def check_cell(current, x, y):
 
 def update_board():
     global current
-    next = [[0 for i in range(W)] for j in range(H)]
+    next_grid = [[0 for i in range(W)] for j in range(H)]
     [pygame.draw.line(window, (55, 55, 55), (x, 0), (x, HEIGHT)) for x in range(0, WIDTH, cell)]
     [pygame.draw.line(window, (55, 55, 55), (0, y), (WIDTH, y)) for y in range(0, HEIGHT, cell)]
 
@@ -43,14 +43,14 @@ def update_board():
 
             if current[y][x] == 1:
                 if neighbors == 2 or neighbors == 3:
-                    next[y][x] = 1
+                    next_grid[y][x] = 1
                 else:
-                    next[y][x] = 0
+                    next_grid[y][x] = 0
             else:
                 if neighbors == 3:
-                    next[y][x] = 1
+                    next_grid[y][x] = 1
 
-    current = [row[:] for row in next]
+    current = [row[:] for row in next_grid]
 
     for x in range(1, W - 1):
         for y in range(1, H - 1):
@@ -94,7 +94,6 @@ while active:
                 update_board()
             if event.key == pygame.K_s:
                 saved = deepcopy(current)
-                print('saved')
             if event.key == pygame.K_l:
                 current = deepcopy(saved)
                 [pygame.draw.line(window, (55, 55, 55), (x, 0), (x, HEIGHT)) for x in range(0, WIDTH, cell)]
