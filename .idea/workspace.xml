@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/pandas-tasks/data/Equality_Act_Scenarios.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pandas-tasks/equality-act.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc/game-of-life.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc/game-of-life.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pandas-tasks/equality-act.py" beforeDir="false" afterPath="$PROJECT_DIR$/pandas-tasks/equality-act.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "settings.editor.splitter.proportion": "0.29327902",
     "vue.rearranger.settings.migration": "true"
   }
@@ -207,7 +205,31 @@
       <option name="project" value="LOCAL" />
       <updated>1731595378747</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Update">
+      <option name="closed" value="true" />
+      <created>1732096265636</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1732096265636</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update">
+      <option name="closed" value="true" />
+      <created>1732096290802</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1732096290802</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update">
+      <option name="closed" value="true" />
+      <created>1732096355109</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1732096355109</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
