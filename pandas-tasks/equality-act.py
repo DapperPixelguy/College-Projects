@@ -16,6 +16,5 @@ class EqualityGame:
         pass
 
 
-
 root_ = tk.Tk()
 EqualityGame(root_)
