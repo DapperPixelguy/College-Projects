@@ -74,6 +74,7 @@ class PasswordChecker:
         if not flag:
             print('Password ok!')
             self.error.set('Password ok!')
+            self.password_field.configure(state="disabled")
 
 
 root_ = tk.Tk()
