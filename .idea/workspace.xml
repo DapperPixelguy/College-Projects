@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="Update" />
+    <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="Update">
+      <change afterPath="$PROJECT_DIR$/defaults.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/data/Dreaming_Beyond.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/data/Eternal_Flow.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/data/The_Silent_Forest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/poem.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/data/passwords.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_2024_11_28.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/whatisthis.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc/whatisthis.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +66,7 @@
     "Python.main.executor": "Run",
     "Python.murder-mystery.executor": "Run",
     "Python.numpy-board-game.executor": "Run",
+    "Python.test_2024_11_28.executor": "Run",
     "Python.whatisthis.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -73,6 +86,7 @@
       <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\pandas-tasks\data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/misc" />
       <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\world-happiness-report" />
       <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\pandas-tasks\data" />
       <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\story-generator" />
@@ -208,7 +222,39 @@
       <option name="project" value="LOCAL" />
       <updated>1732100218094</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update">
+      <option name="closed" value="true" />
+      <created>1732614123195</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1732614123195</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update">
+      <option name="closed" value="true" />
+      <created>1732614155220</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732614155220</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update">
+      <option name="closed" value="true" />
+      <created>1732614201485</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1732614201485</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update">
+      <option name="closed" value="true" />
+      <created>1732614284510</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1732614284510</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
