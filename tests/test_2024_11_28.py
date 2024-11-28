@@ -1,4 +1,5 @@
 import tkinter as tk
+# Requires ../data to call upon password.txt
 
 class PasswordChecker:
     def __init__(self, root):
