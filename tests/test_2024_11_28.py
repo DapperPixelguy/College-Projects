@@ -67,14 +67,14 @@ class PasswordChecker:
             errorstring += (f'You have {5 - self.attempts} attempt(s) left')
             self.error.set(errorstring)
 
-
         if self.attempts == 5:
             print('Too many attempts')
             root_.destroy()
 
-        if flag == False:
+        if not flag:
             print('Password ok!')
             self.error.set('Password ok!')
+
 
 root_ = tk.Tk()
 PasswordChecker(root_)
