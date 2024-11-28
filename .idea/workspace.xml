@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/defaults.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/data/Dreaming_Beyond.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/data/Eternal_Flow.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/data/The_Silent_Forest.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/poem.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/data/passwords.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_2024_11_28.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc/whatisthis.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc/whatisthis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_2024_11_28.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_2024_11_28.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732614284510</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Update">
+      <option name="closed" value="true" />
+      <created>1732810359212</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1732810359212</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
