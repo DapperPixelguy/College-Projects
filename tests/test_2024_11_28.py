@@ -28,22 +28,20 @@ class PasswordChecker:
         self.data = open('data/passwords.txt', 'r')
         self.f = [line.strip('\n') for line in self.data.readlines()]
 
-
     def password_checker(self):
-        flag = True
         symbols = ['!', '"', '£', '$', '%', '^', '&', '*', '(', ')', '_', '-']
         symbol_count = 0
         password = self.password_field.get()
         flag = False
 
-        errorstring = ''
+        error_string = ''
 
         if len(password) < 6:
-            errorstring += ('Password must be of length 6 or higher\n')
+            error_string += 'Password must be of length 6 or higher\n'
             flag = True
 
         if password.lower() == password:
-            errorstring += ('Password must contain at least one uppercase character\n')
+            error_string += 'Password must contain at least one uppercase character\n'
             flag = True
 
         for symbol in symbols:
@@ -51,21 +49,21 @@ class PasswordChecker:
                 symbol_count += 1
 
         if symbol_count == len(symbols):
-            errorstring += ('Password must contain a symbol\n')
+            error_string += 'Password must contain a symbol\n'
             flag = True
 
         if ' ' in list(password.strip()):
-            errorstring += ('Password must not contain spaces\n')
+            error_string += 'Password must not contain spaces\n'
             flag = True
 
         if password in self.f:
-            errorstring += ('Password already exists.\n')
+            error_string += 'Password already exists.\n'
             flag = True
 
         if self.attempts < 5 and flag:
             self.attempts += 1
-            errorstring += (f'You have {5 - self.attempts} attempt(s) left')
-            self.error.set(errorstring)
+            error_string += f'You have {5 - self.attempts} attempt(s) left'
+            self.error.set(error_string)
 
         if self.attempts == 5:
             print('Too many attempts')
@@ -80,4 +78,3 @@ class PasswordChecker:
 root_ = tk.Tk()
 PasswordChecker(root_)
 root_.mainloop()
-
