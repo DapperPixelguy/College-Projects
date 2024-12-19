@@ -22,8 +22,8 @@ def GenerateGuess(PastGuesses, PastEvaluations) -> str:
     with open('data/shuffled_real_wordles.txt', 'r') as f:
         print(PastGuesses)
         print(PastEvaluations)
-        f = f.read().lower()
-        not_possible = ['x']
+        f = f.read().strip().lower()
+        not_possible = []
         guaranteed = ['.', '.', '.', '.', '.']
         place = []
 
@@ -50,7 +50,7 @@ def GenerateGuess(PastGuesses, PastEvaluations) -> str:
         for i, char in enumerate(guaranteed):
             if char == '.':
                 excluded = ''.join(sorted(set(not_possible)))
-                guaranteed[i] = f"[^{excluded}]"
+                guaranteed[i] = f"[^{excluded}\n]"
 
         pattern = rf'{guaranteed[0]}{guaranteed[1]}{guaranteed[2]}{guaranteed[3]}{guaranteed[4]}'
 

@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="Added template for TKinter GUI">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/data/fradulent_emails.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/data/fraud_email_.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/data/shuffled_real_wordles.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/regex_email.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/wordle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc/dict_tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc/dict_tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/wordle.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc/wordle.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
