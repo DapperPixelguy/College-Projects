@@ -18,11 +18,12 @@ for word in words:
                 word_freq_list[i]['count'] += 1
 
 results = [[word_freq_list[i]['word'], word_freq_list[i]['count']] for i in range(len(word_freq_list))]
-print(results)
+#print(results)
 
-counts = [results[1] for result in results]
+counts = [result[1] for result in results]
 
 print(max(counts))
 
+print(results[counts.index(max(counts))])
 
 
