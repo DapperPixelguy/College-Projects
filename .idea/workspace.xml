@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="Added template for TKinter GUI">
-      <change beforePath="$PROJECT_DIR$/misc/wordle.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc/wordle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/book_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +51,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.2024_12_04_Factorials.executor": "Run",
     "Python.2024_12_05_Decorators.executor": "Run",
+    "Python.book_details.executor": "Run",
     "Python.bubble-srt.executor": "Run",
     "Python.cars.executor": "Run",
     "Python.charts.executor": "Run",
