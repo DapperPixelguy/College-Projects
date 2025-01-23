@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="Added template for TKinter GUI">
-      <change afterPath="$PROJECT_DIR$/misc/book_details.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/2025_01_22_Lambda_Functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/2025_01_23_Data_Collection_Types.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/testing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/College-Projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/College-Projects.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +54,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python tests.Python tests in testing.py.executor": "Run",
     "Python.2024_12_04_Factorials.executor": "Run",
     "Python.2024_12_05_Decorators.executor": "Run",
+    "Python.2025_01_22_Lambda_Functions.executor": "Run",
+    "Python.2025_01_23_Data_Collection_Types.executor": "Run",
     "Python.book_details.executor": "Run",
     "Python.bubble-srt.executor": "Run",
     "Python.cars.executor": "Run",
@@ -63,9 +71,11 @@
     "Python.numpy-board-game.executor": "Run",
     "Python.regex_email.executor": "Run",
     "Python.test_2024_11_28.executor": "Run",
+    "Python.testing.executor": "Run",
     "Python.whatisthis.executor": "Run",
     "Python.wordle.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/gabrieltaylor/OneDrive/College-Projects/pandas-tasks/data",
