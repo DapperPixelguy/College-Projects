@@ -12,8 +12,8 @@ def context(func):
     return wrapper
 
 class DataTypes:
-    def __init__(self, root):
-        self.root = root
+    def __init__(self, _root):
+        self.root = _root
         tuple_btn = tk.Button(text='Tuple', command=self.tuple_ex)
         list_btn = tk.Button(text='List', command=self.list_ex)
         dict_btn = tk.Button(text='Dict', command=self.dict_ex)
@@ -28,9 +28,13 @@ class DataTypes:
 
     @context
     def tuple_ex(self):
-        """Shows that a tuple allows duplicate values"""
+        """Shows that a tuple allows duplicate values, and are immutable after creation"""
         example_tuple = (1,2,3,4,5,5)
         print(example_tuple)
+        try:
+            example_tuple[2] = 4
+        except Exception as e:
+            print(f'Error: {e}')
 
     @context
     def list_ex(self):
@@ -49,12 +53,13 @@ class DataTypes:
             'money': 12.30
         }
         print(example_dict)
+        print('Append \'12 Example Street\' to key \'address\'\n')
         example_dict['address'] = '12 Example Street'
-        print(example_dict['address'])
+        print(f'{example_dict}\nexample_dict[\'address\']: {example_dict['address']}')
 
     @context
     def set_ex(self):
-        """Shows that you can use operators to find differences in sets"""
+        """Shows that sets can be used to perform operations on each other"""
         example_set = {1,2,3,4,5,6,7}
         diff_set = {2,4,6,8}
         print(f'{example_set} - {diff_set} = ')

@@ -5,13 +5,118 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="Added template for TKinter GUI">
-      <change afterPath="$PROJECT_DIR$/misc/2025_01_22_Lambda_Functions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/2025_01_23_Data_Collection_Types.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/testing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/College-Projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/College-Projects.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_argcomplete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_code/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_code/code.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_code/source.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_io/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_io/pprint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_io/saferepr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_io/terminalwriter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_io/wcwidth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_py/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_py/error.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_py/path.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/_version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/assertion/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/assertion/rewrite.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/assertion/truncate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/assertion/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/cacheprovider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/capture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/config/argparsing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/config/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/config/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/config/findpaths.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/debugging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/deprecated.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/doctest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/faulthandler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/fixtures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/freeze_support.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/helpconfig.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/hookspec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/junitxml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/legacypath.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/logging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/mark/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/mark/expression.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/mark/structures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/monkeypatch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/nodes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/outcomes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/pastebin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/pathlib.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/py.typed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/pytester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/pytester_assertions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/python.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/python_api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/python_path.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/recwarn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/reports.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/runner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/scope.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/setuponly.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/setupplan.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/skipping.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/stash.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/stepwise.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/terminal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/threadexception.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/timing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/tmpdir.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/unittest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/warning_types.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/_pytest/warnings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/iniconfig-2.0.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/iniconfig-2.0.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/iniconfig-2.0.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/iniconfig-2.0.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/iniconfig-2.0.0.dist-info/licenses/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/iniconfig/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/iniconfig/_parse.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/iniconfig/_version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/iniconfig/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/iniconfig/py.typed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy-1.5.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy-1.5.0.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy-1.5.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy-1.5.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy-1.5.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy-1.5.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy/_callers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy/_hooks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy/_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy/_result.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy/_tracing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy/_version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy/_warnings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pluggy/py.typed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/py.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest-8.3.4.dist-info/AUTHORS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest-8.3.4.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest-8.3.4.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest-8.3.4.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest-8.3.4.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest-8.3.4.dist-info/REQUESTED" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest-8.3.4.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest-8.3.4.dist-info/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest-8.3.4.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.venv/lib/python3.13/site-packages/pytest/py.typed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pygame/dodge-game/2025_01_24_Dodge_Game.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pygame/dodge-game/highscore.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/2025_01_22_Lambda_Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc/2025_01_22_Lambda_Functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/2025_01_23_Data_Collection_Types.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc/2025_01_23_Data_Collection_Types.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,44 +156,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python tests.Python tests in testing.py.executor": "Run",
-    "Python.2024_12_04_Factorials.executor": "Run",
-    "Python.2024_12_05_Decorators.executor": "Run",
-    "Python.2025_01_22_Lambda_Functions.executor": "Run",
-    "Python.2025_01_23_Data_Collection_Types.executor": "Run",
-    "Python.book_details.executor": "Run",
-    "Python.bubble-srt.executor": "Run",
-    "Python.cars.executor": "Run",
-    "Python.charts.executor": "Run",
-    "Python.dict_tasks.executor": "Run",
-    "Python.equality-act.executor": "Run",
-    "Python.game-of-life.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.murder-mystery.executor": "Run",
-    "Python.numpy-board-game.executor": "Run",
-    "Python.regex_email.executor": "Run",
-    "Python.test_2024_11_28.executor": "Run",
-    "Python.testing.executor": "Run",
-    "Python.whatisthis.executor": "Run",
-    "Python.wordle.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/gabrieltaylor/OneDrive/College-Projects/pandas-tasks/data",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "settings.editor.splitter.proportion": "0.29327902",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests in testing.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2024_12_04_Factorials.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2024_12_05_Decorators.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_01_22_Lambda_Functions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_01_23_Data_Collection_Types.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_01_24_Dodge_Game.executor&quot;: &quot;Run&quot;,
+    &quot;Python.book_details.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bubble-srt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cars.executor&quot;: &quot;Run&quot;,
+    &quot;Python.charts.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dict_tasks.executor&quot;: &quot;Run&quot;,
+    &quot;Python.equality-act.executor&quot;: &quot;Run&quot;,
+    &quot;Python.game-of-life.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.murder-mystery.executor&quot;: &quot;Run&quot;,
+    &quot;Python.numpy-board-game.executor&quot;: &quot;Run&quot;,
+    &quot;Python.regex_email.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_2024_11_28.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.whatisthis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wordle.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gabrieltaylor/OneDrive/College-Projects/pandas-tasks/data&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.29327902&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\pandas-tasks\data" />
@@ -307,6 +413,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
