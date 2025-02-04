@@ -3,4 +3,10 @@ def tri(num=1, step=1):
         print(num)
         tri(num+(step+1), step+1)
 
-tri()
+def print_tri(step):
+    for i in range(step):
+        mid = int(step/2)
+        print(' '*(mid*2-i), end='')
+        print('# '*i)
+
+print_tri(10)
