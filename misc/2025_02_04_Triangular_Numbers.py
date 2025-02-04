@@ -9,10 +9,8 @@ def tri(num=1, step=1, display=False, max_iter=100):
         tri(num+(step+1), step+1, display=display, max_iter=max_iter)
 
 def print_tri(step):
-    for i in range(step):
-        i=i+1
-        mid = int(step/2)
-        print(' '*(mid*2-(i-1)), end='')
+    for i in range(1, step+1):
+        print(' '*(step-i), end='')
         print('# '*i)
 
 tri(display=True, max_iter=10)
