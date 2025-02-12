@@ -18,6 +18,7 @@ player_width, player_height = 50, 50
 player_x = WIDTH // 2
 player_y = HEIGHT - 2 * player_height
 player_speed = 7
+player_colour = (200,0,255)
 lives = 3
 immune = False
 
@@ -116,6 +117,7 @@ while running:
 
             if lives <= 0:
                 x = None
+                j=0
                 print(f"Game Over, your score was: {score}")
                 if int(score) > int(highscore):
                     with open('highscore.txt', 'w') as f:
@@ -125,13 +127,26 @@ while running:
                     screen.fill((0,0,0))
                     if not x:
                         pygame.draw.rect(screen, (200, 0, 255), (player_x, player_y, player_width, player_height))
-                    if x == 1:
-                        pygame.draw.rect(screen, (105,105,105), (player_x, player_y, player_width, player_height))
-                        threading.Timer(1, lambda: globals().__setitem__('x', 2)).start()
-                    elif x == 2:
-                        break
 
-                    clock.tick(60)
+                    if x == 1:
+                        if player_colour == (200,0,255):
+                            pygame.draw.rect(screen, (105,105,105), (player_x, player_y, player_width, player_height))
+                            player_colour = (105,105,105)
+
+                        elif player_colour == (105,105,105):
+                            pygame.draw.rect(screen, (200,0,255), (player_x, player_y, player_width, player_height))
+                            player_colour = (200,0,255)
+
+                        threading.Timer(2, lambda: globals().__setitem__('x', 2)).start()
+
+                    elif x == 2:
+                        pygame.draw.rect(screen, (105, 105, 105), (player_x, player_y, player_width, player_height))
+                        if j == 0:
+                            threading.Timer(0.5, lambda: globals().__setitem__('j', 1)).start()
+                        if j == 1:
+                            break
+
+                    clock.tick(3)
                     pygame.display.flip()
 
                 running = False
