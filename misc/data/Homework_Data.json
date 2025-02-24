@@ -1,0 +1,52 @@
+[
+  {
+    "Question": "What is the process of breaking a problem into smaller parts?",
+    "Answers": ["Stepwise Refinement", "Decomposition", "Modularisation", "Segmentation"],
+    "Correct": "Decomposition"
+  },
+  {
+    "Question": "When breaking down a problem, what should each smaller part be?",
+    "Answers": ["Manageable", "Independent", "Ordered"],
+    "Correct": "Manageable"
+  },
+  {
+    "Question": "Which method involves dividing a program into functions or modules?",
+    "Answers": ["Functional Decomposition", "Hierarchical Design", "Top-Down Approach", "Structural Analysis"],
+    "Correct": "Functional Decomposition"
+  },
+  {
+    "Question": "Finding similarities in different problems is an example of?",
+    "Answers": ["Pattern Recognition", "Generalisation", "Analogy", "Repetition", "Classification"],
+    "Correct": "Pattern Recognition"
+  },
+  {
+    "Question": "Which concept helps predict future problems based on past solutions?",
+    "Answers": ["Pattern Recognition", "Trend Analysis", "Classification"],
+    "Correct": "Trend Analysis"
+  },
+  {
+    "Question": "What is it called when you recognise a repeating structure in data?",
+    "Answers": ["Patterns", "Sequences", "Recurrence", "Loops"],
+    "Correct": "Patterns"
+  },
+  {
+    "Question": "What technique simplifies a problem by focusing only on key aspects?",
+    "Answers": ["Abstraction", "Generalisation", "Filtering", "Summarisation"],
+    "Correct": "Abstraction"
+  },
+  {
+    "Question": "What is removed when applying abstraction to a problem?",
+    "Answers": ["Unnecessary Details", "Core Logic", "Functional Requirements", "Redundant Information", "Specific Implementations"],
+    "Correct": "Unnecessary Details"
+  },
+  {
+    "Question": "Which process helps create a high-level model of a system?",
+    "Answers": ["Abstraction", "Conceptualisation", "Representation", "Schematic Design"],
+    "Correct": "Conceptualisation"
+  },
+  {
+    "Question": "Which technique can be used to simplify complex real-world scenarios?",
+    "Answers": ["Modelling", "Abstraction", "Simulation", "System Design", "Structuring"],
+    "Correct": "Abstraction"
+  }
+]
