@@ -95,14 +95,41 @@ while running:
 
     SPD_X, SPD_Y = BALL_SPEED_X, BALL_SPEED_Y
     # Prediction
-    while PREDICTION_END[0] < WIDTH - 40 and PREDICTION_END[0] > 30:
+    while True:
         PREDICTION_END[0] += SPD_X
         PREDICTION_END[1] += SPD_Y
         print(PREDICTION_END)
         if PREDICTION_END[1] <= 0 or PREDICTION_END[1] >= HEIGHT:
             SPD_Y *= -1
             pygame.draw.line(screen, RED, (ball.x, ball.y), (PREDICTION_END[0], PREDICTION_END[1]), 1)
-            print('D')
+
+            s1, s2 = PREDICTION_END[0], PREDICTION_END[1]
+
+            while 0 < PREDICTION_END[0] < WIDTH:
+                PREDICTION_END[0] += SPD_X
+                PREDICTION_END[1] += SPD_Y
+                if PREDICTION_END[0] <= 0 or PREDICTION_END[0] >= WIDTH:
+                    pygame.draw.line(screen, RED, (s1, s2), (PREDICTION_END[0], PREDICTION_END[1]), 1)
+
+            break
+                #
+          #  break
+
+        # if PREDICTION_END[0] <= 0 or PREDICTION_END[0] >= WIDTH:
+        #     pygame.draw.line(screen, RED, (ball.x, ball.y), (PREDICTION_END[0], PREDICTION_END[1]), 1)
+        #     break
+
+
+        # PREDICTION_START = [PREDICTION_END[0], PREDICTION_END[1]]
+        #
+        # PREDICTION_START[0] = PREDICTION_END[0] - SPD_X
+        # PREDICTION_START[1] = PREDICTION_END[1] - SPD_Y
+        # pygame.draw.line(screen, RED, (PREDICTION_END[0], PREDICTION_END[1]), (PREDICTION_START[0], PREDICTION_START[1]))
+
+
+        print('D')
+
+
 
         print(PREDICTION_END[0])
 
