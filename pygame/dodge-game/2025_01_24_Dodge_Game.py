@@ -65,7 +65,7 @@ while running:
 
             if event.key == pygame.K_SPACE or event.key == pygame.K_UP:
                 if len(bullets) < 2:
-                    bullets.append([(player_x+player_width/2)-bullet_width/2, player_y - player_height - 10, bullet_width, bullet_height])
+                    bullets.append([(player_x+player_width/2)-bullet_width/2, player_y - player_height - 10, bullet_width, bullet_height, 0])
 
     screen.fill((0,0,0))
 
@@ -92,7 +92,10 @@ while running:
                     and bullet[1] < obstacle[1] + obstacle_height
                     and bullet[1] + bullet_height > obstacle[1]):
                         obstacle[1], obstacle[0] = random.randint(-obstacle_height-obstacle_height, -obstacle_height+obstacle_height), random.randint(0,WIDTH-obstacle_width)
-                        bullets.remove(bullet)
+                        if bullet[4] == 0:
+                            print(bullet[4])
+                            threading.Timer(0.05, lambda: bullets.remove(bullet)).start()
+                            bullet[4] += 1
                         score += 1
                         score_check(score)
 
