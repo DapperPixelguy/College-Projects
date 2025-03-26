@@ -1,0 +1,217 @@
+import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+from datetime import datetime as dt
+
+df = pd.read_csv('Task_4a_data.csv', index_col='ID')
+
+#main menu
+def menu():
+    print("\t\t****MAIN MENU****")
+    print('1) Enter sales records')
+    print('2) Run reports')
+    print('3) Regional reports')
+    x = int(input(""))
+    return x
+
+
+#reports menu
+def menu2():
+    print("**** Reports Dashboard ****")
+    print("1. Individual Employee Report")
+    print("2. All Employee Report")
+    x = int(input(""))
+    return x
+
+def get_dates():
+    while True:
+        while True:
+            try:
+                date1 = input("Enter start date in DD/MM/YYYY: ")
+                day, month, year = date1.split("/")
+                if len(day) == 1 or 2 and len(month) == 1 or 2 and len(year) == 4:
+                    if df.columns.get_loc(date1):
+                        date1_formatted = datetime.date(int(year), int(month), int(day))
+                        break
+            except:
+                print('Date invalid')
+
+        while True:
+            try:
+                date2 = input("Enter end date in DD/MM/YYYY: ")
+                day, month, year = date2.split("/")
+                if len(day) == 1 or 2 and len(month) == 1 or 2 and len(year) == 4:
+                    if df.columns.get_loc(date2):
+                        date2_formatted = datetime.date(int(year), int(month), int(day))
+                        break
+            except:
+                print('Date invalid')
+
+        if datetime.datetime.strptime(date1_formatted.strftime('%d/%m/%Y'), '%d/%m/%Y') > datetime.datetime.strptime(
+                date2_formatted.strftime('%d/%m/%Y'), '%d/%m/%Y'):
+            print("Date range invalid")
+        else:
+            return date1, date2
+
+
+
+
+
+def ind_emp_check(df_r, id, date1, date2):
+    df_r = df_r.loc[df.index == id]
+
+    df_r = df_r.T[3:]
+    df_r.reset_index(inplace=True)
+    df_r['ID1'] = pd.to_datetime(df_r['index'], format='%d/%m/%Y')
+    date1 = pd.to_datetime(date1, format='%d/%m/%Y')
+    date2 = pd.to_datetime(date2, format='%d/%m/%Y')
+    mask = (df_r['ID1'] >= date1) & (df_r['ID1'] <= date2)
+    df_search = df_r.loc[mask]
+    print(df_search)
+    print('Total by id = {} is {}'.format(id, sum(df_search[id])))
+
+    plt.bar(df_search['index'], df_search[id])
+    plt.xticks(rotation=90)
+    plt.show()
+
+def all_emp_check():
+    dfr = df.iloc[:, 3:]
+    dfr = dfr.reset_index()
+    values = pd.DataFrame(columns=['Total', 'Name'])
+    print(values)
+    print(dfr)
+    ids = dfr.loc[:, 'ID'].unique()
+    for i in range(len(dfr)):
+        _x = dfr.iloc[dfr.index==i,1:].sum(axis=1).iloc[0]
+        _id = ids[i]
+        print(_id)
+        values.loc[_id, 'Total'] = _x
+
+
+    print(values)
+    plt.bar(ids, values['Total'])
+    plt.xticks(values.index, values.index, rotation =90)
+    plt.xlabel('Employee ID')
+    plt.ylabel('Total Sales')
+    print(values.index)
+    plt.show()
+
+
+y = menu()
+while y == 1 or y == 2 or y == 3:
+    if y == 1:
+        try:
+            ID = int(input("Enter the Staff ID "))
+            if ID not in df.index.values:
+                print('ID Available.')
+
+            while True:
+                date1 = input("Enter Date in DD/MM/YYYY: ")
+                day, month, year = date1.split("/")
+                if len(day) == 1 or 2 and len(month) == 1 or 2 and len(year) == 4:
+                    date1 = datetime.date(int(year), int(month), int(day))
+                    break
+
+            if datetime.datetime.strptime(date1.strftime('%d/%m/%Y'), '%d/%m/%Y') > datetime.datetime.strptime(
+                    dt.today().strftime('%d/%m/%Y'), '%d/%m/%Y'):
+                print("Date is in the future")
+            else:
+                cost = float(input("Enter the cost : "))
+                df.loc[ID, date1.strftime('%d/%m/%Y')] = cost
+
+        except:
+            print("\n\nError Occurred Please try again\n\n")
+            y = menu()
+
+    if y == 2:
+        x = menu2()
+        if x == 1:
+            try:
+                id = int(input("Enter the Employee Id : "))
+                s_date = input("Enter Starting Date in dd/mm/yyyy: ")
+                day, month, year = s_date.split("/")
+                s_date = datetime.date(int(year), int(month), int(day))
+
+                e_date = input("Enter Date in dd/mm/yyyy: ")
+                day, month, year = e_date.split("/")
+                e_date = datetime.date(int(year), int(month), int(day))
+
+                s_date = datetime.datetime.strptime(s_date.strftime('%d/%m/%Y'), '%d/%m/%Y')
+                e_date = datetime.datetime.strptime(e_date.strftime('%d/%m/%Y'), '%d/%m/%Y')
+                ind_emp_check(df, id, s_date, e_date)
+            except:
+                print("\n\nError Occurred Please try again\n\n")
+                x = menu2()
+        elif x == 2:
+            all_emp_check()
+        else:
+            x = menu2()
+
+    if y == 3:
+        try:
+            selected = []
+            _date1, _date2 = None, None
+            date_choice = input('Would you like to select dates? Y/N: ')
+            if date_choice.lower() == 'y':
+                _date1, _date2 = get_dates()
+
+            while True:
+                while True:
+                    region = input('Enter region: ')
+                    available_regions = df.loc[:, 'Region'].unique()
+                    if region in available_regions:
+                        selected.append(region)
+                        break
+                    else:
+                        print('Not an available region.')
+                        print(available_regions)
+                x = input('Would you like to add another region? Y/N ')
+                if x.lower() == 'y':
+                    pass
+                elif x.lower() == 'n':
+                    break
+
+            offset1, offset2 = None, None
+            print(selected, len(selected))
+            region_frame = pd.DataFrame(columns=['Total'])
+            for i, region in enumerate(selected):
+                data = df.loc[df['Region'] == region].iloc[:, 3:]
+                data = data.reset_index()
+                print(data)
+                ids = data.loc[:, 'ID'].unique()
+                region_total = 0
+
+                # Need to apply the offsets somewhere, might need to subtract from offsets
+                for id in ids:
+
+                    line = data.loc[data['ID'] == id].iloc[:, 1:]
+
+                    if _date1 and _date2:
+                        offset1 = line.columns.get_loc(_date1)
+                        offset2 = line.columns.get_loc(_date2) + 1
+                    line = line.iloc[:, offset1:offset2]
+                    print(line)
+                    print(line.sum(axis=1))
+                    region_total += int(line.sum(axis=1).iloc[0])
+
+                region_frame.loc[region, 'Total'] = region_total
+
+            print(region_frame)
+            plt.bar(region_frame.index, region_frame['Total'])
+            labels = np.linspace(0, region_frame['Total'].max(), 10)
+            steps = 25000
+            plt.yticks(np.arange(0, region_frame['Total'].max()+steps, steps), np.arange(0, region_frame['Total'].max()+steps, steps))
+            if _date1 and _date2:
+                plt.title(f'Revenue across regions between {_date1} and {_date2}')
+            else:
+                plt.title('Revenue across regions')
+            plt.ylabel('Revenue')
+            plt.xlabel('Region')
+            plt.show()
+
+        except Exception as e:
+            print(f'Failed with exception {e}')
+
+    y = menu()
