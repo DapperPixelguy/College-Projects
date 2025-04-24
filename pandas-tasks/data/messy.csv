@@ -1,0 +1,9 @@
+Name,Age,Email,Country,JoinDate,Salary
+ Alice , 25 ,alice@example.com, USA , 2021-06-01 , 50000
+BOB, ,bob@example.com,usa,2021/06/15,55k
+Charlie,30,charlie@Example.com,Canada , , 62000
+alice ,25,alice@example.com,USA,2021-06-01,50000
+dave,29,DAVE@example.COM,UK ,2021-07-01,52000
+Eve,NaN,eve@ex ample.com,Germany,2021-06-30,60000
+Frank,31,frank@example, Italy,2021-06-20,NaN
+,28,sam@example.com,USA,2021-06-18,48000
