@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<HTML>
+<style>
+    .mondrianholder {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .mondrian1, .mondrian2 {
+        filter: drop-shadow(15px 15px 2px gray);
+        }
+    .mondrian1 {
+        display: grid;
+        grid-template-columns: 2fr 6fr 1fr;
+        grid-template-rows: 3fr 3fr 1fr 1fr;
+        grid-template-areas:
+        "box1 box2 box2"
+        "box3 box2 box2"
+        "box4 box5 box6"
+        "box4 box5 box7";
+        height: 80vh;
+        width: 80vw;
+    }
+
+
+    #mond1box1 {grid-area: box1; background: LemonChiffon; border-right: black 5px solid; border-bottom: black 5px solid; }
+
+    #mond1box2 { grid-area: box2; background: red; border-left: black 5px solid; border-bottom: black 5px solid; }
+
+    #mond1box3 { grid-area: box3; background: LemonChiffon; border-right: black 5px solid; border-bottom: black 5px solid; border-top: black 5px solid; }
+
+    #mond1box4 { grid-area: box4; background: blue; border-right: black 5px solid; border-top: black 5px solid; }
+
+    #mond1box5 { grid-area: box5; background: LemonChiffon; border-left: black 5px solid; border-top: black 5px solid; border-right: black 5px solid; }
+
+    #mond1box6 { grid-area: box6; background: blue; border-top: black 5px solid; border-left: black 5px solid; border-bottom: black 5px solid; }
+
+    #mond1box7 { grid-area: box7; background: yellow; border-top: black 5px solid; border-left: black 5px solid; }
+
+    .mondrian2 {
+        display: grid;
+        grid-template-columns: 1fr 0.8fr;
+        grid-template-rows: 1fr 3fr 0.8fr 0.2fr;
+        grid-template-areas:
+        "box1 box2"
+        "box3 box4"
+        "box3 box6"
+        "box5 box6";
+        height: 80vh;
+        width: 80vw;
+    }
+
+    #mond2box1 { grid-area: box1; background: yellow; border-bottom: black 3.5px solid; border-right: black 3.5px solid }
+
+    #mond2box2 { grid-area: box2; background: #FAF9F6; border-left: black 3.5px solid; border-bottom: black 3.5px solid; }
+
+    #mond2box3 { grid-area: box3; background: #FAF9F6; border-top: black 3.5px solid; border-right: black 3.5px solid; border-bottom: black 3.5px solid; }
+
+    #mond2box4 { grid-area: box4; background: red; border-left: black 3.5px solid; border-bottom: black 3.5px solid; border-top: black 3.5px solid; }
+
+    #mond2box5 { grid-area: box5; background: #000060; border-right: black 3.5px solid; border-top: black 3.5px solid; }
+
+    #mond2box6 { grid-area: box6; border-left: black 3.5px solid; border-top: black 3.5px solid; background: #FAF9F6; }
+
+</style>
+<head>
+    </head>
+    <body>
+        <div class="mondrianholder">
+            <div class="mondrian1">
+                <div id="mond1box1"></div>
+                <div id="mond1box2"></div>
+                <div id="mond1box3"></div>
+                <div id="mond1box4"></div>
+                <div id="mond1box5"></div>
+                <div id="mond1box6"></div>
+                <div id="mond1box7"></div>
+            </div>
+            <div class="mondrian2">
+                <div id="mond2box1"></div>
+                <div id="mond2box2"></div>
+                <div id="mond2box3"></div>
+                <div id="mond2box4"></div>
+                <div id="mond2box5"></div>
+                <div id="mond2box6"></div>
+            </div>
+        </div>
+
+    </body>
+</HTML>
