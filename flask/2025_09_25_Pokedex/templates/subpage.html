@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <style>
+            .statcontainer {
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+            }
+
+            .statcontainer p.Attribute {
+                width: 300%;
+            }
+
+            .statcontainer p {
+              background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+              margin: 10px;
+              border-left: #545454 2px solid;
+              border-top: #545454 2px solid;
+              border-bottom: #000000 2px solid;
+              border-right: #000000 2px solid;
+              width: 100%;
+              height: 2em;
+              text-align: center;
+              line-height: 2em;
+              text-decoration: none;
+              color: rgba(255, 255, 255, .75);
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="main">
+            <div id="titlecontainer"><p>{{pokemon}}</p></div>
+            <div class="statcontainer">
+                <p class="Attribute">Type 1</p>
+                <p>{{type1}}</p>
+                <p class="Attribute">Type 2</p>
+                <p>{{type2}}</p>
+            </div>
+            <div class="statcontainer">
+                <p class="Attribute">HP</p>
+                <p>{{hp}}</p>
+                <p class="Attribute">Speed</p>
+                <p>{{speed}}</p>
+            </div>
+            <div class="statcontainer">
+                <p class="Attribute">Attack</p>
+                <p>{{attack}}</p>
+                <p class="Attribute">Defence</p>
+                <p>{{defence}}</p>
+            </div>
+            <div class="statcontainer">
+                <p class="Attribute">Sp. Attack</p>
+                <p>{{SpAttack}}</p>
+                <p class="Attribute">Sp. Defence</p>
+                <p>{{SpDefence}}</p>
+            </div>
+            <div class="statcontainer">
+                <p class="Attribute">Total</p>
+                <p>{{total}}</p>
+            </div>
+
+            <img src="data:image/png;base64,{{ graph }}" alt="Pokemon chart" style="margin-top: 0.5em;">
+        </div>
+    </body>
+
+</html>
