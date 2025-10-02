@@ -67,4 +67,4 @@ def subpage(pokemon):
 cols = df.columns[5:]
 row = df.loc[df['Name']=='Pikachu'].iloc[0,5:]
 print(row)
-app.run(debug=True)
+# app.run(debug=True)
