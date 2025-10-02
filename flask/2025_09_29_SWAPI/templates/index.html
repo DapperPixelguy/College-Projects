@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <style>
+            body {
+            background-attachment: fixed;
+            }
+
+            img {
+            height: 250px;
+            }
+
+            #yoders {
+            display: flex;
+            flex-direction: column;
+            }
+
+            #selectioners {
+            display: flex;
+            flex-direction: row;
+            }
+
+            button p {
+                font-size: 150%;
+                color: rgba(255, 255, 255, .75);
+                font-family: 'Arial', sans-serif;
+            }
+
+
+
+        </style>
+
+    </head>
+    <body>
+        <div id="main">
+            <div id="selectioners">
+            <select id="heightdropdown"></select>
+            <button id="confirm" onclick="heightshower()"><p>Confirm</p></button>
+            </div>
+            <h1 id="info"></h1>
+            <div id="yoders">
+            </div>
+        </div>
+    </body>
+    <script>
+        let data = {{ data | tojson }}
+        let yodaheight = '11.5em'
+        let selection = document.getElementById('heightdropdown')
+        let yoders = document.getElementById('yoders')
+        let info = document.getElementById('info')
+
+        function heightpicker() {
+            let select = document.getElementById('heightdropdown')
+
+            data.forEach(item=>{
+                let option = document.createElement("option")
+                option.value=item.height
+                option.textContent=item.name
+                select.appendChild(option)
+            })
+        }
+
+        function heightshower() {
+            let height = selection.value;
+            console.log(height)
+            let neededyoders = Math.floor(height/66)
+            let remainder = height % 66
+            console.log('Needed:')
+            console.log(neededyoders)
+            console.log(remainder)
+            yoders.innerHTML = '';
+            if (remainder) {
+                let yoderling = document.createElement("img");
+                yoderling.src='static/yoda.png';
+                let percent = (remainder/66) * 100
+                yoderling.style.clipPath = `inset(${100 - percent}% 0 0 0)`;
+                yoderling.style.height = yodaheight;
+                yoders.appendChild(yoderling);
+            }
+
+
+            for (let i=0; i<neededyoders; i++){
+                let yoderling = document.createElement("img");
+                yoderling.src='static/yoda.png';
+                yoderling.style.height = yodaheight;
+                yoders.appendChild(yoderling);
+
+            }
+
+            info.innerHTML = `${selection.options[selection.selectedIndex].text} is ${(selection.value/66).toFixed(2)} yodas tall!`
+
+
+
+        }
+        document.addEventListener('DOMContentLoaded', heightpicker)
+
+
+    </script>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="static/style.css">
+    <style>
+        p {
+        background-image: linear-gradient(135deg, #ff0000, #ffff00);
+        border-radius: 15px;
+        padding: 10px;
+        color: white;
+        font-weight: bold;
+        }
+
+        h1 {
+        text-align: center;
+        font-size: 500%;
+        }
+
+        body {
+        background-image: url('static/life.jpg');
+        }
+    </style>
+</head>
+<body>
+
+<h1>{{category}}</h1>
+{% for item, cal in items %}
+<p>{{item}} - {{cal}} calories</p>
+{% endfor %}
+<img src="data:image/png;base64,{{ graph }}" alt="Calories chart">
+</body>
+</html>

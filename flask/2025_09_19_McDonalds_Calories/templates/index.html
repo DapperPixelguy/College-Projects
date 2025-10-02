@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<div id="main">
+    <h1>McDonald's calorie counter</h1>
+    <div id="navbar">
+    {% for category in categories%}
+    <a href={{category}}>{{category}}</a>
+    {% endfor %}
+    </div>
+    <form method="POST", style="margin: 20px">
+        <div><label>Choose item<input type="text" name="query"></label></div>
+        <input type="submit" name="Submit"></input>
+    </form>
+</div>
+
+</body>
+</html>
