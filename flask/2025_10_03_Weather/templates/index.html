@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <style>
+            body {
+            background-image: url('{{background}}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            }
+            .cloud {
+            position: absolute;
+                animation: cloudbounce 90s infinite linear;
+                width: 30%;
+                z-index: -1;
+                top: 10%;
+                left:110%;
+            }
+            @keyframes cloudbounce {
+                0% {
+                 transform: translate(0, 0);
+                 }
+                25% { transform: translate(-150vw, 0);
+                }
+                26% {transform: translate(-150vw, 15vh)
+                }
+                50% {transform: translate(0, 15vh)
+                }
+                51% {transform: translate(0vw, 30vh)
+                }
+                75% {transform: translate(-150vw, 30vh)
+                }
+                76% {transform: translate(-150vw, 45vh)
+                }
+                100% {transform: translate(0, 45vh)
+                }
+                }
+            }
+            body::before {
+            background: green;
+            }
+
+            #main {
+                display: flex;
+                flex-flow: column no-wrap;
+                background: rgba(0,0,0,0.7);
+                width: 50%;
+                height: 60%;
+                border: 4px rgba(0,0,0,.5) solid;
+                border-radius: 10px;
+                justify-content: space-around;
+<!--                filter: drop-shadow(5px 5px 50px grey)-->
+            }
+
+            #main #place {
+            font-size: 300%;
+            margin: 0;
+            padding: 0;
+            }
+
+            #main #weather {
+            font-size: 150%;
+            }
+
+            #city,#submit {
+            opacity: 0.7
+            }
+
+        </style>
+
+    </head>
+    <body>
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/013/166/970/small_2x/cartoon-cloud-illustration-png.png" class="cloud">
+        <div id="main">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <p id="place">{{location}}</p>
+                <p id="weather">{{weather}}</p>
+            </div>
+            <form id="search" method="POST">
+                <input id='city' name="city">
+                <input id='submit' name="submit" type="submit">
+            </form>
+
+        </div>
+
+    </body>
+
+</html>
