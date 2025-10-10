@@ -54,6 +54,12 @@
           margin-bottom: 1em;
       }
 
+      #top {
+        position: fixed;
+        filter: drop-shadow(0 0 1em grey);
+        width: 100%;
+      }
+
       #header {
             display: grid;
             align-items: center;
@@ -62,7 +68,7 @@
             background: white;
             color: black;
             margin: 0;
-
+            border-bottom: 2px rgba(50, 50, 50, 0.6) solid;
       }
 
       #header #logo {
