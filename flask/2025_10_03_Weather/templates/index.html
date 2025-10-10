@@ -10,6 +10,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background-image 0.5s ease-in-out;
             }
             .cloud {
             position: absolute;
@@ -20,24 +21,14 @@
                 left:110%;
             }
             @keyframes cloudbounce {
-                0% {
-                 transform: translate(0, 0);
-                 }
-                25% { transform: translate(-150vw, 0);
-                }
-                26% {transform: translate(-150vw, 15vh)
-                }
-                50% {transform: translate(0, 15vh)
-                }
-                51% {transform: translate(0vw, 30vh)
-                }
-                75% {transform: translate(-150vw, 30vh)
-                }
-                76% {transform: translate(-150vw, 45vh)
-                }
-                100% {transform: translate(0, 45vh)
-                }
-                }
+                0% {transform: translate(0, 0);}
+                25% { transform: translate(-150vw, 0);}
+                26% {transform: translate(-150vw, 15vh)}
+                50% {transform: translate(0, 15vh)}
+                51% {transform: translate(0vw, 30vh)}
+                75% {transform: translate(-150vw, 30vh)}
+                76% {transform: translate(-150vw, 45vh)}
+                100% {transform: translate(0, 45vh)}
             }
             body::before {
             background: green;
@@ -52,7 +43,6 @@
                 border: 4px rgba(0,0,0,.5) solid;
                 border-radius: 10px;
                 justify-content: space-around;
-<!--                filter: drop-shadow(5px 5px 50px grey)-->
             }
 
             #main #place {
@@ -87,5 +77,40 @@
         </div>
 
     </body>
+    <script>
+        let cityInput = document.getElementById('city')
+        let place = document.getElementById('place')
+        let weather = document.getElementById('weather')
+        let debounce
+        let loading = false
+        cityInput.addEventListener('input', () => {
+            clearTimeout(debounce)
+            let city = cityInput.value.trim()
+
+            if (city.length < 3) return
+
+            if (loading) return
+
+            debounce = setTimeout(() => {
+                fetch(`/fetch?city=${encodeURIComponent(city)}`)
+                .then(res => res.json())
+                .then(data => {
+                    place.textContent = data.location;
+                    weather.textContent = data.weather;
+                    const img = new Image();
+                    loading = true
+                    img.onload = () => {
+                      document.body.style.backgroundImage = `url('${data.background}')`;
+                      loading = false
+                    };
+                    img.onerror = () => {
+                        loading = false
+                    };
+
+                    img.src = data.background;
+                }).catch(() => loading = false)
+            }, 600)
+        })
+    </script>
 
 </html>
