@@ -55,25 +55,24 @@
       }
 
       #header {
-            display: flex;
+            display: grid;
             align-items: center;
-            justify-content: space-between;
+            grid-template-columns: 1fr auto 1fr;
             background: white;
             color: black;
             margin: 0;
       }
 
       #header #logo {
-        width: 5em;
+        width: 6em;
         margin-left: 3em;
+        justify-self: start;
       }
 
       #header #title {
         font-size: 3em;
         font-weight: bold;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        justify-self: center;
       }
 
       #navbar {
