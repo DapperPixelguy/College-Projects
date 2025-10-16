@@ -3,7 +3,8 @@ import requests
 name = input('Name >> ')
 score = input('Score >> ')
 
-url = 'http://127.0.0.1:5000/submit'
+debug_url = 'http://127.0.0.1:5000/submit'
+url = 'https://leaderboard-server-n4pf.onrender.com/submit'
 
 data = {
     'name': name,

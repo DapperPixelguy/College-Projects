@@ -9,8 +9,8 @@
     </head>
     <body>
         <div id="main">
-            {% for name, score in data %}
-            <p>{{name}} - {{score}}</p>
+            {% for name, score, time in data %}
+            <p>[{{time}}] {{name}} - {{score}}</p>
             {%endfor%}
         </div>
     </body>

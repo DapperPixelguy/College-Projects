@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, jsonify
 import pandas as pd
+from datetime import datetime
 
 df = pd.read_csv('leaderboard.csv').sort_values(by=['Score'], ascending=False)
 
@@ -9,7 +10,8 @@ app = Flask(__name__)
 def index():
     names = df.loc[:, 'Name']
     scores = df.loc[:, 'Score']
-    data=zip(names,scores)
+    times = df.loc[:, 'Time']
+    data=zip(names,scores, times)
     return render_template('index.html', data=data)
 
 @app.route('/submit', methods=['POST'])
@@ -27,7 +29,7 @@ def receive_json():
     except (TypeError, ValueError):
         return 'Bad Request', 400
 
-    new_data = pd.DataFrame([{'Name': response.get('name'), 'Score': int(response.get('score'))}])
+    new_data = pd.DataFrame([{'Name': response.get('name'), 'Score': int(response.get('score')), 'Time': datetime.now()}])
     print(new_data)
     df = pd.concat([df, new_data], ignore_index=True).sort_values(by=['Score'], ascending=False)
     print(df)
