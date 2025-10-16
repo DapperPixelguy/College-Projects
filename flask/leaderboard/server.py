@@ -16,6 +16,14 @@ def index():
 def receive_json():
     global df
     response=request.get_json()
+    name = response.get('name')
+    score = response.get('score')
+    if not name:
+        return 'Bad Request', 400
+    try:
+        score = int(score)
+    except (TypeError, ValueError):
+        return 'Bad Request', 400
     new_data = pd.DataFrame([{'Name': response.get('name'), 'Score': int(response.get('score'))}])
     print(new_data)
     df = pd.concat([df, new_data], ignore_index=True).sort_values(by=['Score'], ascending=False)
@@ -27,6 +35,3 @@ def receive_json():
 def raw_data():
     df = pd.read_csv('leaderboard.csv').sort_values(by=['Score'], ascending=False)
     return df.to_json(orient='records')
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
