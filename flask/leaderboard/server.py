@@ -28,5 +28,5 @@ def raw_data():
     df = pd.read_csv('leaderboard.csv').sort_values(by=['Score'], ascending=False)
     return df.to_json(orient='records')
 
-
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
