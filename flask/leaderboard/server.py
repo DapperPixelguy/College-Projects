@@ -28,7 +28,7 @@ def receive_json():
             return 'Bad Request', 400
     except (TypeError, ValueError):
         return 'Bad Request', 400
-    date = datetime.now().strftime('%d/&m/%Y %H:%M:%S')
+    date = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
     new_data = pd.DataFrame([{'Name': response.get('name'), 'Score': int(response.get('score')), 'Time': date}])
     print(new_data)
     df = pd.concat([df, new_data], ignore_index=True).sort_values(by=['Score'], ascending=False)
