@@ -16,7 +16,7 @@ def index():
 def receive_json():
     global df
     response=request.get_json()
-    new_data = pd.DataFrame([{'Name': response.get('name'), 'Score': response.get('score')}])
+    new_data = pd.DataFrame([{'Name': response.get('name'), 'Score': int(response.get('score'))}])
     print(new_data)
     df = pd.concat([df, new_data], ignore_index=True).sort_values(by=['Score'], ascending=False)
     print(df)
@@ -27,3 +27,6 @@ def receive_json():
 def raw_data():
     df = pd.read_csv('leaderboard.csv').sort_values(by=['Score'], ascending=False)
     return df.to_json(orient='records')
+
+
+app.run(debug=True)

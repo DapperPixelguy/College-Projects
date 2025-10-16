@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <style>
+
+        </style>
+
+    </head>
+    <body>
+        <div id="main">
+            {% for name, score in data %}
+            <p>{{name}} - {{score}}</p>
+            {%endfor%}
+        </div>
+    </body>
+    <script>
+    async function fetch_leaderboard() {
+            const response = await fetch('/raw')
+            const data = await response.json()
+
+            const container = document.getElementById('main')
+            container.innerHTML = ''
+
+            data.forEach(entry => {
+                let p = document.createElement('p')
+                p.textContent = `${entry.Name} - ${entry.Score}`
+                container.appendChild(p)
+            })
+        }
+
+        setInterval(fetch_leaderboard, 3000)
+    </script>
+
+</html>
