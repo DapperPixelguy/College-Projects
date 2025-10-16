@@ -22,8 +22,11 @@ def receive_json():
         return 'Bad Request', 400
     try:
         score = int(score)
+        if score <= 0:
+            return 'Bad Request', 400
     except (TypeError, ValueError):
         return 'Bad Request', 400
+
     new_data = pd.DataFrame([{'Name': response.get('name'), 'Score': int(response.get('score'))}])
     print(new_data)
     df = pd.concat([df, new_data], ignore_index=True).sort_values(by=['Score'], ascending=False)
