@@ -24,7 +24,7 @@
 
             data.forEach(entry => {
                 let p = document.createElement('p')
-                p.textContent = `[$entry.Time] ${entry.Name} - ${entry.Score}`
+                p.textContent = `[${entry.Time}] ${entry.Name} - ${entry.Score}`
                 container.appendChild(p)
             })
         }
