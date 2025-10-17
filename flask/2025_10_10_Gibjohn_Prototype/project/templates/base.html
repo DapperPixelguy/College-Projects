@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/gibjohn_logo.png">
+        <title>Gibjohn Tutoring</title>
+        <style>
+        {%block style %}
+        {%endblock%}
+        </style>
+    </head>
+    <body>
+        <div id='top'>
+            <div id="header">
+                <img id='logo' src="../static/gibjohn_logo.png">
+                <p id="title">{%block title%}{%endblock%}</p>
+                {% if not current_user.is_authenticated %}
+                <div class="accountbox">
+                <a class="account" href="{{ url_for('auth.login') }}"><img class="account" src="../static/blank_profile.png" title="Log In"></a>
+                </div>
+                    {%endif%}
+                {% if current_user.is_authenticated %}
+                <div class="accountbox">
+                    <div style="display: flex; flex-direction: row; align-items: center; gap: 1em;"><p style="font-size: 1.2em">Welcome, <span style="color: rgba(89, 145, 229, 1); font-weight: bold;">{{ current_user.name }}</span>!</p>
+                <a class="account"><img class="account" src="{{ url_for('uploaded_file', filename=current_user.picture)}}" title="Profile Options"></a>
+                        </div>
+                <div id="accountdropdown" class="">
+                    <a href="{{url_for('main.profile')}}">Profile</a>
+                    <a href="{{url_for('auth.logout')}}">Logout</a>
+                </div>
+                </div>
+                {%endif%}
+            </div>
+
+            <div id="navbar">
+                <a href="{{url_for('main.index') }}">Home</a>
+                <a>Our tutors</a>
+                <a>Young Learners</a>
+                <a>Adult Learners</a>
+                <a>Help</a>
+                <a>Contact Us</a>
+            </div>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+    <script>
+        let account = document.querySelector('.account')
+        let dropdown = document.getElementById('accountdropdown')
+
+        account.addEventListener('click', () => {
+            dropdown.classList.toggle('visible')
+        })
+
+    </script>
+
+</html>

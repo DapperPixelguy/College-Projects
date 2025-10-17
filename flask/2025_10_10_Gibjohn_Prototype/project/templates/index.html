@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<span style="color: #E0E0E0;">Gibjohn</span>
+<span style="color: #89DAFA;">Tutoring</span>
+{% endblock %}
+
+{% block style %}
+body {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #89DAFA 0%, #005F9E 100%);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+#main {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    background: #ffffff;
+    margin-top: 4rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    width: 85%;
+    max-width: 900px;
+    padding: 3rem;
+    text-align: center;
+    animation: fadeIn 0.8s ease;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 2rem;
+    background: #005F9E;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+.button:hover {
+    background: #007ACC;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+{% endblock %}
+
+{% block content %}
+<div id="main">
+    <h1>Welcome to Gibjohn Tutoring</h1>
+    <h2>Personalised learning for every student</h2>
+    <p>
+        At <strong>Gibjohn Tutoring</strong>, we believe every learner deserves
+        the right guidance to reach their full potential. Our experienced tutors
+        provide one-on-one and group sessions tailored to your goals — whether
+        you're preparing for exams, improving confidence, or mastering new subjects.
+    </p>
+    <p>
+        Join hundreds of students achieving their academic dreams with Gibjohn’s proven approach to learning.
+    </p>
+
+    <a href="{{ url_for('auth.signup') }}" class="button">Get Started</a>
+</div>
+{% endblock %}
