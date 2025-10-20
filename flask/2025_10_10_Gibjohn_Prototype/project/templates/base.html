@@ -25,8 +25,10 @@
                 <a class="account"><img class="account" src="{{ url_for('uploaded_file', filename=current_user.picture)}}" title="Profile Options"></a>
                         </div>
                 <div id="accountdropdown" class="">
-                    <a href="{{url_for('main.profile')}}">Profile</a>
-                    <a href="{{url_for('auth.logout')}}">Logout</a>
+                    <div id="accountdropcontainer">
+                        <a href="{{url_for('main.profile')}}">Profile</a>
+                        <a href="{{url_for('auth.logout')}}">Logout</a>
+                    </div>
                 </div>
                 </div>
                 {%endif%}
@@ -34,13 +36,14 @@
 
             <div id="navbar">
                 <a href="{{url_for('main.index') }}">Home</a>
-                <a>Our tutors</a>
-                <a>Young Learners</a>
-                <a>Adult Learners</a>
-                <a>Help</a>
-                <a>Contact Us</a>
+                <a href="{{url_for('sub.our_tutors') }}">Our tutors</a>
+                <a href="{{url_for('sub.young_learners') }}">Young Learners</a>
+                <a href="{{url_for('sub.adult_learners') }}">Adult Learners</a>
+                <a href="{{url_for('sub.help') }}">Help</a>
+                <a href="{{url_for('sub.contact_us') }}">Contact Us</a>
             </div>
         </div>
+        <div id="topspacer"></div>
 
         {% block content %}
         {% endblock %}
