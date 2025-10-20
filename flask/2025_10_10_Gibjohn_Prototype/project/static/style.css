@@ -1,7 +1,7 @@
       body {
-        height: 100vh;
+        min-height: 100vh;
         font-family: 'Arial', sans-serif;
-        background: #EEEEEE;
+        background: linear-gradient(135deg, #89DAFA 0%, #005F9E 100%);
         background-attachment: fixed;
         margin: 0;
       }
@@ -38,9 +38,15 @@
       }
 
       #top {
-        position: sticky;
-        filter: drop-shadow(0 0 1em grey);
+        position: fixed;
+        /*filter: drop-shadow(0 0 1em grey);*/
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         width: 100%;
+        z-index: 1;
+      }
+
+      #topspacer {
+         height: 10rem;
       }
 
       #header {
@@ -83,31 +89,53 @@
       #accountdropdown {
         position: absolute;
         width:8em;
-        height: 10em;
-        background: #EEEEEE;
-        border: 3px black solid;
+        max-height: 0;
+        transition: max-height 0.8s, opacity 0.2s 0.6s;
+        background: #FFFFFF;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         border-radius: 5px;
         transform: translateX(80%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        display: none;
+        opacity: 0;
+        pointer-events: none;
+        overflow: hidden;
+        border: 1px rgba(10,10,10, .1) solid;
       }
 
       #accountdropdown.visible {
+        opacity: 1;
+        max-height: 10em;
+        pointer-events: auto;
+        transition: max-height 0.8s;
+        overflow: hidden;
+      }
+
+      #accountdropcontainer {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.8em 0;
+        gap: 2.5em;
       }
 
       #accountdropdown a {
         text-align: center;
         text-decoration: None;
-        color: black;
+        color: white;
+        background: rgba(89, 145, 229, 1);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         padding: 5px;
-        border: 1px black solid;
         border-radius: 5px;
         width: 80%;
         height: auto;
+        border: 1px rgba(10,10,10, .1) solid;
+      }
+
+      #accountdropdown a:hover {
+        background: white;
+        transition: background 0.3s;
+        font-weight: Bold;
+        cursor: pointer;
+        color: black;
       }
 
       #header .account:hover {
