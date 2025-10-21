@@ -7,11 +7,9 @@
 
 {% block style %}
 body {
-
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background: linear-gradient(135deg, #89DAFA 0%, #005F9E 100%);
+    align-items: center; 
     color: #333;
     margin: 0;
     padding: 0;
@@ -25,10 +23,81 @@ body {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     width: 85%;
-    max-width: 900px;
+    max-width: 1000px;
     padding: 3rem;
     text-align: center;
     animation: fadeIn 0.8s ease;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 280px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.feature h3 {
+    color: #005F9E;
+    margin-bottom: 0.8rem;
+}
+
+.testimonials {
+    margin-top: 4rem;
+    text-align: center;
+}
+.testimonial {
+    background: #f0f8ff;
+    border-left: 5px solid #89DAFA;
+    padding: 1rem 1.5rem;
+    margin: 1rem auto;
+    border-radius: 8px;
+    max-width: 700px;
+    font-style: italic;
+    color: #444;
+}
+.testimonial strong {
+    display: block;
+    margin-top: 0.5rem;
+    color: #005F9E;
+}
+
+.cta {
+    background: #005F9E;
+    color: white;
+    margin-top: 4rem;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.cta h2 {
+    margin: 0 0 1rem 0;
+}
+.cta a {
+    display: inline-block;
+    background: white;
+    color: #005F9E;
+    text-decoration: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+.cta a:hover {
+    background: #89DAFA;
+    color: #003f6c;
 }
 
 .button {
@@ -62,10 +131,40 @@ body {
         provide one-on-one and group sessions tailored to your goals — whether
         you're preparing for exams, improving confidence, or mastering new subjects.
     </p>
-    <p>
-        Join hundreds of students achieving their academic dreams with Gibjohn’s proven approach to learning.
-    </p>
 
     <a href="{{ url_for('auth.signup') }}" class="button">Get Started</a>
+
+    <div class="features">
+        <div class="feature">
+            <h3>Expert Tutors</h3>
+            <p>All of our tutors are qualified professionals with years of experience helping students excel in their studies.</p>
+        </div>
+        <div class="feature">
+            <h3>Flexible Scheduling</h3>
+            <p>Book sessions at times that suit your lifestyle — evenings, weekends, or holidays, we work around you.</p>
+        </div>
+        <div class="feature">
+            <h3>Proven Results</h3>
+            <p>Our tailored approach has helped hundreds of students boost their grades and build lasting confidence in learning.</p>
+        </div>
+    </div>
+
+    <div class="testimonials">
+        <h2>What Our Students Say</h2>
+        <div class="testimonial">
+            "Gibjohn Tutoring helped me turn my D in maths into an A! My tutor was patient and really cared about my progress."
+            <strong>— Sarah, GCSE Student</strong>
+        </div>
+        <div class="testimonial">
+            "As a parent, I saw a huge improvement in my son's study habits and confidence. The online sessions were so convenient."
+            <strong>— Mark, Parent</strong>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h2>Ready to start your learning journey?</h2>
+        <p>Join our growing community of successful students today.</p>
+        <a href="{{ url_for('auth.signup') }}">Join Now</a>
+    </div>
 </div>
 {% endblock %}
