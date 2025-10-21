@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from . import db
+from .decorators import access_required
 
 main = Blueprint('main', __name__)
 allowed_extensions = {'png', 'jpg', 'jpeg'}
@@ -50,7 +51,7 @@ def profile_update():
 
     if name and name != current_user.name:
         if 2 <= len(name) <= 30:
-            current_user.name = name
+            current_user.name = name.title()
         else:
             flash({'text': 'Name must be between 2 and 30 characters long'}, 'error')
 
@@ -62,9 +63,19 @@ def profile_update():
         elif not check_password_hash(current_user.password, old_password):
             flash({'text': 'Incorrect password.'}, 'error')
 
+    if not old_password:
+        flash({'text': 'Please enter your password to save changes'}, 'error')
+    elif check_password_hash(current_user.password, old_password):
+        db.session.commit()
+    elif not check_password_hash(current_user.password, old_password):
+        flash({'text': 'Incorrect password. Make sure you have entered your current password into the \'Current password\' box'}, 'error')
 
-
-    db.session.commit()
     return redirect(url_for('main.profile'))
 
+
+@main.route('/admin')
+@login_required
+@access_required(2)
+def admin():
+    return render_template('admin.html')
 
