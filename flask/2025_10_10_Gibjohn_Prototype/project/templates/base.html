@@ -12,7 +12,7 @@
     <body>
         <div id='top'>
             <div id="header">
-                <img id='logo' src="../static/gibjohn_logo.png">
+                <img id='logo' src="../static/gibjohn_logo.png" onmouseover="tro()" onmouseleave="untro()">
                 <p id="title">{%block title%}{%endblock%}</p>
                 {% if not current_user.is_authenticated %}
                 <div class="accountbox">
@@ -21,12 +21,16 @@
                     {%endif%}
                 {% if current_user.is_authenticated %}
                 <div class="accountbox">
-                    <div style="display: flex; flex-direction: row; align-items: center; gap: 1em;"><p style="font-size: 1.2em">Welcome, <span style="color: rgba(89, 145, 229, 1); font-weight: bold;">{{ current_user.name }}</span>!</p>
-                <a class="account"><img class="account" src="{{ url_for('uploaded_file', filename=current_user.picture)}}" title="Profile Options"></a>
-                        </div>
-                <div id="accountdropdown" class="">
+                    <div style="display: flex; flex-direction: row; align-items: center; gap: 1em;">
+                        <p style="font-size: 1.2em">Welcome, <span id="access_name">{{ current_user.access_name }}</span> <span style="color: rgba(89, 145, 229, 1); font-weight: bold;">{{ current_user.name }}</span>!</p>
+                        <a class="account"><img class="account" src="{{ url_for('uploaded_file', filename=current_user.picture)}}" title="Profile Options"></a>
+                    </div>
+                <div id="accountdropdown">
                     <div id="accountdropcontainer">
                         <a href="{{url_for('main.profile')}}">Profile</a>
+                        {% if current_user.accessLevel >= 2 %}
+                        <a href="{{url_for('main.admin')}}">Admin</a>
+                        {%endif%}
                         <a href="{{url_for('auth.logout')}}">Logout</a>
                     </div>
                 </div>
@@ -57,6 +61,13 @@
             dropdown.classList.toggle('visible')
         })
 
+        function tro() {
+            document.getElementById('logo').src = 'static/trollface_shatter.gif'
+        }
+
+        function untro() {
+            document.getElementById('logo').src = 'static/gibjohn_logo.png'
+        }
     </script>
 
 </html>
