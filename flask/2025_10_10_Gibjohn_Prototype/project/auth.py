@@ -51,7 +51,13 @@ def signup_post():
         flash({'text': 'Email address already exists', 'link': url_for('auth.login'), 'linktext': 'Login Page'}, 'error')
         return redirect(url_for('auth.signup'))
 
-    new_user = User(email=email, name=name, password=generate_password_hash(password), picture='default.png')
+    if not 2 <= len(name) <= 30:
+        flash({'text': 'Name must be between 2 and 30 characters long'}, 'error')
+        return redirect(url_for('auth.signup'))
+
+
+
+    new_user = User(email=email, name=name.title(), password=generate_password_hash(password), picture='default.png')
     db.session.add(new_user)
     db.session.commit()
     return redirect(url_for('auth.login'))
