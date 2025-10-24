@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+{% if messages %}
+{% for category, message in messages %}
+<p>{{message.text}}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class="stupid">
+<img src="static/frame.png" class="photoframe">
+<video autoplay controls loop muted>
+    <source src="static/phone.mp4" type="video/mp4">
+</video>
+</div>
+
+{% endblock %}

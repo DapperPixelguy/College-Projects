@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+        <title>{% block title %}{%endblock%} - Reminders</title>
+    </head>
+    <body>
+        <nav>
+            <div class="left"></div>
+            <ul class="mid">
+                <li><a>Option 1</a></li>
+                <li><a>Option 2</a></li>
+                <li><a>Option 3</a></li>
+            </ul>
+            <div class="right"></div>
+        </nav>
+        {% if current_user.is_authenticated %}
+        <p>{{current_user.email}}</p>
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+    </body>
+
+
+</html>

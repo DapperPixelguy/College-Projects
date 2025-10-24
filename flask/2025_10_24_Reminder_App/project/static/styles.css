@@ -1,0 +1,56 @@
+body{
+    font-family: Roboto, sans-serif;
+    background: blue;
+    margin: 0;
+}
+
+nav {
+    background: white;
+    height: 5em;
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 50em 1fr;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: yellow;
+}
+
+nav li {
+    background: grey;
+    border-radius: 5px;
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+
+nav.left {
+    background: green;
+}
+
+nav.right {
+    background: red;
+}
+
+.stupid {
+    position: relative;
+}
+
+.photoframe{
+    position: absolute;
+    z-index: 420;
+    width: 40em;
+    height: 80em;
+}
+
+video {
+    border-radius: 100em;
+    position: absolute;
+    left: 5em;
+    top: 19em;
+}
