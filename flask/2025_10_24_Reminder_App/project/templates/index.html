@@ -20,11 +20,10 @@ Home
 </video>
 </div>
 
-{% endblock %}
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         let video = document.querySelector('video')
+        const neonColors = ['#FF00FF', '#00FFFF', '#FFFF00', '#FF1493', '#39FF14', '#FF4500', '#00FF7F', '#FF69B4', '#7FFF00', '#FF00AA'];
         video.muted = true
         video.playsInline = true
 
@@ -34,7 +33,15 @@ Home
                 document.addEventListener('touchend', () => video.play(), {once: true})
             })
         }
+            setInterval(() => {
 
+  document.body.style.background = neonColors[Math.floor(Math.random()*neonColors.length)]
+}, 100);
     })
 
+
+
+
 </script>
+{% endblock %}
+
