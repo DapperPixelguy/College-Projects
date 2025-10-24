@@ -53,13 +53,13 @@ nav.right {
 .photoframe{
     position: absolute;
     z-index: 420;
-    width: 38%;
+    width: 44em;
     height: 80em;
 }
 
 video {
     border-radius: 100em;
-    position: absolute;
-    left: 37%;
+    position: relative;
+
     top: 19em;
 }
