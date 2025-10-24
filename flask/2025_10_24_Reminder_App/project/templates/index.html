@@ -19,18 +19,32 @@ Home
     <source src="static/phone.mp4" type="video/mp4">
 </video>
 </div>
+<audio autoplay>
+    <source src="static/Sneaky-Snitch(chosic.com).mp3" type="audio/mp3">
+</audio>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         let video = document.querySelector('video')
+        let audio = document.querySelector('audio')
         const neonColors = ['#FF00FF', '#00FFFF', '#FFFF00', '#FF1493', '#39FF14', '#FF4500', '#00FF7F', '#FF69B4', '#7FFF00', '#FF00AA'];
         video.muted = true
         video.playsInline = true
+
+
 
         if (video) {
             video.play().catch(()=>{
                 console.log('Autoplay prevented, waiting for user interaction.')
                 document.addEventListener('touchend', () => video.play(), {once: true})
+            })
+        }
+
+        if (audio) {
+            audio.play().catch(()=>{
+                console.log('Autoplay prevented, waiting for user interaction.')
+                document.addEventListener('touchend', () => audio.play(), {once: true})
+                document.addEventListener('click', () => audio.play(), {once: true})
             })
         }
             setInterval(() => {
