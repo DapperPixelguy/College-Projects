@@ -4,13 +4,19 @@ body{
     margin: 0;
 }
 
+@keyframes beauty{
+    to {background-position: -100%}
+
+}
+
 nav {
-    background: white;
+    background: linear-gradient(90deg,#400000, #81008d 50%, #00ff00 100%) 100%/200%;
     height: 5em;
     width: 100%;
     margin: 0;
     display: grid;
     grid-template-columns: 1fr 50em 1fr;
+    animation: beauty 3s linear infinite;
 }
 
 nav ul {
@@ -39,18 +45,21 @@ nav.right {
 
 .stupid {
     position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .photoframe{
     position: absolute;
     z-index: 420;
-    width: 40em;
+    width: 45em;
     height: 80em;
 }
 
 video {
     border-radius: 100em;
     position: absolute;
-    left: 5em;
+    left: 44em;
     top: 19em;
 }
