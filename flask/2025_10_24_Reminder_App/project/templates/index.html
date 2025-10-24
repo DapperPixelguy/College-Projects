@@ -21,3 +21,17 @@ Home
 </div>
 
 {% endblock %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let video = document.querySelector('video')
+        if (video) {
+            video.play().catch(()=>{
+                console.log('Autoplay prevented, waiting for user interaction.')
+                document.addEventListener('touchstart', () => video.play(), {once: true})
+            })
+        }
+
+    })
+
+</script>
