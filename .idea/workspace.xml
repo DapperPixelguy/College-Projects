@@ -5,11 +5,90 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14775d32-b749-45f7-beb0-2b6fe30b1ecb" name="Changes" comment="Added template for TKinter GUI">
-      <change afterPath="$PROJECT_DIR$/misc/2025_02_22_Homework.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/misc/data/Homework_Data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/berimbolo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/lightbulb.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/lightbulb/BulbOff.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/lightbulb/BulbOn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/lightbulb/GetImage(1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/lightbulb/GetImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/lightbulb/lightbulb.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/lightbulb/testing.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/lightbuld.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_09_19/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_09_19/requirments.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_09_19/static/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_09_19/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Alchemy/database.db-journal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Alchemy/template/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Alchemy/template/static/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Alchemy/template/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/default.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/instance/db.sqlite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/main-old.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/migrations/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/migrations/alembic.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/migrations/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/migrations/script.py.mako" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/migrations/versions/048635f42b79_added_access_levels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/main-old.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/migrations/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/migrations/alembic.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/migrations/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/migrations/script.py.mako" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/static/trollface_shatter.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/templates/adult_learners.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/templates/contact_us.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/templates/help.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/templates/our_tutors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/templates/our_tutors_old.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/templates/young_learners.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/static/blank_profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_24_Reminder_App/db.create_py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_24_Reminder_App/static" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/2025_10_24_Reminder_App/templates" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/db_create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/misc/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/misc/static/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/misc/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/static/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/2025_09_19_Black_White_Box_Testing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/2025_09_19_bbfc_rating.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/2025_10_09_Circle_Draw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/2025_10_09_Circle_Draw.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pandas-tasks/2025_05_01_Formula_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pandas-tasks/data/Formula1_2024.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/Task_4a_data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/2025_05_07_Graph.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/2025_05_09_nonworkingcode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/2025_ESP_Tasks/Prerelease_data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/2025_ESP_Tasks/Prerelease_task.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/2025_ESP_Tasks/example_data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/2025_ESP_Tasks/graphing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/2025_ESP_Tasks/sheet_gen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/2025_ESP_Tasks/temp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/data/Task4a_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/College-Projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/College-Projects.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/mondrian.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/mondrian.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/templates/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/static/gibjohn_logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/static/gibjohn_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/static/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/templates/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/template/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask/template/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/2025_02_04_Triangular_Numbers.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc/2025_02_04_Triangular_Numbers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame/dodge-game/highscore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pygame/dodge-game/highscore.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/2025_03_05_Mock_Task_2/main.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +102,17 @@
       </list>
     </option>
   </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -32,17 +122,17 @@
     &quot;assignee&quot;: &quot;DapperPixelguy&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DapperPixelguy/College-Projects.git",
-    "accountId": "698463d4-c3ac-42e7-9794-70e5103ef7f4"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DapperPixelguy/College-Projects.git&quot;,
+    &quot;accountId&quot;: &quot;c64d508b-035c-4758-b3e5-c0d06c531dac&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2nCZ2obwObtY6cO8YTGA1jYvvZV" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -52,6 +142,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Flask server.Flask (flask/2025_10_10_Gibjohn_Prototype/run.py).executor&quot;: &quot;Run&quot;,
+    &quot;Flask server.Gibjohn Flask App.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in test_2024_11_28.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in testing.py.executor&quot;: &quot;Run&quot;,
     &quot;Python.2024_12_04_Factorials.executor&quot;: &quot;Run&quot;,
@@ -60,34 +152,60 @@
     &quot;Python.2025_01_23_Data_Collection_Types.executor&quot;: &quot;Run&quot;,
     &quot;Python.2025_01_24_Dodge_Game.executor&quot;: &quot;Run&quot;,
     &quot;Python.2025_02_04_Triangular_Numbers.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_02_13_Assignment.executor&quot;: &quot;Run&quot;,
     &quot;Python.2025_02_22_Homework.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_04_23_Cleaning_File.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_04_25_ESP_Example.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_05_01_Formula_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_05_07_Graph.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_05_09_nonworkingcode.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_09_19_Black_White_Box_Testing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_09_19_bbfc_rating.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2025_10_09_Circle_Draw.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Prerelease_task.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Task4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Task4_new.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
     &quot;Python.book_details.executor&quot;: &quot;Run&quot;,
     &quot;Python.bubble-srt.executor&quot;: &quot;Run&quot;,
     &quot;Python.cars.executor&quot;: &quot;Run&quot;,
     &quot;Python.charts.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.db_create (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.db_create.executor&quot;: &quot;Run&quot;,
     &quot;Python.dict_tasks.executor&quot;: &quot;Run&quot;,
     &quot;Python.equality-act.executor&quot;: &quot;Run&quot;,
     &quot;Python.game-of-life.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphing.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.murder-mystery.executor&quot;: &quot;Run&quot;,
     &quot;Python.numpy-board-game.executor&quot;: &quot;Run&quot;,
     &quot;Python.regex_email.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sheet_gen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sub.executor&quot;: &quot;Run&quot;,
+    &quot;Python.temp.executor&quot;: &quot;Run&quot;,
     &quot;Python.test_2024_11_28.executor&quot;: &quot;Run&quot;,
     &quot;Python.testing.executor&quot;: &quot;Run&quot;,
     &quot;Python.whatisthis.executor&quot;: &quot;Run&quot;,
     &quot;Python.wordle.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gabrieltaylor/OneDrive/College-Projects/pandas-tasks/data&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gabriel/PycharmProjects/College-Projects/flask/2025_10_10_Gibjohn_Prototype/run.py&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.29327902&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -96,18 +214,119 @@
       <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\pandas-tasks\data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/flask/2025_10_24_Reminder_App/project/static" />
+      <recent name="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/project" />
+      <recent name="$PROJECT_DIR$/flask/2025_09_19_McDonalds_Calories" />
       <recent name="$PROJECT_DIR$/misc" />
       <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\world-happiness-report" />
-      <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\pandas-tasks\data" />
-      <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects\story-generator" />
-      <recent name="C:\Users\gabrieltaylor\OneDrive\College-Projects" />
     </key>
+  </component>
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="College-Projects" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flask/2025_10_24_Reminder_App" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flask/2025_10_24_Reminder_App/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="db_create (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="College-Projects" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flask/2025_10_24_Reminder_App" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flask/2025_10_24_Reminder_App/db_create.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="db_create" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="College-Projects" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/db_create.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Gibjohn Flask App" type="Python.FlaskServer">
+      <module name="College-Projects" />
+      <option name="target" value="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype/run.py" />
+      <option name="targetType" value="PATH" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 virtualenv at ~/PycharmProjects/College-Projects/.venv" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Flask server.Gibjohn Flask App" />
+      <item itemvalue="Python.app" />
+      <item itemvalue="Python.db_create (1)" />
+      <item itemvalue="Python.db_create" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.db_create (1)" />
+        <item itemvalue="Python.db_create" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
-        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.26830.99" />
+        <option value="bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99" />
       </set>
     </attachedChunks>
   </component>
@@ -120,7 +339,10 @@
       <option name="presentableId" value="Default" />
       <updated>1728478814066</updated>
       <workItem from="1729448659852" duration="1349000" />
-      <workItem from="1740406401782" duration="7535000" />
+      <workItem from="1760967843436" duration="28000" />
+      <workItem from="1760967898469" duration="32407000" />
+      <workItem from="1761293874629" duration="9633000" />
+      <workItem from="1761304918683" duration="14019000" />
     </task>
     <task id="LOCAL-00001" summary="Create">
       <option name="closed" value="true" />
@@ -339,8 +561,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added template for TKinter GUI" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/College_Projects$2025_02_22_Homework.coverage" NAME="2025_02_22_Homework Coverage Results" MODIFIED="1740413989062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/misc" />
+    <SUITE FILE_PATH="coverage/College_Projects$db_create.coverage" NAME="db_create Coverage Results" MODIFIED="1761037352284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flask/2025_10_10_Gibjohn_Prototype" />
+    <SUITE FILE_PATH="coverage/College_Projects$app.coverage" NAME="app Coverage Results" MODIFIED="1761319308780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flask/2025_10_24_Reminder_App" />
+    <SUITE FILE_PATH="coverage/College_Projects$Gibjohn_Flask_App.coverage" NAME="Gibjohn Flask App Coverage Results" MODIFIED="1761312603969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/College_Projects$game_of_life.coverage" NAME="game-of-life Coverage Results" MODIFIED="1730707011115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/misc" />
+    <SUITE FILE_PATH="coverage/College_Projects$client.coverage" NAME="client Coverage Results" MODIFIED="1761245887745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flask/leaderboard" />
+    <SUITE FILE_PATH="coverage/College_Projects$run.coverage" NAME="run Coverage Results" MODIFIED="1761306876774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flask/2025_10_24_Reminder_App" />
+    <SUITE FILE_PATH="coverage/College_Projects$Flask__flask_2025_10_10_Gibjohn_Prototype_run_py_.coverage" NAME="Gibjohn Flask App Coverage Results" MODIFIED="1761292011399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/College_Projects$db_create__1_.coverage" NAME="db_create (1) Coverage Results" MODIFIED="1761296338172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flask/2025_10_24_Reminder_App" />
     <SUITE FILE_PATH="coverage/College_Projects$main.coverage" NAME="main Coverage Results" MODIFIED="1730704078019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/story-generator" />
   </component>
 </project>

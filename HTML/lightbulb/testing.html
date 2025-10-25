@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- 
+View counter
+-->
+
+  <head>
+    <title>DapperPixelguy</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Anonymous+Pro">
+    <link rel="icon" type="image/png" href="https://pngimg.com/uploads/trollface/trollface_PNG10.png">
+    <style>
+      html {
+        min-height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        height: calc(100vh);
+        color: rgba(255, 255, 255, .75);
+        font-family: 'Anonymous Pro', monospace;
+        background: linear-gradient(-45deg, rgb(25, 25, 25), rgb(25, 25, 25), rgb(25, 25, 25), rgb(50, 50, 50), rgb(25, 25, 25), rgb(25, 25, 25), rgb(25, 25, 25));
+        /*background-size: 300%;
+      animation: gradient 20s linear infinite;*/
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 115% 50%;
+        }
+
+        100% {
+          background-position: -15% 50%;
+        }
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #IntroText {
+        position: absolute;
+        overflow-x: hidden;
+        min-height: 20em;
+        min-width: 0em;
+        top: 50%;
+        left: 50%;
+        border: 1px solid rgb(54, 57, 62);
+        border-radius: 10px;
+        margin: auto;
+        width: 0em;
+        /* 60em default */
+        height: 15em;
+        max-width: 101%;
+        background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        transform: translate(-50%, -50%);
+        display: block;
+        transition: width 1.6s ease;
+        opacity: 0;
+      }
+
+      #IntroText.clicked {
+        width: 60em;
+      }
+
+      #reveal-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+        height: 3em;
+        width: 9em;
+        font-size: 2em;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(120, 120, 120, 0.5);
+        font-weight: bold;
+        text-shadow: 0 2px rgb(200, 200, 200);
+        z-index: 1;
+        display: none;
+        transition: opacity .05s linear;
+        border-left: #545454 2px solid;
+        border-top: #545454 2px solid;
+        border-bottom: #000000 2px solid;
+        border-right: #000000 2px solid;
+      }
+
+      #Username {
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid rgba(255, 255, 255, .75);
+        border-right-color: transparent;
+        line-height: 1.1;
+        top: 1.1em;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 4em;
+        opacity: 0;
+        transition: opacity 1s 1.5s;
+      }
+
+      #Credit {
+        position: absolute;
+        right: 1em;
+        font-size: 80%
+      }
+
+      #Device {
+        position: absolute;
+        left: 1em;
+        font-size: 80%
+      }
+
+      #Time {
+        position: absolute;
+        left: 50%;
+        font-size: 80%;
+        transform: translate(-50%)
+      }
+
+      #Username.clicked {
+        opacity: 1;
+      }
+
+      #social-Links {
+        width: 38.5em;
+        position: relative;
+        top: 7em;
+        height: 3em;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        opacity: 0;
+        transition: opacity 1s 1.7s;
+      }
+
+      #social-Links.clicked {
+        opacity: 1;
+      }
+
+      #social-Links a {
+        transition: background-color 0.45s, color .3s ease-in-out, box-shadow .3s ease-in-out;
+        box-shadow: inset 0 0 0 0 rgba(200, 200, 200, .75);
+        color: rgba(255, 255, 255, .75);
+      }
+
+      #social-Links a:hover {
+        /*background-color: rgba(255, 255, 255, .75);*/
+        box-shadow: inset 150px 0 0 0 rgba(255, 255, 255, .75);
+        color: rgb(25, 25, 25);
+      }
+
+      /* Animation */
+      .anim-typewriter {
+        animation: typewriter 1.7s steps(14) 1s 1 normal both,
+          blinkTextCursor 500ms steps(44) 10 normal;
+      }
+
+      @keyframes typewriter {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 7.62em;
+        }
+      }
+
+      @keyframes blinkTextCursor {
+        from {
+          border-right-color: rgba(255, 255, 255, .75);
+        }
+
+        to {
+          border-right-color: transparent;
+        }
+      }
+
+      #IntroText.full-width {
+        height: 100%;
+        border: 0px;
+        border-radius: 0px;
+        top: 0em;
+        left: 0em;
+        transform: translate(0, 0);
+        min-width: 0em;
+      }
+
+      #IntroText.full-width #Username {
+        position: absolute;
+        top: 0em;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%);
+      }
+
+      #IntroText.full-width #social-Links {
+        position: absolute;
+        top: calc(40% + 6em);
+        left: 50%;
+        transform: translate(-50%);
+        width: 31em;
+      }
+
+      #gradient-top.full-width {
+        height: 0vh;
+      }
+
+      #IntroText.mobile {
+        height: 100%;
+        width: 100%;
+        border: 0px;
+        border-radius: 0px;
+        top: 0em;
+        left: 0em;
+        transform: translate(0, 0);
+        min-width: 0em;
+        font-size: 150%;
+        transition: width 0s;
+      }
+
+      #IntroText.mobile #Username {
+        position: absolute;
+        top: 0em;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%);
+      }
+
+      #IntroText.mobile #social-Links {
+        position: absolute;
+        top: calc(40% + 6em);
+        left: 50%;
+        transform: translate(-50%);
+        width: 31em;
+      }
+
+      #v1 {
+        border-left: 6px solid green;
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        margin-left: -3px;
+        top: 0;
+      }
+
+      #footer {
+        position: absolute;
+        width: 100%;
+        height: 1.7em;
+        bottom: 0.3em;
+        /*background: rgba(35,35,35,.6);*/
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center
+      }
+
+      #footer.full-width {
+        background: transparent;
+        bottom: -.3em;
+      }
+
+      #InfoText {
+        position: relative;
+        float: right;
+        right: 1em;
+      }
+      #InfoText.mobile{
+        display: none
+      }
+
+      #InfoButton {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        top: 1em;
+        float: right;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(255, 255, 255, .75);
+        height: 2.5em;
+        width: 2.5em;
+        border-left: #545454 2px solid;
+        border-top: #545454 2px solid;
+        border-bottom: #000000 2px solid;
+        border-right: #000000 2px solid;
+      }
+
+      #InfoButton.active {
+        filter: invert(1)
+      }
+
+
+      #InfoBox {
+        position: relative;
+        right: 1em;
+        top: 0.8em;
+        width: 0em;
+        height: 2em;
+        background: white;
+        border: 2px solid rgb(54, 57, 62);
+        border-radius: 5px;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(255, 255, 255, .75);
+        transition: width 1.5s, opacity 1s;
+        opacity: 0;
+        overflow: hidden;
+      }
+
+      #InfoBox.active {
+        width: 23em;
+        opacity: 1;
+        transition: width 1.5s, opacity 1s;
+      }
+      
+      #SpecText {
+        position : relative;
+        float: left;
+        left: 1em
+        
+      }
+      
+      #SpecText.mobile {
+        display: none
+      }
+      
+      #SpecButton {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        top: 1em;
+        float: left;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(255, 255, 255, .75);
+        height: 2.5em;
+        width: 2.5em;
+        border-left: #545454 2px solid;
+        border-top: #545454 2px solid;
+        border-bottom: #000000 2px solid;
+        border-right: #000000 2px solid;
+      }
+      
+      #SpecButton.active {
+        filter: invert(1)
+      }
+      
+      #SpecButton.disabled {
+        cursor: not-allowed
+      }
+      
+      #SpecBox {
+        position: relative;
+        left: 1em;
+        top: 0.8em;
+        width: 0em;
+        height: 1.8em;
+        background: white;
+        border: 2px solid rgb(54, 57, 62);
+        border-radius: 5px;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(255, 255, 255, .75);
+        transition: width 1.5s 1.5s, opacity 1.5s 1s, height 1.5s;
+        opacity: 0;
+        overflow-x: hidden;
+      }
+      
+      #SpecBox.active {
+        width: 20em;
+        opacity: 1;
+        height: 40em;
+        transition: width 1.5s, opacity 1s, height 1.5s 1.5s;
+      }
+      
+      #SpecBox a {
+        position: relative; 
+        font-size: 120%; 
+        text-align: center; 
+        text-decoration: none; 
+        display: block; 
+        color: rgba(255, 255, 255, .75);
+        font-family: arial;
+        top: -10px;
+        padding: 5px;
+        opacity: 0;
+        transition: opacity 2s
+      }
+      #SpecBox.active a{
+        opacity: 1;
+        transition: opacity 2s 2s
+      }
+      #SpecBox p{
+        opacity: 0;
+        transition: opacity 2s
+      }
+      #SpecBox.active p{
+        opacity: 1;
+        transition: opacity 2s 1.5s
+      }
+       #SpecBox a:hover {
+        font-size: 130%;
+      }
+    </style>
+  </head>
+
+    <!--<div id='v1' style='z-index:200'>
+
+    </div> -->
+    <body onload="startTime()">
+      <header id="gradient-top"></header>
+      <button id='reveal-button' onclick='revealPage()'>Enter</button>
+
+      <div id="InfoText">
+        <button id='InfoButton' onclick='showInfo()'>
+            <img id ='InfoImg' onmouseover="tro()" onmouseleave="untro()" src='assets/info.png' style='height: 2em; opacity: .75'>
+        </button>
+        <div id="InfoBox">
+          <p style="position: relative; left: 5px; bottom:27%; font-size: 80%;">
+            Created as an introduction to HTML and CSS. Most likely not receiving any more major changes.
+          </p>
+        </div>
+      </div>
+      
+      <div id ="SpecText">
+        <button id='SpecButton' onclick='showSpec()'>
+          <img src='assets/monitor.png' style='height: 1.7em; opacity: .7'>
+        </button>
+        <div id ="SpecBox">
+          <p style = "position: relative; top: -10px; font-size: 180%; font-weight: bold; text-align: center ">
+          [Specs]
+          </p>
+         <div id = "core-internals">
+         
+         <p style = 'font-size: 150%; text-align: center'>
+         [Core Internals]
+         </p>
+         <p style = 'text-align: center'>
+         ----------------------------
+         </p>
+         <a style = 'top: -10px' href='https://jsfiddle.net/' target ='_blank'>
+          Ryzen 7 5700X3D
+          </a>
+          
+          <a href='https://jsfiddle.net/' target ='_blank'>
+          RTX 3060 12GB VRAM
+          </a>
+          <a href='https://jsfiddle.net/' target ='_blank'>
+          MSI B500M PRO-VDH WiFi
+          </a>
+         
+          </div>
+          <div id = "storage">
+          <p style = 'font-size: 150%; text-align: center'>
+         [Storage]
+         </p>
+         <p style = 'text-align: center'>
+         ----------------------------
+         </p>
+         <a href='https://jsfiddle.net/' target ='_blank'>
+          32GB DDR4 RAM
+          </a>
+         <a href='https://jsfiddle.net/' target ='_blank'>
+          1TB NVME 2.0 Storage
+          
+          </a>
+          <a href='https://jsfiddle.net/' target ='_blank'>
+          1TB HDD
+          
+          </a>
+          </div>
+          
+          <div id = "peripherals">
+          <p style = 'font-size: 150%; text-align: center'>
+         [Peripherals]
+         </p>
+         <p style = 'text-align: center'>
+         ----------------------------
+         </p>
+         <a href='https://jsfiddle.net/' target ='_blank'>
+          AOC [enter model] 1440p 165hz 27"
+          </a>
+          <a href='https://jsfiddle.net/' target ='_blank' rel='noopener'>
+          AOC [enter model] 1080p 165hz 24"
+          </a>
+          <a href='https://jsfiddle.net/' target ='_blank'>
+          Logitech G502 Lightspeed
+          </a>
+          <a href='https://jsfiddle.net/' target ='_blank'>
+          Logitech G Pro X Headset
+          </a>
+          
+          </div>
+          
+          
+        </div>
+      </div>
+
+      <div id="IntroText">
+        <h1 id="Username">DapperPixelguy</h1>
+        <!-- Your content here -->
+        <div id='social-Links'>
+
+          <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static; align-items: center'>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[\\\\\\\]</a>
+
+          </div>
+          <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: absolute; left: 50%; transform: translate(-50%); align-items: center'>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[|||||]</a>
+            <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
+          </div>
+          <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static; align-items: center'>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[//////]</a>
+            <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
+          </div>
+        </div>
+
+      </div>
+      <div id='footer'>
+        <p id='Credit'>[DapperPixelguy MMXXIV]</p>
+        <p id='Device'>[Unknown]</p>
+        <p id='Time'></p>
+      </div>
+      <script>
+
+        function tro() {
+            document.getElementById('InfoImg').src = 'assets/the_tro.gif'
+          }
+
+        function untro() {
+            document.getElementById('InfoImg').src = 'assets/info.png'
+
+        }
+      </script>
+      <script>
+        var introText = document.getElementById('IntroText');
+        var gradTop = document.getElementById('gradient-top');
+        var y = document.getElementById("reveal-button")
+        var z = document.getElementById("Username")
+        var socialLinks = document.getElementById("social-Links")
+        var device = document.getElementById("Device")
+        var credit = document.getElementById("Credit")
+        var time = document.getElementById('Time')
+        var footer = document.getElementById('footer')
+        var infoText = document.getElementById('InfoText')
+        var specText = document.getElementById('SpecText')
+        // Function to check and apply the class based on div width
+        function checkDivWidth() {
+          let details = navigator.userAgent
+          let regexp = /android|iphone|kindle|ipad/i
+          let isMobileDevice = regexp.test(details)
+
+          if (isMobileDevice) {
+            introText.classList.add('mobile');
+            gradTop.classList.add('full-width');
+            footer.classList.add('full-width')
+            infoText.classList.add('mobile')
+          } else {
+            //var y = document.getElementById('reveal-button');
+            if (introText.offsetWidth <= 722) {
+              introText.classList.add('full-width');
+              gradTop.classList.add('full-width');
+              footer.classList.add('full-width')
+            } else {
+              introText.classList.remove('full-width');
+              gradTop.classList.remove('full-width');
+              footer.classList.remove('full-width')
+            }
+          }
+        }
+
+        // Run the function on page load and resize
+        window.addEventListener('load', function() {
+          y = document.getElementById('reveal-button')
+        })
+
+      </script>
+
+      <script>
+        function revealPage() {
+          let details = navigator.userAgent
+          let regexp = /android|iphone|kindle|ipad/i
+          let isMobileDevice = regexp.test(details)
+
+          if (!isMobileDevice) {
+            setTimeout(() => {
+              introText.style.overflowX = 'auto';
+            }, 2100)
+            setTimeout((checkDivWidth), 1601)
+            setTimeout(() => {
+              window.addEventListener('load', checkDivWidth);
+              window.addEventListener('resize', checkDivWidth);
+              console.log('Run!')
+            }, 1601)
+          } else {
+            introText.style.transition = 'width 0s'
+            z.style.transition = 'opacity 1s 0.3s'
+            socialLinks.style.transition = 'opacity 1s 0.6s'
+            checkDivWidth()
+          }
+
+          introText.style.opacity = '1'
+          introText.classList.add("clicked")
+          z.classList.add("clicked")
+          socialLinks.classList.add("clicked")
+          y.style.opacity = 0
+          setTimeout(()=>{
+          y.style.display ='none'
+          }, 1000)
+
+
+
+        }
+
+      </script>
+
+      <script>
+        window.addEventListener('load', function() {
+          y.style.display = 'block';
+          let details = navigator.userAgent
+          let regexp = /android|iphone|kindle|ipad/i
+          let isMobileDevice = regexp.test(details)
+
+          if (isMobileDevice) {
+            device.innerText = 'Viewing on: [Mobile]'
+            device.style.fontSize = '150%'
+            credit.style.fontSize = '150%'
+            time.style.fontSize = '150%'
+            infoText.classList.add('mobile')
+            specText.classList.add('mobile')
+            
+          } else {
+            device.innerText = 'Viewing on: [Desktop]'
+          }
+        });
+
+      </script>
+      
+      <script>
+        function startTime() {
+          const today = new Date();
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('Time').innerHTML = h + ":" + m + ":" + s;
+          setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+          if (i < 10) {
+            i = "0" + i
+          };
+          return i;
+        }
+
+      </script>
+      
+      <script>
+        function showInfo() {
+          var infoBox = document.getElementById('InfoBox')
+          var infoButton = document.getElementById('InfoButton')
+          if (infoBox.classList.contains('active')) {
+            infoBox.classList.remove('active')
+            infoButton.classList.remove('active')
+          } else {
+            infoBox.classList.add('active')
+            infoButton.classList.add('active')
+          }
+        }
+
+      </script>
+      
+      <script>
+      	function showSpec() {
+        
+        	var specBox = document.getElementById('SpecBox')
+          var specButton = document.getElementById('SpecButton')
+          if (specButton.classList.contains('disabled')){
+          console.log('erm what')
+          	return
+          console.log('the sigma')
+          }
+          else {
+          	specButton.classList.add('disabled')
+            setTimeout(() => { specButton.classList.remove('disabled')}, 3000)
+            if (specBox.classList.contains('active')) {
+              specBox.classList.remove('active')
+              specButton.classList.remove('active')
+            } else {
+              specBox.classList.add('active')
+              specButton.classList.add('active')
+            }
+          }
+        }
+      
+      </script>
+    </body>
+</html>
+
+<!--Info icons created by Shashank Singh - -->

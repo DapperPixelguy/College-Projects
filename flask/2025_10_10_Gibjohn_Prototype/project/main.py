@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from . import db
 from .decorators import access_required
+from .models import User
 
 main = Blueprint('main', __name__)
 allowed_extensions = {'png', 'jpg', 'jpeg'}
@@ -75,7 +76,25 @@ def profile_update():
 
 @main.route('/admin')
 @login_required
-@access_required(2)
+@access_required(1)
 def admin():
-    return render_template('admin.html')
+    users = User.query.all()
+    return render_template('admin.html', users=users)
 
+@main.route('/admin', methods=['POST'])
+@login_required
+@access_required(2)
+def admin_post():
+    email = request.form.get('email')
+    user = User.query.filter_by(email=email).first()
+
+    if request.form.get('name'):
+        user.name = request.form.get('name')
+
+    if request.form.get('accessLevel'):
+        user.accessLevel = request.form.get('accessLevel')
+
+    db.session.commit()
+    print(user.name)
+
+    return redirect(url_for('main.admin'))
