@@ -19,7 +19,7 @@ Home
     <source src="static/phone.mp4" type="video/mp4">
 </video>
 </div>
-<audio autoplay loop>
+<audio loop>
     <source src="static/Sneaky-Snitch(chosic.com).mp3" type="audio/mp3">
 </audio>
 
@@ -35,27 +35,26 @@ Home
 
         if (video) {
             video.play().catch(()=>{
-                console.log('Autoplay prevented, waiting for user interaction.')
+                console.log('Video autoplay prevented, waiting for user interaction.')
                 document.addEventListener('touchend', () => video.play(), {once: true})
             })
         }
 
         if (audio) {
             audio.play().catch(()=>{
-                console.log('Autoplay prevented, waiting for user interaction.')
+                console.log('Audio autoplay prevented, waiting for user interaction.')
                 document.addEventListener('touchend', () => audio.play(), {once: true})
                 document.addEventListener('click', () => audio.play(), {once: true})
             })
         }
-            setInterval(() => {
 
-  document.body.style.background = neonColors[Math.floor(Math.random()*neonColors.length)]
-}, 100);
-    })
+        document.getElementById('music').addEventListener('click', ()=>{
+            document.querySelector('audio').play()
+        })
 
-
-
-
+        setInterval(() => {
+            document.body.style.background = neonColors[Math.floor(Math.random()*neonColors.length)]}, 100);
+            })
 </script>
 {% endblock %}
 
