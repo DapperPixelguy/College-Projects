@@ -14,7 +14,7 @@ Home
 {% endif %}
 {% endwith %}
 <div class="stupid">
-<img alt='beautiful photo frame' src="static/frame.png" class="photoframe">
+<img alt='beautiful photo frame' src="static/frame.png" class="photoframe" id="photoframe">
 <video autoplay loop muted playsinline>
     <source src="static/phone.mp4" type="video/mp4">
 </video>
@@ -29,7 +29,7 @@ Home
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        let video = document.querySelector('video')
+        const video = document.querySelector('video')
         let audio = document.querySelector('audio')
         let splatButton = document.getElementById('splat-btn')
         let splat = document.getElementById('splat')
@@ -56,16 +56,22 @@ Home
             if (audio.paused) {
                 audio.play()
                 console.log('Music clicked')
+                musicButton.classList.toggle('active')
             }
             else {
                 audio.pause()
                 console.log('Audio paused')
+                musicButton.classList.toggle('active')
             }
         })
 
         setInterval(() => {
-            document.body.style.background = neonColors[Math.floor(Math.random()*neonColors.length)]}, 100);
-            })
+                document.body.style.background = neonColors[Math.floor(Math.random()*neonColors.length)]}, 100);
+
+        document.getElementById('photoframe').addEventListener('click', ()=> video.muted = !video.muted)
+        })
+
+
 </script>
 {% endblock %}
 
