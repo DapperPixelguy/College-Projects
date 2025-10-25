@@ -1,0 +1,90 @@
+tracking_id,sender_name,recipient_name,origin_address,destination_address,package_weight_kg,shipping_cost,shipping_date,estimated_delivery_date,delivery_status,service_type,insurance_amount,feedback_score,delivery_attempts,signature_required,packaging_type,fragile
+BP1001,John Smith,Maria Garcia,123 Oak St London UK,456 Maple Ave Madrid Spain,2.5,24.99,2025-05-01,2025-05-05,Delivered,Standard,50.00,4,1,TRUE,Box,FALSE
+BP1002,Emma Johnson,Lars Andersen,78 High St London UK,90 Kongens Nytorv Copenhagen Denmark,1.8,19.50,2025-05-02,2025-05-06,In Transit,Express,100.00,NULL,NULL,TRUE,Envelope,FALSE
+BP1003,Sophia Lee,Pierre Dubois,45 Park Lane Manchester UK,67 Rue de Rivoli Paris France,3.2,28.75,2025-05-02,2025-05-07,Processing,Standard,0.00,NULL,NULL,FALSE,Box,FALSE
+BP1004,Robert Wilson,Anna Schmidt,12 Queen St Edinburgh UK,34 Berliner Str Berlin Germany,5.0,35.25,2025-05-03,2025-05-08,In Transit,Express,200.00,NULL,NULL,TRUE,Crate,TRUE
+BP1005,James Taylor,Elena Romano,56 Castle Rd Cardiff UK,78 Via Veneto Rome Italy,0.5,15.50,2025-05-04,2025-05-09,Processing,Economy,0.00,NULL,NULL,FALSE,Envelope,FALSE
+BP1006,Olivia Brown,Miguel Fernandez,89 Prince St Bristol UK,23 Gran Via Barcelona Spain,4.2,32.00,2025-05-04,2025-05-10,Processing,Standard,75.00,NULL,NULL,TRUE,Box,FALSE
+BP1007,William Jones,Sofia Rossi,34 Victoria Rd Glasgow UK,56 Piazza Navona Milan Italy,2.7,26.25,2025-05-05,2025-05-11,Processing,Standard,50.00,NULL,NULL,TRUE,Box,FALSE
+BP1008,Emily Davis,Lukas Weber,67 Albert St Leeds UK,89 Ringstrasse Vienna Austria,3.5,29.80,2025-05-06,2025-05-12,Processing,Express,150.00,NULL,NULL,TRUE,Box,FALSE
+BP1009,Alexander Martin,Isabelle Lefebvre,90 George St Belfast UK,12 Avenue Louise Brussels Belgium,1.2,17.75,2025-05-07,2025-05-13,Processing,Economy,0.00,NULL,NULL,FALSE,Envelope,FALSE
+BP1010,Charlotte Wilson,Antonio Santos,23 Union St Newcastle UK,45 Avenida Liberdade Lisbon Portugal,6.3,42.50,2025-05-08,2025-05-14,Processing,Premium,300.00,NULL,NULL,TRUE,Crate,TRUE
+BP1011,David Thompson,Sophia Müller,45 Abbey Rd London UK,67 Friedrichstrasse Berlin Germany,1.9,21.75,2025-05-01,2025-05-06,Delivered,Standard,25.00,5,1,TRUE,Box,FALSE
+BP1012,Sarah Johnson,Marco Bianchi,78 Prince St Glasgow UK,34 Via Roma Florence Italy,3.8,31.20,2025-05-01,2025-05-07,Delivered,Express,100.00,3,1,TRUE,Box,FALSE
+BP1013,Michael Brown,Julie Dubois,12 King St Manchester UK,56 Boulevard Haussmann Paris France,0.7,16.50,2025-05-02,2025-05-08,In Transit,Economy,0.00,NULL,NULL,FALSE,Envelope,FALSE
+BP1014,Elizabeth Wilson,Javier Hernandez,34 Castle Rd Birmingham UK,78 Calle Mayor Madrid Spain,2.3,23.75,2025-05-02,2025-05-07,In Transit,Standard,50.00,NULL,NULL,TRUE,Box,FALSE
+BP1015,Daniel Harris,Helga Schmidt,67 Victoria St Sheffield UK,90 Maximilianstrasse Munich Germany,4.5,33.50,2025-05-03,2025-05-09,In Transit,Express,200.00,NULL,NULL,TRUE,Box,TRUE
+BP1016,Olivia Taylor,Giovanni Rossi,89 High St Liverpool UK,23 Via Veneto Rome Italy,1.1,17.25,2025-05-03,2025-05-09,Delivered,Economy,0.00,4,1,FALSE,Envelope,FALSE
+BP1017,Mohammed Patel,Lotte Jensen,90 George Lane Leeds UK,45 Nyhavn Copenhagen Denmark,5.2,36.75,2025-05-04,2025-05-10,In Transit,Premium,250.00,NULL,NULL,TRUE,Crate,TRUE
+BP1018,Sophie Martin,Carlos Fernandez,23 Albert Rd Bristol UK,67 Gran Via Barcelona Spain,2.8,26.50,2025-05-04,2025-05-10,Processing,Standard,75.00,NULL,NULL,TRUE,Box,FALSE
+BP1019,James Wilson,Anna Kowalski,56 Queen St Brighton UK,89 Nowy Swiat Warsaw Poland,3.6,30.25,2025-05-05,2025-05-11,Processing,Express,150.00,NULL,NULL,TRUE,Box,FALSE
+BP1020,Emily Thomas,Dimitri Petrov,78 Park Lane Cardiff UK,12 Nevsky Prospekt St Petersburg Russia,0.9,16.75,2025-05-05,2025-05-12,Processing,Economy,0.00,NULL,NULL,FALSE,Envelope,FALSE
+BP1021,Richard Clark,Eva Johansson,12 Union Rd Southampton UK,56 Drottninggatan Stockholm Sweden,4.7,34.50,2025-05-06,2025-05-13,Processing,Standard,100.00,NULL,NULL,TRUE,Box,TRUE
+BP1022,Jennifer Scott,Antonio Silva,45 Castle St Oxford UK,78 Avenida da Liberdade Lisbon Portugal,1.3,18.25,2025-05-06,2025-05-12,Processing,Economy,0.00,NULL,NULL,FALSE,Envelope,FALSE
+BP1023,Thomas Brown,Maria Papadopoulos,67 Bridge Rd Cambridge UK,90 Ermou Athens Greece,2.9,27.00,2025-05-07,2025-05-14,Processing,Standard,50.00,NULL,NULL,TRUE,Box,FALSE
+BP1024,Amy Wilson,Jan Dekker,89 Victoria Lane Belfast UK,23 Kalverstraat Amsterdam Netherlands,5.4,37.50,2025-05-07,2025-05-15,Processing,Express,200.00,NULL,NULL,TRUE,Crate,TRUE
+BP1025,Peter Johnson,Anne Dupont,90 High St Newcastle UK,45 Avenue des Champs-Élysées Paris France,0.6,15.75,2025-05-08,2025-05-13,Processing,Economy,0.00,NULL,NULL,FALSE,Envelope,FALSE
+BP1026,Sophia Lee,Klaus Weber,23 Queen Rd York UK,67 Kurfürstendamm Berlin Germany,3.9,31.50,2025-05-08,2025-05-14,Processing,Standard,75.00,NULL,NULL,TRUE,Box,FALSE
+BP1027,Robert Davis,Greta Svensson,56 King St Edinburgh UK,89 Sveavägen Stockholm Sweden,2.1,22.75,2025-05-09,2025-05-15,Processing,Standard,50.00,NULL,NULL,TRUE,Box,FALSE
+BP1028,Emma White,Francesco Romano,78 Abbey Lane Birmingham UK,12 Via del Corso Rome Italy,4.8,35.00,2025-05-09,2025-05-16,Processing,Express,150.00,NULL,NULL,TRUE,Box,TRUE
+BP1029,Alexander Thompson,Sophie Laurent,12 Prince Rd London UK,34 Rue de la Paix Paris France,1.5,19.25,2025-05-10,2025-05-15,Processing,Economy,0.00,NULL,NULL,FALSE,Envelope,FALSE
+BP1030,Charlotte Harris,Miguel Sanchez,34 Castle St Manchester UK,56 Plaza Mayor Madrid Spain,3.3,29.00,2025-05-10,2025-05-16,Processing,Premium,300.00,NULL,NULL,TRUE,Box,FALSE
+BP1031,William Johnson,Elise Dubois,67 Victoria Rd Glasgow UK,78 Boulevard Saint-Germain Paris France,2.2,23.50,2025-04-15,2025-04-20,Delivered,Standard,50.00,5,1,TRUE,Box,FALSE
+BP1032,Emily Wilson,Hans Schmidt,89 Queen St Cardiff UK,90 Marienplatz Munich Germany,4.1,32.25,2025-04-16,2025-04-21,Delivered,Express,150.00,4,1,TRUE,Box,TRUE
+BP1033,James Brown,Giulia Bianchi,90 High Rd Bristol UK,23 Piazza di Spagna Rome Italy,0.8,16.25,2025-04-17,2025-04-23,Delivered,Economy,0.00,3,1,FALSE,Envelope,FALSE
+BP1034,Olivia Martin,Pedro Lopez,23 Park St Sheffield UK,45 Passeig de Gracia Barcelona Spain,3.0,27.75,2025-04-18,2025-04-24,Delivered,Standard,75.00,5,1,TRUE,Box,FALSE
+BP1035,Alexander Wilson,Camille Moreau,56 George Lane Liverpool UK,67 Champs-Élysées Paris France,5.5,38.25,2025-04-19,2025-04-25,Delivered,Premium,250.00,4,1,TRUE,Crate,TRUE
+BP1036,Emma Thompson,Marco Ferrari,78 Albert Rd Brighton UK,89 Via Condotti Rome Italy,1.4,18.75,2025-04-20,2025-04-26,Delivered,Economy,0.00,5,1,FALSE,Envelope,FALSE
+BP1037,Michael Smith,Ana Rodriguez,12 Castle St Leeds UK,12 Plaza Mayor Madrid Spain,2.6,25.50,2025-04-21,2025-04-27,Delivered,Standard,50.00,3,1,TRUE,Box,FALSE
+BP1038,Sophia Davis,Niklas Jensen,34 Queen Rd Oxford UK,34 Strøget Copenhagen Denmark,4.3,33.25,2025-04-22,2025-04-28,Delivered,Express,200.00,4,1,TRUE,Box,TRUE
+BP1039,Robert Johnson,Marie Laurent,67 Union St Cambridge UK,56 Rue du Faubourg Saint-Honoré Paris France,0.9,16.75,2025-04-23,2025-04-29,Delivered,Economy,0.00,5,1,FALSE,Envelope,FALSE
+BP1040,Charlotte Brown,Antonio Ricci,89 Victoria St Southampton UK,78 Via del Babbuino Rome Italy,3.4,29.50,2025-04-24,2025-04-30,Delivered,Standard,75.00,4,1,TRUE,Box,FALSE
+BP1041,William Taylor,Lena Müller,90 Bridge Rd York UK,90 Königsallee Düsseldorf Germany,5.1,36.25,2025-04-25,2025-05-01,Delivered,Premium,250.00,2,2,TRUE,Crate,TRUE
+BP1042,Emily Wilson,Carlos Fernandez,23 High Lane Belfast UK,23 Puerta del Sol Madrid Spain,1.7,20.25,2025-04-26,2025-05-02,Delivered,Economy,0.00,5,1,FALSE,Envelope,FALSE
+BP1043,James Martin,Sophie Dupont,45 Queen St Newcastle UK,45 Place Vendôme Paris France,2.9,27.00,2025-04-27,2025-05-03,Delivered,Standard,50.00,4,1,TRUE,Box,FALSE
+BP1044,Olivia Thompson,Marco Rossi,67 Park Rd Birmingham UK,67 Piazza del Popolo Rome Italy,4.6,34.75,2025-04-28,2025-05-04,Delivered,Express,150.00,3,1,TRUE,Box,TRUE
+BP1045,Alexander Johnson,Anna Weber,89 Castle Lane Edinburgh UK,89 Maximilianplatz Munich Germany,1.0,17.00,2025-04-29,2025-05-05,Delivered,Economy,0.00,5,1,FALSE,Envelope,FALSE
+BP1046,Emma Davis,Javier Garcia,12 Victoria St Manchester UK,12 Gran Via Madrid Spain,3.7,30.50,2025-04-30,2025-05-06,In Transit,Standard,75.00,NULL,NULL,TRUE,Box,FALSE
+BP1047,Michael Brown,Elena Ferrari,34 Union Rd London UK,34 Via Veneto Rome Italy,2.3,23.75,2025-04-30,2025-05-06,In Transit,Standard,50.00,NULL,NULL,TRUE,Box,FALSE
+BP1048,Sophia Wilson,Lars Petersen,56 High St Cardiff UK,56 Strøget Copenhagen Denmark,4.9,35.50,2025-05-01,2025-05-07,In Transit,Express,200.00,NULL,NULL,TRUE,Box,TRUE
+BP1049,Robert Smith,Camille Rousseau,78 Park Lane Glasgow UK,78 Rue de Rivoli Paris France,1.6,19.75,2025-05-01,2025-05-08,In Transit,Economy,0.00,NULL,NULL,FALSE,Envelope,FALSE
+BP1050,Charlotte Johnson,Marco Santos,90 Castle St Bristol UK,90 Avenida da Liberdade Lisbon Portugal,3.5,29.75,2025-05-02,2025-05-08,In Transit,Premium,300.00,NULL,NULL,TRUE,Box,FALSE.00
+BP1012,Sarah Johnson,Marco Bianchi,78 Prince St Glasgow UK,34 Via Roma Florence Italy,3.8,31.20,2025-05-01,2025-05-07,Delivered,Express,100.00
+BP1013,Michael Brown,Julie Dubois,12 King St Manchester UK,56 Boulevard Haussmann Paris France,0.7,16.50,2025-05-02,2025-05-08,In Transit,Economy,0.00
+BP1014,Elizabeth Wilson,Javier Hernandez,34 Castle Rd Birmingham UK,78 Calle Mayor Madrid Spain,2.3,23.75,2025-05-02,2025-05-07,In Transit,Standard,50.00
+BP1015,Daniel Harris,Helga Schmidt,67 Victoria St Sheffield UK,90 Maximilianstrasse Munich Germany,4.5,33.50,2025-05-03,2025-05-09,In Transit,Express,200.00
+BP1016,Olivia Taylor,Giovanni Rossi,89 High St Liverpool UK,23 Via Veneto Rome Italy,1.1,17.25,2025-05-03,2025-05-09,Delivered,Economy,0.00
+BP1017,Mohammed Patel,Lotte Jensen,90 George Lane Leeds UK,45 Nyhavn Copenhagen Denmark,5.2,36.75,2025-05-04,2025-05-10,In Transit,Premium,250.00
+BP1018,Sophie Martin,Carlos Fernandez,23 Albert Rd Bristol UK,67 Gran Via Barcelona Spain,2.8,26.50,2025-05-04,2025-05-10,Processing,Standard,75.00
+BP1019,James Wilson,Anna Kowalski,56 Queen St Brighton UK,89 Nowy Swiat Warsaw Poland,3.6,30.25,2025-05-05,2025-05-11,Processing,Express,150.00
+BP1020,Emily Thomas,Dimitri Petrov,78 Park Lane Cardiff UK,12 Nevsky Prospekt St Petersburg Russia,0.9,16.75,2025-05-05,2025-05-12,Processing,Economy,0.00
+BP1021,Richard Clark,Eva Johansson,12 Union Rd Southampton UK,56 Drottninggatan Stockholm Sweden,4.7,34.50,2025-05-06,2025-05-13,Processing,Standard,100.00
+BP1022,Jennifer Scott,Antonio Silva,45 Castle St Oxford UK,78 Avenida da Liberdade Lisbon Portugal,1.3,18.25,2025-05-06,2025-05-12,Processing,Economy,0.00
+BP1023,Thomas Brown,Maria Papadopoulos,67 Bridge Rd Cambridge UK,90 Ermou Athens Greece,2.9,27.00,2025-05-07,2025-05-14,Processing,Standard,50.00
+BP1024,Amy Wilson,Jan Dekker,89 Victoria Lane Belfast UK,23 Kalverstraat Amsterdam Netherlands,5.4,37.50,2025-05-07,2025-05-15,Processing,Express,200.00
+BP1025,Peter Johnson,Anne Dupont,90 High St Newcastle UK,45 Avenue des Champs-Élysées Paris France,0.6,15.75,2025-05-08,2025-05-13,Processing,Economy,0.00
+BP1026,Sophia Lee,Klaus Weber,23 Queen Rd York UK,67 Kurfürstendamm Berlin Germany,3.9,31.50,2025-05-08,2025-05-14,Processing,Standard,75.00
+BP1027,Robert Davis,Greta Svensson,56 King St Edinburgh UK,89 Sveavägen Stockholm Sweden,2.1,22.75,2025-05-09,2025-05-15,Processing,Standard,50.00
+BP1028,Emma White,Francesco Romano,78 Abbey Lane Birmingham UK,12 Via del Corso Rome Italy,4.8,35.00,2025-05-09,2025-05-16,Processing,Express,150.00
+BP1029,Alexander Thompson,Sophie Laurent,12 Prince Rd London UK,34 Rue de la Paix Paris France,1.5,19.25,2025-05-10,2025-05-15,Processing,Economy,0.00
+BP1030,Charlotte Harris,Miguel Sanchez,34 Castle St Manchester UK,56 Plaza Mayor Madrid Spain,3.3,29.00,2025-05-10,2025-05-16,Processing,Premium,300.00
+BP1031,William Johnson,Elise Dubois,67 Victoria Rd Glasgow UK,78 Boulevard Saint-Germain Paris France,2.2,23.50,2025-04-15,2025-04-20,Delivered,Standard,50.00
+BP1032,Emily Wilson,Hans Schmidt,89 Queen St Cardiff UK,90 Marienplatz Munich Germany,4.1,32.25,2025-04-16,2025-04-21,Delivered,Express,150.00
+BP1033,James Brown,Giulia Bianchi,90 High Rd Bristol UK,23 Piazza di Spagna Rome Italy,0.8,16.25,2025-04-17,2025-04-23,Delivered,Economy,0.00
+BP1034,Olivia Martin,Pedro Lopez,23 Park St Sheffield UK,45 Passeig de Gracia Barcelona Spain,3.0,27.75,2025-04-18,2025-04-24,Delivered,Standard,75.00
+BP1035,Alexander Wilson,Camille Moreau,56 George Lane Liverpool UK,67 Champs-Élysées Paris France,5.5,38.25,2025-04-19,2025-04-25,Delivered,Premium,250.00
+BP1036,Emma Thompson,Marco Ferrari,78 Albert Rd Brighton UK,89 Via Condotti Rome Italy,1.4,18.75,2025-04-20,2025-04-26,Delivered,Economy,0.00
+BP1037,Michael Smith,Ana Rodriguez,12 Castle St Leeds UK,12 Plaza Mayor Madrid Spain,2.6,25.50,2025-04-21,2025-04-27,Delivered,Standard,50.00
+BP1038,Sophia Davis,Niklas Jensen,34 Queen Rd Oxford UK,34 Strøget Copenhagen Denmark,4.3,33.25,2025-04-22,2025-04-28,Delivered,Express,200.00
+BP1039,Robert Johnson,Marie Laurent,67 Union St Cambridge UK,56 Rue du Faubourg Saint-Honoré Paris France,0.9,16.75,2025-04-23,2025-04-29,Delivered,Economy,0.00
+BP1040,Charlotte Brown,Antonio Ricci,89 Victoria St Southampton UK,78 Via del Babbuino Rome Italy,3.4,29.50,2025-04-24,2025-04-30,Delivered,Standard,75.00
+BP1041,William Taylor,Lena Müller,90 Bridge Rd York UK,90 Königsallee Düsseldorf Germany,5.1,36.25,2025-04-25,2025-05-01,Delivered,Premium,250.00
+BP1042,Emily Wilson,Carlos Fernandez,23 High Lane Belfast UK,23 Puerta del Sol Madrid Spain,1.7,20.25,2025-04-26,2025-05-02,Delivered,Economy,0.00
+BP1043,James Martin,Sophie Dupont,45 Queen St Newcastle UK,45 Place Vendôme Paris France,2.9,27.00,2025-04-27,2025-05-03,Delivered,Standard,50.00
+BP1044,Olivia Thompson,Marco Rossi,67 Park Rd Birmingham UK,67 Piazza del Popolo Rome Italy,4.6,34.75,2025-04-28,2025-05-04,Delivered,Express,150.00
+BP1045,Alexander Johnson,Anna Weber,89 Castle Lane Edinburgh UK,89 Maximilianplatz Munich Germany,1.0,17.00,2025-04-29,2025-05-05,Delivered,Economy,0.00
+BP1046,Emma Davis,Javier Garcia,12 Victoria St Manchester UK,12 Gran Via Madrid Spain,3.7,30.50,2025-04-30,2025-05-06,In Transit,Standard,75.00
+BP1047,Michael Brown,Elena Ferrari,34 Union Rd London UK,34 Via Veneto Rome Italy,2.3,23.75,2025-04-30,2025-05-06,In Transit,Standard,50.00
+BP1048,Sophia Wilson,Lars Petersen,56 High St Cardiff UK,56 Strøget Copenhagen Denmark,4.9,35.50,2025-05-01,2025-05-07,In Transit,Express,200.00
+BP1049,Robert Smith,Camille Rousseau,78 Park Lane Glasgow UK,78 Rue de Rivoli Paris France,1.6,19.75,2025-05-01,2025-05-08,In Transit,Economy,0.00
+BP1050,Charlotte Johnson,Marco Santos,90 Castle St Bristol UK,90 Avenida da Liberdade Lisbon Portugal,3.5,29.75,2025-05-02,2025-05-08,In Transit,Premium,300.00

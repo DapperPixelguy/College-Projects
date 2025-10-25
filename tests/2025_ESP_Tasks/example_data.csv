@@ -1,0 +1,301 @@
+,Problem,How resolved,No of parcels,No of days,Date
+0,Wrong item sent,Reshipment,4,4,30-07-2025
+1,Parcel damaged,Customer credit,4,7,13-07-2025
+2,Lost in transit,Full refund,3,3,10-06-2025
+3,Wrong item sent,Full refund,3,3,27-07-2025
+4,User account issue,Reshipment,1,7,11-07-2025
+5,Failed address verification,Customer credit,1,3,05-10-2025
+6,User account issue,Cancelled order,5,4,19-06-2025
+7,Parcel damaged,Partial refund,2,7,26-06-2025
+8,Lost in transit,Reshipment,4,6,22-06-2025
+9,Lost in transit,Partial refund,3,5,08-07-2025
+10,User account issue,Partial refund,3,5,20-08-2025
+11,Wrong item sent,Customer credit,4,6,01-10-2025
+12,Parcel damaged,Customer credit,1,4,08-07-2025
+13,Parcel damaged,Cancelled order,5,5,02-11-2025
+14,Transit issue,Full refund,6,3,30-06-2025
+15,Transit issue,Customer credit,2,2,04-11-2025
+16,Failed address verification,Customer credit,6,3,28-07-2025
+17,Lost in transit,Full refund,2,1,10-10-2025
+18,User account issue,Customer credit,5,5,10-11-2025
+19,Transit issue,Full refund,1,6,04-08-2025
+20,Transit issue,Partial refund,4,6,04-11-2025
+21,Parcel damaged,Customer credit,5,6,06-09-2025
+22,Transit issue,Reshipment,4,6,11-11-2025
+23,Wrong item sent,Full refund,6,4,25-05-2025
+24,Wrong item sent,Partial refund,1,2,25-10-2025
+25,User account issue,Cancelled order,2,7,23-07-2025
+26,Parcel damaged,Full refund,2,4,12-11-2025
+27,Transit issue,Partial refund,1,3,22-10-2025
+28,Lost in transit,Reshipment,5,4,08-07-2025
+29,Wrong item sent,Customer credit,4,7,06-09-2025
+30,Lost in transit,Full refund,5,1,04-10-2025
+31,Transit issue,Full refund,5,4,22-08-2025
+32,Parcel damaged,Customer credit,1,5,25-08-2025
+33,Lost in transit,Full refund,5,5,15-09-2025
+34,Transit issue,Partial refund,4,6,29-05-2025
+35,Wrong item sent,Partial refund,3,5,10-06-2025
+36,Failed address verification,Full refund,4,1,21-09-2025
+37,Transit issue,Full refund,6,3,23-08-2025
+38,Parcel damaged,Customer credit,1,7,02-07-2025
+39,User account issue,Reshipment,6,3,18-09-2025
+40,Lost in transit,Reshipment,3,7,15-09-2025
+41,Parcel damaged,Partial refund,2,6,10-09-2025
+42,Failed address verification,Cancelled order,5,1,29-07-2025
+43,Transit issue,Reshipment,1,6,24-07-2025
+44,Parcel damaged,Full refund,4,3,07-07-2025
+45,Failed address verification,Partial refund,2,2,05-06-2025
+46,Parcel damaged,Cancelled order,1,3,01-08-2025
+47,Wrong item sent,Partial refund,4,4,31-08-2025
+48,Wrong item sent,Cancelled order,4,1,10-08-2025
+49,Transit issue,Partial refund,2,7,08-09-2025
+50,Parcel damaged,Reshipment,6,6,08-11-2025
+51,User account issue,Cancelled order,3,6,29-10-2025
+52,User account issue,Cancelled order,2,7,18-09-2025
+53,Wrong item sent,Full refund,3,1,17-10-2025
+54,Wrong item sent,Partial refund,2,4,09-11-2025
+55,Wrong item sent,Full refund,1,1,12-08-2025
+56,Lost in transit,Customer credit,2,3,07-10-2025
+57,Failed address verification,Partial refund,2,1,25-10-2025
+58,Failed address verification,Full refund,1,5,29-05-2025
+59,Parcel damaged,Full refund,2,7,29-07-2025
+60,Transit issue,Full refund,5,7,02-11-2025
+61,Parcel damaged,Reshipment,1,1,29-08-2025
+62,Parcel damaged,Full refund,5,4,21-06-2025
+63,Wrong item sent,Full refund,3,1,01-06-2025
+64,Wrong item sent,Partial refund,3,6,06-09-2025
+65,Transit issue,Partial refund,6,3,05-09-2025
+66,Wrong item sent,Customer credit,1,6,19-07-2025
+67,Lost in transit,Partial refund,5,7,13-10-2025
+68,Parcel damaged,Cancelled order,1,6,26-06-2025
+69,Transit issue,Full refund,2,4,24-05-2025
+70,Failed address verification,Cancelled order,4,3,28-05-2025
+71,Lost in transit,Partial refund,5,7,22-07-2025
+72,Failed address verification,Cancelled order,2,4,10-08-2025
+73,Wrong item sent,Full refund,3,4,03-10-2025
+74,User account issue,Full refund,2,3,07-10-2025
+75,Lost in transit,Customer credit,6,4,09-06-2025
+76,User account issue,Customer credit,1,4,31-08-2025
+77,Failed address verification,Cancelled order,4,4,19-09-2025
+78,Transit issue,Cancelled order,4,3,01-06-2025
+79,Lost in transit,Customer credit,5,7,22-08-2025
+80,Wrong item sent,Customer credit,5,2,09-06-2025
+81,Wrong item sent,Cancelled order,3,6,06-10-2025
+82,Parcel damaged,Full refund,4,7,29-10-2025
+83,Transit issue,Partial refund,6,5,24-08-2025
+84,User account issue,Customer credit,6,4,22-10-2025
+85,Lost in transit,Reshipment,2,2,22-10-2025
+86,Failed address verification,Full refund,1,6,23-09-2025
+87,Failed address verification,Cancelled order,5,3,08-07-2025
+88,Transit issue,Partial refund,4,2,19-08-2025
+89,User account issue,Reshipment,3,2,09-06-2025
+90,Transit issue,Full refund,6,4,03-06-2025
+91,User account issue,Full refund,5,1,16-06-2025
+92,Lost in transit,Cancelled order,3,7,10-10-2025
+93,Failed address verification,Partial refund,2,4,01-09-2025
+94,User account issue,Customer credit,5,7,01-09-2025
+95,Lost in transit,Reshipment,5,5,29-07-2025
+96,Lost in transit,Partial refund,2,1,28-06-2025
+97,Parcel damaged,Full refund,2,1,04-09-2025
+98,Lost in transit,Full refund,5,4,17-10-2025
+99,Lost in transit,Full refund,4,4,28-10-2025
+100,Parcel damaged,Customer credit,6,5,06-10-2025
+101,Lost in transit,Partial refund,5,1,05-10-2025
+102,Failed address verification,Full refund,2,7,26-06-2025
+103,Wrong item sent,Cancelled order,3,3,04-06-2025
+104,Lost in transit,Reshipment,2,2,15-10-2025
+105,Lost in transit,Full refund,3,1,25-05-2025
+106,Parcel damaged,Full refund,5,4,27-09-2025
+107,Transit issue,Full refund,5,1,23-06-2025
+108,User account issue,Partial refund,1,3,31-05-2025
+109,Failed address verification,Full refund,6,3,17-07-2025
+110,Wrong item sent,Cancelled order,1,2,12-09-2025
+111,Parcel damaged,Customer credit,1,6,29-05-2025
+112,Wrong item sent,Partial refund,4,7,05-06-2025
+113,Parcel damaged,Reshipment,2,3,02-09-2025
+114,User account issue,Cancelled order,3,6,31-10-2025
+115,Wrong item sent,Reshipment,1,4,02-10-2025
+116,User account issue,Partial refund,2,4,27-05-2025
+117,User account issue,Full refund,3,6,04-06-2025
+118,Parcel damaged,Reshipment,5,7,23-05-2025
+119,Failed address verification,Partial refund,3,6,03-06-2025
+120,Wrong item sent,Partial refund,4,7,24-06-2025
+121,Parcel damaged,Full refund,6,7,16-06-2025
+122,Wrong item sent,Customer credit,1,7,27-09-2025
+123,Wrong item sent,Full refund,1,7,13-07-2025
+124,User account issue,Cancelled order,3,4,19-09-2025
+125,Transit issue,Reshipment,6,2,08-07-2025
+126,Transit issue,Cancelled order,4,4,25-07-2025
+127,Wrong item sent,Full refund,1,2,30-09-2025
+128,Wrong item sent,Customer credit,3,7,13-09-2025
+129,Failed address verification,Cancelled order,2,6,23-10-2025
+130,Transit issue,Full refund,5,2,17-06-2025
+131,Lost in transit,Reshipment,6,6,22-08-2025
+132,Parcel damaged,Reshipment,2,5,25-07-2025
+133,Lost in transit,Partial refund,5,3,07-09-2025
+134,Wrong item sent,Full refund,5,5,24-07-2025
+135,Lost in transit,Full refund,2,6,13-06-2025
+136,Wrong item sent,Partial refund,3,2,16-09-2025
+137,Wrong item sent,Full refund,5,6,29-07-2025
+138,Lost in transit,Reshipment,3,3,16-08-2025
+139,User account issue,Customer credit,1,7,04-07-2025
+140,Parcel damaged,Customer credit,4,1,29-08-2025
+141,Failed address verification,Cancelled order,6,7,29-05-2025
+142,User account issue,Customer credit,5,3,28-08-2025
+143,User account issue,Partial refund,3,4,16-09-2025
+144,User account issue,Cancelled order,4,2,14-09-2025
+145,User account issue,Customer credit,5,4,01-07-2025
+146,Wrong item sent,Reshipment,1,1,30-10-2025
+147,Lost in transit,Reshipment,5,1,11-07-2025
+148,Parcel damaged,Cancelled order,5,5,13-07-2025
+149,Transit issue,Full refund,1,5,05-11-2025
+150,Parcel damaged,Customer credit,5,5,24-05-2025
+151,Wrong item sent,Cancelled order,6,4,14-11-2025
+152,Transit issue,Cancelled order,6,6,05-11-2025
+153,Failed address verification,Cancelled order,3,2,12-09-2025
+154,Parcel damaged,Customer credit,5,2,24-08-2025
+155,Failed address verification,Customer credit,1,3,30-10-2025
+156,Lost in transit,Partial refund,6,6,18-07-2025
+157,Failed address verification,Full refund,1,4,10-10-2025
+158,Failed address verification,Full refund,4,6,13-08-2025
+159,Wrong item sent,Cancelled order,2,3,03-10-2025
+160,Parcel damaged,Reshipment,4,5,09-07-2025
+161,Parcel damaged,Cancelled order,1,2,08-10-2025
+162,Parcel damaged,Cancelled order,1,4,26-09-2025
+163,Parcel damaged,Full refund,2,5,18-09-2025
+164,Transit issue,Customer credit,4,1,13-08-2025
+165,Lost in transit,Customer credit,6,7,21-06-2025
+166,Wrong item sent,Cancelled order,3,2,11-06-2025
+167,Transit issue,Partial refund,3,7,02-11-2025
+168,User account issue,Customer credit,3,4,22-05-2025
+169,User account issue,Reshipment,2,1,19-06-2025
+170,User account issue,Customer credit,3,1,30-07-2025
+171,Wrong item sent,Partial refund,5,7,26-08-2025
+172,Parcel damaged,Full refund,4,7,03-10-2025
+173,Failed address verification,Full refund,3,4,09-10-2025
+174,Lost in transit,Cancelled order,6,1,20-06-2025
+175,Lost in transit,Customer credit,4,3,21-09-2025
+176,Failed address verification,Customer credit,4,6,22-08-2025
+177,User account issue,Reshipment,3,4,03-06-2025
+178,Failed address verification,Cancelled order,4,3,14-11-2025
+179,Lost in transit,Reshipment,2,6,13-10-2025
+180,Wrong item sent,Partial refund,4,6,13-07-2025
+181,Failed address verification,Cancelled order,5,1,28-05-2025
+182,Lost in transit,Reshipment,6,4,09-11-2025
+183,Parcel damaged,Customer credit,6,5,06-11-2025
+184,User account issue,Cancelled order,4,4,10-10-2025
+185,User account issue,Cancelled order,5,4,30-09-2025
+186,Transit issue,Partial refund,2,7,07-06-2025
+187,Lost in transit,Partial refund,5,1,21-09-2025
+188,Lost in transit,Full refund,5,1,14-11-2025
+189,User account issue,Full refund,1,3,28-07-2025
+190,Wrong item sent,Customer credit,5,1,29-07-2025
+191,Wrong item sent,Full refund,6,2,09-11-2025
+192,Parcel damaged,Full refund,3,6,03-09-2025
+193,Parcel damaged,Partial refund,5,3,11-08-2025
+194,Transit issue,Partial refund,3,1,16-10-2025
+195,Transit issue,Full refund,3,3,02-06-2025
+196,User account issue,Partial refund,4,6,21-09-2025
+197,Parcel damaged,Customer credit,2,4,06-09-2025
+198,Parcel damaged,Reshipment,2,6,23-09-2025
+199,Lost in transit,Customer credit,3,6,31-08-2025
+200,Parcel damaged,Reshipment,1,2,07-11-2025
+201,Parcel damaged,Cancelled order,4,7,18-07-2025
+202,Parcel damaged,Reshipment,4,1,18-06-2025
+203,Lost in transit,Customer credit,4,3,03-11-2025
+204,Wrong item sent,Reshipment,2,4,24-05-2025
+205,Failed address verification,Cancelled order,2,4,03-08-2025
+206,Transit issue,Reshipment,3,6,23-05-2025
+207,Transit issue,Partial refund,2,4,12-10-2025
+208,Parcel damaged,Customer credit,3,1,03-06-2025
+209,Lost in transit,Customer credit,5,7,02-06-2025
+210,Wrong item sent,Reshipment,1,6,22-06-2025
+211,Failed address verification,Reshipment,1,2,08-11-2025
+212,Lost in transit,Cancelled order,5,5,13-06-2025
+213,Lost in transit,Cancelled order,1,7,06-09-2025
+214,Wrong item sent,Reshipment,1,2,23-08-2025
+215,Transit issue,Cancelled order,4,4,05-06-2025
+216,User account issue,Partial refund,3,1,29-09-2025
+217,User account issue,Cancelled order,1,6,30-06-2025
+218,Parcel damaged,Full refund,4,6,14-09-2025
+219,Failed address verification,Cancelled order,6,4,06-08-2025
+220,Parcel damaged,Customer credit,3,4,29-07-2025
+221,Failed address verification,Cancelled order,5,1,20-05-2025
+222,Transit issue,Full refund,2,5,31-05-2025
+223,Lost in transit,Partial refund,1,6,03-06-2025
+224,Parcel damaged,Customer credit,6,7,31-08-2025
+225,Lost in transit,Reshipment,6,4,25-09-2025
+226,User account issue,Partial refund,4,2,28-05-2025
+227,Wrong item sent,Cancelled order,4,3,12-07-2025
+228,Wrong item sent,Customer credit,3,7,15-08-2025
+229,Failed address verification,Reshipment,6,6,28-07-2025
+230,Failed address verification,Cancelled order,6,7,11-06-2025
+231,Lost in transit,Reshipment,4,5,30-10-2025
+232,Lost in transit,Partial refund,1,2,18-08-2025
+233,Parcel damaged,Partial refund,4,2,27-10-2025
+234,Lost in transit,Full refund,4,4,10-06-2025
+235,Lost in transit,Full refund,3,7,08-08-2025
+236,Wrong item sent,Cancelled order,4,7,22-06-2025
+237,Parcel damaged,Cancelled order,2,3,30-07-2025
+238,Parcel damaged,Cancelled order,5,7,08-10-2025
+239,Lost in transit,Partial refund,3,2,30-06-2025
+240,Lost in transit,Full refund,3,1,26-07-2025
+241,Lost in transit,Reshipment,6,3,13-11-2025
+242,Transit issue,Customer credit,5,2,03-08-2025
+243,Failed address verification,Customer credit,6,6,11-06-2025
+244,Parcel damaged,Reshipment,4,4,17-08-2025
+245,User account issue,Reshipment,3,5,05-07-2025
+246,Wrong item sent,Customer credit,4,3,27-06-2025
+247,Transit issue,Customer credit,1,1,07-08-2025
+248,Lost in transit,Customer credit,2,1,25-08-2025
+249,Wrong item sent,Full refund,2,2,28-05-2025
+250,User account issue,Full refund,3,7,12-06-2025
+251,Lost in transit,Reshipment,6,7,24-10-2025
+252,User account issue,Customer credit,3,5,04-11-2025
+253,User account issue,Reshipment,2,5,25-05-2025
+254,Transit issue,Cancelled order,4,7,06-11-2025
+255,Lost in transit,Cancelled order,1,5,24-08-2025
+256,Lost in transit,Cancelled order,2,2,20-05-2025
+257,Parcel damaged,Partial refund,5,1,02-06-2025
+258,Parcel damaged,Full refund,2,1,26-05-2025
+259,Lost in transit,Reshipment,3,5,21-08-2025
+260,User account issue,Partial refund,1,5,30-06-2025
+261,Failed address verification,Cancelled order,5,5,03-11-2025
+262,Parcel damaged,Full refund,1,2,22-08-2025
+263,Parcel damaged,Customer credit,3,2,27-07-2025
+264,Transit issue,Customer credit,4,4,01-10-2025
+265,Wrong item sent,Reshipment,1,4,03-07-2025
+266,User account issue,Full refund,2,1,16-10-2025
+267,Transit issue,Reshipment,5,4,16-10-2025
+268,Failed address verification,Partial refund,3,5,15-06-2025
+269,User account issue,Partial refund,4,6,17-08-2025
+270,Lost in transit,Reshipment,4,7,29-07-2025
+271,Failed address verification,Partial refund,3,2,19-09-2025
+272,Lost in transit,Cancelled order,6,5,22-10-2025
+273,Failed address verification,Full refund,2,3,13-11-2025
+274,Parcel damaged,Partial refund,6,7,13-07-2025
+275,Lost in transit,Full refund,6,3,05-06-2025
+276,User account issue,Reshipment,3,7,26-05-2025
+277,Wrong item sent,Full refund,5,6,19-06-2025
+278,Failed address verification,Cancelled order,4,3,03-06-2025
+279,Wrong item sent,Cancelled order,1,1,02-10-2025
+280,Failed address verification,Partial refund,6,1,11-11-2025
+281,Transit issue,Cancelled order,3,6,09-07-2025
+282,Transit issue,Cancelled order,6,3,14-07-2025
+283,Transit issue,Reshipment,6,6,25-07-2025
+284,Transit issue,Partial refund,1,4,17-10-2025
+285,Transit issue,Cancelled order,5,2,22-05-2025
+286,Wrong item sent,Full refund,3,3,22-08-2025
+287,Wrong item sent,Customer credit,5,5,29-06-2025
+288,Lost in transit,Full refund,1,2,05-11-2025
+289,Lost in transit,Customer credit,5,7,30-07-2025
+290,User account issue,Full refund,4,6,07-11-2025
+291,Transit issue,Cancelled order,4,2,24-07-2025
+292,Failed address verification,Full refund,3,2,16-08-2025
+293,Parcel damaged,Reshipment,1,2,01-08-2025
+294,Transit issue,Reshipment,1,7,27-10-2025
+295,Transit issue,Full refund,3,4,23-09-2025
+296,Failed address verification,Customer credit,2,2,10-06-2025
+297,Failed address verification,Reshipment,2,2,11-06-2025
+298,Wrong item sent,Full refund,4,2,20-06-2025
+299,Parcel damaged,Reshipment,4,4,21-05-2025

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<span style="color: rgb(200, 200, 200)">Contact</span> <span style="color: rgb(137, 218, 250)">Us</span>
+{% endblock %}
+
+{% block style %}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px) }
+    to { opacity: 1; transform: translateY(0px) }
+}
+
+#main {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    background: #ffffff;
+    margin-top: 4rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    width: 85%;
+    max-width: 1000px;
+    padding: 3rem;
+    text-align: center;
+    animation: fadeIn 0.8s ease;
+}
+{% endblock %}
+
+{% block content %}
+<div id="main">
+    <h1>Example text</h1>
+    <h2>Smaller example text</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+{% endblock %}

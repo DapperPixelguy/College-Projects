@@ -22,21 +22,6 @@
       cursor: pointer;
       }
 
-      #titlecontainer {
-          position: relative;
-          text-align: center;
-          font-size: 5vh;
-          height: 10%;
-          width: 80%;
-          margin: auto;
-          line-height: 10%;
-          border-left: #545454 2px solid;
-          border-top: #545454 2px solid;
-          border-bottom: #000000 2px solid;
-          border-right: #000000 2px solid;
-          margin-bottom: 1em;
-      }
-
       #top {
         position: fixed;
         /*filter: drop-shadow(0 0 1em grey);*/
@@ -65,7 +50,6 @@
         margin-left: 3em;
         justify-self: start;
         filter: drop-shadow(0 0 3px black)
-
       }
 
       #header #title {
@@ -78,7 +62,21 @@
       .accountbox {
         justify-self: end;
         margin-right: 3em;
-        positon: relative;
+        position: relative;
+      }
+
+      @keyframes gradient_text {
+          to {background-position: -100%}
+      }
+
+      #access_name {
+          font-weight: bold;
+          --color-one: #1626FF;
+          --color-two: #000000;
+          background: linear-gradient(to right, var(--color-one) 0%, var(--color-two) 50%, var(--color-one) 100%) 100%/200%;
+          color: transparent;
+          background-clip: text;
+          animation: gradient_text 5s infinite linear;
       }
 
       img.account {
@@ -87,26 +85,25 @@
       }
 
       #accountdropdown {
-        position: absolute;
-        width:8em;
-        max-height: 0;
-        transition: max-height 0.8s, opacity 0.2s 0.6s;
-        background: #FFFFFF;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        border-radius: 5px;
-        transform: translateX(80%);
-        opacity: 0;
-        pointer-events: none;
-        overflow: hidden;
-        border: 1px rgba(10,10,10, .1) solid;
+          position: absolute;
+          right: 0;
+          width: 8em;
+          transition: opacity 0.6s, transform 0.6s;
+          background: #FFFFFF;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+          border-radius: 5px;
+          transform: translateY(-10px);
+          opacity: 0;
+          pointer-events: none;
+          overflow: hidden;
+          border: 1px rgba(10,10,10, .1) solid;
       }
 
       #accountdropdown.visible {
         opacity: 1;
-        max-height: 10em;
         pointer-events: auto;
-        transition: max-height 0.8s;
         overflow: hidden;
+          transform: translateY(0);
       }
 
       #accountdropcontainer {
@@ -147,13 +144,13 @@
             background: rgba(79, 135, 219, 1);
             border: rgba(79, 135, 219, 1) 5px solid;
             justify-content: space-around;
-            align-content: left;
+            align-content: flex-start;
             gap: 5px;
         }
 
         #navbar a {
             background: rgba(89, 145, 229, 1);
-            font-family: "Courier New";
+            font-family: "Roboto", sans-serif;
             text-decoration: None;
             color: white;
             padding: 10px;

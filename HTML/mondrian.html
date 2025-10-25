@@ -1,5 +1,3 @@
-<!DOCTYPE HTML>
-<HTML>
 <style>
     .mondrianholder {
         display: flex;
@@ -7,10 +5,14 @@
         gap: 2rem;
         justify-content: center;
         align-items: flex-start;
+        flex-wrap: wrap;
+
+
     }
 
-    .mondrian1, .mondrian2 {
+    .mondrian1, .mondrian2, .mondrian3 {
         filter: drop-shadow(15px 15px 2px gray);
+        max-width: 40%;
         }
     .mondrian1 {
         display: grid;
@@ -21,10 +23,11 @@
         "box3 box2 box2"
         "box4 box5 box6"
         "box4 box5 box7";
-        height: 80vh;
-        width: 80vw;
+        width: 100%;
+        flex: 0 0 auto;
+        aspect-ratio: 1;
+        max-width: 50%;
     }
-
 
     #mond1box1 {grid-area: box1; background: LemonChiffon; border-right: black 5px solid; border-bottom: black 5px solid; }
 
@@ -49,8 +52,8 @@
         "box3 box4"
         "box3 box6"
         "box5 box6";
-        height: 80vh;
-        width: 80vw;
+        width: 100%;
+        aspect-ratio: 2/3;
     }
 
     #mond2box1 { grid-area: box1; background: yellow; border-bottom: black 3.5px solid; border-right: black 3.5px solid }
@@ -65,7 +68,49 @@
 
     #mond2box6 { grid-area: box6; border-left: black 3.5px solid; border-top: black 3.5px solid; background: #FAF9F6; }
 
+    .mondrian3{
+        display: grid;
+        grid-template-columns: 1fr 0.4fr 0.3fr 1fr 0.2fr 0.7fr 1fr;
+        grid-template-rows: 0.5fr 0.3fr 2fr 1.1fr 0.2fr 0.3fr;
+        grid-template-areas:
+        "box1 box1 box2 box2 box2 box2 box3"
+        "box1 box1 box6 box6 box6 box7 box3"
+        "box4 box5 box6 box6 box6 box7 box3"
+        "box4 box8 box8 box9 box9 box9 box3"
+        "box4 box8 box8 box11 box11 box12 box12"
+        "box10 box10 box10 box11 box11 box12 box12";
+        width: 100%;
+        aspect-ratio: 4/3;
+
+    }
+
+    #mond3box1 { grid-area: box1; background: #000060; border-right: black 5px solid; border-bottom: black 5px solid; }
+
+    #mond3box2 { grid-area: box2; background: red; border-left: black 5px solid; border-bottom: black 5px solid; border-right: black 5px solid; }
+
+    #mond3box3 { grid-area: box3; background: white; border-left: black 5px solid; border-bottom: black 5px solid }
+
+    #mond3box4 { grid-area: box4; background: white; border-bottom: black 5px solid; border-top: black 5px solid; border-right: black 5px solid }
+
+    #mond3box5 { grid-area: box5; background: white; border-left: black 5px solid; border-top: black 5px solid; border-right: black 5px solid; border-bottom: black 5px solid; }
+
+    #mond3box6 { grid-area: box6; background: yellow; border-left: black 5px solid; border-right: black 5px solid; border-top: black 5px solid; border-bottom: black 5px solid; }
+
+    #mond3box7 { grid-area: box7; background: white; border-right: black 5px solid; border-left: black 5px solid; border-top: black 5px solid; border-bottom: black 5px solid; }
+
+    #mond3box8 { grid-area: box8; background: #000060; border-top: black 5px solid; border-right: black 5px solid; border-left: black 5px solid; border-bottom: black 5px solid; }
+
+    #mond3box9 { grid-area: box9; background: red; border-top: black 5px solid; border-right: black 5px solid; border-left: black 5px solid; border-bottom: black 5px solid; }
+
+    #mond3box10 { grid-area: box10; background: yellow; border-top: black 5px solid; border-right: black 5px solid}
+
+    #mond3box11 { grid-area: box11; background: white; border-left: black 5px solid; border-top: black 5px solid; border-right: black 5px solid; }
+
+    #mond3box12 { grid-area: box12; background: #000060; border-top: black 5px solid; border-left: black 5px solid}
+
 </style>
+<!DOCTYPE HTML>
+<HTML>
 <head>
     </head>
     <body>
@@ -86,6 +131,20 @@
                 <div id="mond2box4"></div>
                 <div id="mond2box5"></div>
                 <div id="mond2box6"></div>
+            </div>
+            <div class="mondrian3">
+                <div id="mond3box1"></div>
+                <div id="mond3box2"></div>
+                <div id="mond3box3"></div>
+                <div id="mond3box4"></div>
+                <div id="mond3box5"></div>
+                <div id="mond3box6"></div>
+                <div id="mond3box7"></div>
+                <div id="mond3box8"></div>
+                <div id="mond3box9"></div>
+                <div id="mond3box10"></div>
+                <div id="mond3box11"></div>
+                <div id="mond3box12"></div>
             </div>
         </div>
 

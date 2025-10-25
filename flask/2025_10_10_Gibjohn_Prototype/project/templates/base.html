@@ -22,13 +22,17 @@
                 {% if current_user.is_authenticated %}
                 <div class="accountbox">
                     <div style="display: flex; flex-direction: row; align-items: center; gap: 1em;">
-                        <p style="font-size: 1.2em">Welcome, <span id="access_name">{{ current_user.access_name }}</span> <span style="color: rgba(89, 145, 229, 1); font-weight: bold;">{{ current_user.name }}</span>!</p>
+                        <p style="font-size: 1.2em">Welcome,
+                            {% if current_user.accessLevel >0 %}
+                            <span id="access_name">{{ current_user.access_name }} </span>
+                            {% endif %}
+                            <span style="color: rgba(89, 145, 229, 1); font-weight: bold;">{{ current_user.name }}</span>!</p>
                         <a class="account"><img class="account" src="{{ url_for('uploaded_file', filename=current_user.picture)}}" title="Profile Options"></a>
                     </div>
                 <div id="accountdropdown">
                     <div id="accountdropcontainer">
                         <a href="{{url_for('main.profile')}}">Profile</a>
-                        {% if current_user.accessLevel >= 2 %}
+                        {% if current_user.accessLevel >= 1 %}
                         <a href="{{url_for('main.admin')}}">Admin</a>
                         {%endif%}
                         <a href="{{url_for('auth.logout')}}">Logout</a>
@@ -56,17 +60,23 @@
     <script>
         let account = document.querySelector('.account')
         let dropdown = document.getElementById('accountdropdown')
+        let hisarrival
 
         account.addEventListener('click', () => {
             dropdown.classList.toggle('visible')
         })
 
         function tro() {
-            document.getElementById('logo').src = 'static/trollface_shatter.gif'
+            hisarrival = setTimeout(()=>{
+                document.getElementById('logo').src = 'static/trollface_shatter.gif'
+            }, 2000)
+
+
         }
 
         function untro() {
             document.getElementById('logo').src = 'static/gibjohn_logo.png'
+            clearTimeout(hisarrival)
         }
     </script>
 
