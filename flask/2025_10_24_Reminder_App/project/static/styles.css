@@ -2,6 +2,7 @@ body{
     font-family: Roboto, sans-serif;
     background: blue;
     margin: 0;
+    cursor: url(https://www.rw-designer.com/cursor-extern.php?id=149913), auto
 }
 
 @keyframes beauty{
@@ -34,7 +35,7 @@ nav li {
     padding: 10px 30px;
     box-sizing: border-box;
     user-select: none;
-    cursor: pointer;
+    cursor: url(https://www.rw-designer.com/cursor-extern.php?id=173412), auto;
 }
 
 nav.left {
@@ -54,7 +55,7 @@ nav.right {
 
 .photoframe{
     position: absolute;
-    z-index: 420;
+    z-index: 1;
     width: 44em;
     height: 80em;
 }
@@ -65,15 +66,29 @@ video {
     top: 19em;
 }
 
+#video-top {
+    position: absolute;
+    background: transparent;
+    top: 19em;
+    width: 29em;
+    height: 51em;
+    border-radius: 100%;
+    z-index: 2;
+}
+
 #music.active {
     background: green;
 }
 
-#splat-btn {
+.squish {
     transition: transform 0.2s;
 }
 
-#splat-btn:active {
+.squish.active{
     background: green;
     transform: scale(1.1)
+}
+
+.pointer {
+    cursor: url(https://www.rw-designer.com/cursor-extern.php?id=173412), auto;
 }
