@@ -23,15 +23,26 @@ Home
     <source src="static/Sneaky-Snitch(chosic.com).mp3" type="audio/mp3">
 </audio>
 
+<audio id="splat">
+    <source src="static/splat.mp3" type="audio/mp3">
+</audio>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         let video = document.querySelector('video')
         let audio = document.querySelector('audio')
+        let splatButton = document.getElementById('splat-btn')
+        let splat = document.getElementById('splat')
+        let musicButton = document.getElementById('music')
         const neonColors = ['#FF00FF', '#00FFFF', '#FFFF00', '#FF1493', '#39FF14', '#FF4500', '#00FF7F', '#FF69B4', '#7FFF00', '#FF00AA'];
         video.muted = true
         video.playsInline = true
 
-
+        splatButton.addEventListener('click', () => {
+            console.log('Clicked splat')
+            splat.currentTime = 0
+            splat.play()
+        })
 
         if (video) {
             video.play().catch(()=>{
@@ -40,16 +51,16 @@ Home
             })
         }
 
-        if (audio) {
-            audio.play().catch(()=>{
-                console.log('Audio autoplay prevented, waiting for user interaction.')
-                document.addEventListener('touchend', () => audio.play(), {once: true})
-                document.addEventListener('click', () => audio.play(), {once: true})
-            })
-        }
 
         document.getElementById('music').addEventListener('click', ()=>{
-            document.querySelector('audio').play()
+            if (audio.paused) {
+                audio.play()
+                console.log('Music clicked')
+            }
+            else {
+                audio.pause()
+                console.log('Audio paused')
+            }
         })
 
         setInterval(() => {
