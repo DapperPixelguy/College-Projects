@@ -2,15 +2,16 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+        <link rel="icon" href="static/icon.png">
         <title>{% block title %}{%endblock%} - Reminders</title>
     </head>
     <body>
         <nav>
             <div class="left"></div>
             <ul class="mid">
-                <li id="music"><a>Option 1</a></li>
-                <li id="splat-btn"><a>Option 2</a></li>
-                <li><a>Option 3</a></li>
+                <li id="music" class="squish"><a>Option 1</a></li>
+                <li id="splat-btn" class="squish"><a>Option 2</a></li>
+                <li><a class="squish">Option 3</a></li>
             </ul>
             <div class="right"></div>
         </nav>
