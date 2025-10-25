@@ -10,7 +10,7 @@ body{
 }
 
 nav {
-    background: linear-gradient(90deg,#400000, #81008d 50%, #00ff00 100%) 100%/200%;
+    background: linear-gradient(90deg,#9f5208, #fd30fe 50%, #1dd420 100%) 100%/200%;
     height: 5em;
     width: 100%;
     margin: 0;
@@ -33,6 +33,8 @@ nav li {
     border-radius: 5px;
     padding: 10px 30px;
     box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
 }
 
 nav.left {
@@ -61,4 +63,17 @@ video {
     border-radius: 100em;
     position: relative;
     top: 19em;
+}
+
+#music.active {
+    background: green;
+}
+
+#splat-btn {
+    transition: transform 0.2s;
+}
+
+#splat-btn:active {
+    background: green;
+    transform: scale(1.1)
 }
