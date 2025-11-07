@@ -14,24 +14,42 @@ Home
 {% endif %}
 {% endwith %}
 <div class="stupid">
-<img alt='beautiful photo frame' src="static/frame.png" class="photoframe">
-<video autoplay loop muted playsinline>
-    <source src="static/phone.mp4" type="video/mp4">
-</video>
+    <img alt='beautiful photo frame' src="static/frame.png" class="photoframe" id="photoframe">
+    <video autoplay loop muted playsinline>
+        <source src="static/phone.mp4" type="video/mp4">
+    </video>
+    <div id="video-top" class="pointer">
+        <p>e</p>
+    </div>
 </div>
 <audio loop>
     <source src="static/Sneaky-Snitch(chosic.com).mp3" type="audio/mp3">
 </audio>
 
+<audio id="splat">
+    <source src="static/splat.mp3" type="audio/mp3">
+</audio>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        let video = document.querySelector('video')
+        const video = document.querySelector('video')
         let audio = document.querySelector('audio')
+        let splatButton = document.getElementById('splat-btn')
+        let splat = document.getElementById('splat')
+        let musicButton = document.getElementById('music')
+        let splatTimeout
         const neonColors = ['#FF00FF', '#00FFFF', '#FFFF00', '#FF1493', '#39FF14', '#FF4500', '#00FF7F', '#FF69B4', '#7FFF00', '#FF00AA'];
         video.muted = true
         video.playsInline = true
 
-
+        splatButton.addEventListener('click', () => {
+            clearTimeout(splatTimeout)
+            console.log('Clicked splat')
+            splat.currentTime = 0
+            splat.play()
+            splatButton.classList.add('active')
+            splatTimeout = setTimeout(()=> splatButton.classList.remove('active'), 600)
+        })
 
         if (video) {
             video.play().catch(()=>{
@@ -40,21 +58,27 @@ Home
             })
         }
 
-        if (audio) {
-            audio.play().catch(()=>{
-                console.log('Audio autoplay prevented, waiting for user interaction.')
-                document.addEventListener('touchend', () => audio.play(), {once: true})
-                document.addEventListener('click', () => audio.play(), {once: true})
-            })
-        }
 
         document.getElementById('music').addEventListener('click', ()=>{
-            document.querySelector('audio').play()
+            if (audio.paused) {
+                audio.play()
+                console.log('Music clicked')
+                musicButton.classList.toggle('active')
+            }
+            else {
+                audio.pause()
+                console.log('Audio paused')
+                musicButton.classList.toggle('active')
+            }
         })
 
         setInterval(() => {
-            document.body.style.background = neonColors[Math.floor(Math.random()*neonColors.length)]}, 100);
-            })
+                document.body.style.background = neonColors[Math.floor(Math.random()*neonColors.length)]}, 100);
+
+        document.getElementById('video-top').addEventListener('click', ()=> video.muted = !video.muted)
+        })
+
+
 </script>
 {% endblock %}
 
