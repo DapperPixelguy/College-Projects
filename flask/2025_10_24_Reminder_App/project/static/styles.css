@@ -2,6 +2,7 @@ body{
     font-family: Roboto, sans-serif;
     background: blue;
     margin: 0;
+    cursor: url(https://www.rw-designer.com/cursor-extern.php?id=149913), auto
 }
 
 @keyframes beauty{
@@ -10,7 +11,7 @@ body{
 }
 
 nav {
-    background: linear-gradient(90deg,#400000, #81008d 50%, #00ff00 100%) 100%/200%;
+    background: linear-gradient(90deg,#9f5208, #fd30fe 50%, #1dd420 100%) 100%/200%;
     height: 5em;
     width: 100%;
     margin: 0;
@@ -33,6 +34,8 @@ nav li {
     border-radius: 5px;
     padding: 10px 30px;
     box-sizing: border-box;
+    user-select: none;
+    cursor: url(https://www.rw-designer.com/cursor-extern.php?id=173412), auto;
 }
 
 nav.left {
@@ -52,7 +55,7 @@ nav.right {
 
 .photoframe{
     position: absolute;
-    z-index: 420;
+    z-index: 1;
     width: 44em;
     height: 80em;
 }
@@ -61,4 +64,31 @@ video {
     border-radius: 100em;
     position: relative;
     top: 19em;
+}
+
+#video-top {
+    position: absolute;
+    background: transparent;
+    top: 19em;
+    width: 29em;
+    height: 51em;
+    border-radius: 100%;
+    z-index: 2;
+}
+
+#music.active {
+    background: green;
+}
+
+.squish {
+    transition: transform 0.2s;
+}
+
+.squish.active{
+    background: green;
+    transform: scale(1.1)
+}
+
+.pointer {
+    cursor: url(https://www.rw-designer.com/cursor-extern.php?id=173412), auto;
 }
