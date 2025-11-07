@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+    <head>
+        <title>{% block title %}{%endblock%} - Devon RFU Colts</title>
+        <link rel="icon" href="https://devonrfu.co.uk/wp-content/uploads/2025/03/devonrfu-logo.svg">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <!--Barlow Condensed for titles/large text-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <img src="https://devonrfu.co.uk/wp-content/uploads/2025/03/devonrfu-logo.svg" alt="Devon RFU logo" class="logo">
+            <h1 id='h1-title' class="barlow-condensed">{{ self.title().upper() }}</h1>
+        </header>
+        <nav id="nav">
+            <ul class="barlow-condensed">
+                <li id="fixtures"><a href="{{ url_for('main.fixtures') }}">FIXTURES</a></li>
+                <li><a>MALE GAME</a></li>
+                <li><a>OPTION 3</a></li>
+            </ul>
+        </nav>
+        <div id="img">
+            {% block content %}
+            {% endblock %}
+        </div>
+    <script>
+        const logo = document.querySelector('.logo')
+        const nav = document.getElementById('nav')
+
+        // Click on the logo to go to the home page
+        logo.addEventListener('click', () => {
+                window.location.href = '/'
+        })
+
+        //
+        function highlightNavSelection() {
+            let currentPage = document.title.split(' ')[0].toLowerCase()
+            nav.querySelector('ul').querySelectorAll('li').forEach( li => {
+                if (li.id === currentPage) {
+                    let current_a = li.querySelector('a')
+                    current_a.style.background = '#000000'
+                    current_a.style.color = 'rgb(255,255,255)'
+                    li.style.transform = 'scale(1.15)'
+                }
+            })
+        }
+        window.addEventListener('DOMContentLoaded', highlightNavSelection)
+    </script>
+    </body>
+</html>

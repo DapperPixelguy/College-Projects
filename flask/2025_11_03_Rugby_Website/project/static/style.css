@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url("fonts/proximanova_regular.ttf") format('truetype');
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Proxima Nova", sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 200vh;
+    background: rgb(39, 39, 39)
+}
+
+body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.barlow-condensed {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background: rgb(39,39,39);
+}
+
+header .logo {
+    padding-left: 1.5em;
+    height: 75%;
+    align-self: center;
+}
+
+header .logo:hover {
+    cursor: pointer;
+}
+
+header h1 {
+    font-size: 90px;
+    color: #EEEEEE;
+    position: relative;
+    top: -5px;
+}
+
+#img {
+    background: url("https://devonrfu.co.uk/wp-content/uploads/2022/06/drfu-homeslide.jpg") 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    background-size: cover;
+    padding-top: 1em;
+}
+
+nav {
+    top: 0;
+    position: sticky;
+    background: #00A75566;
+    margin-top: 0;
+    width: 100%;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px) brightness(3);
+    box-shadow: #00A75544 0 30px 60px;
+}
+
+.spacer {
+    width: 100%;
+    display: block;
+    background: white;
+}
+
+nav ul {
+    width: 100%;
+    margin: auto;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+nav ul li {
+    transition: transform 0.2s;
+    position: relative;
+}
+
+nav ul li a{
+    text-align: center;
+    background: #EEEEEE;
+    padding: 1rem 3rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: rgb(29, 29, 29);
+    font-size: 26px;
+    clip-path:  polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+    position: relative;
+}
+
+nav ul li::before {
+    top: -16px; left: 0; bottom: 0; right: 0;
+    background: black;
+    font-size: 26px;
+    height: 200%;
+    content: '';
+    position: absolute;
+    display: block;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); /* full li */
+    border-radius: 4px;
+}
+
+nav ul li:hover{
+    cursor: pointer;
+}
+
+nav ul li:hover:active {
+    transform: scale(1.15);
+}
+
+.content {
+    background: #EEEEEE;
+    width: 80%;
+    border-radius: 7px;
+    height: 60%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    color: rgb(29, 29, 29)
+}
