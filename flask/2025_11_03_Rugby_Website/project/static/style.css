@@ -91,6 +91,7 @@ nav ul {
 nav ul li {
     transition: transform 0.2s;
     position: relative;
+    display: flex;
 }
 
 nav ul li a{
@@ -101,28 +102,45 @@ nav ul li a{
     text-decoration: none;
     color: rgb(29, 29, 29);
     font-size: 26px;
-    clip-path:  polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
     position: relative;
 }
 
-nav ul li::before {
-    top: -16px; left: 0; bottom: 0; right: 0;
-    background: black;
-    font-size: 26px;
-    height: 200%;
+nav ul li a::before {
     content: '';
-    position: absolute;
-    display: block;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); /* full li */
+    clip-path: polygon(0 45px, 0 0, 45px 0); /* px might make more sense to use here */
+    /*clip-path: polygon(0 100%, 0 0, 30% 0);*/ /* <- Original */
     border-radius: 4px;
+    inset: 0;
+    position: absolute;
+    background: black;
+    transition: background 0.2s
 }
 
 nav ul li:hover{
     cursor: pointer;
 }
 
+nav ul li:hover a::before {
+    background: #00A755;
+}
+
 nav ul li:hover:active {
     transform: scale(1.15);
+}
+
+/* Style for the currently selected navbar page button */
+nav ul li.selected {
+    transform: scale(1.15);
+    cursor: auto;
+
+    & a {
+        background: #000000;
+        color: rgb(255, 255, 255);
+        pointer-events: none;
+    }
+    & a::before {
+       background: #EEEEEE;
+    }
 }
 
 .content {
