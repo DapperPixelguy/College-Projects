@@ -40,10 +40,7 @@
             let currentPage = document.title.split(' ')[0].toLowerCase()
             nav.querySelector('ul').querySelectorAll('li').forEach( li => {
                 if (li.id === currentPage) {
-                    let current_a = li.querySelector('a')
-                    current_a.style.background = '#000000'
-                    current_a.style.color = 'rgb(255,255,255)'
-                    li.style.transform = 'scale(1.15)'
+                    li.classList.add('selected')
                 }
             })
         }
