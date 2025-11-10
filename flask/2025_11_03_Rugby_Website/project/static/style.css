@@ -42,11 +42,32 @@ header .logo:hover {
 }
 
 header h1 {
-    font-size: 90px;
+    font-size: 5.6rem;
     color: #EEEEEE;
     position: relative;
     top: -5px;
 }
+
+header #header-profile {
+    position: relative;
+    justify-self: end;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+header #header-profile h4 {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+}
+
+header #profile-picture {
+    width: 5rem;
+    border-radius: 20px;
+    border: 2px #EEEEEE solid;
+}
+
 
 #img {
     background: url("https://devonrfu.co.uk/wp-content/uploads/2022/06/drfu-homeslide.jpg") 100%;
@@ -70,6 +91,7 @@ nav {
     align-items: center;
     backdrop-filter: blur(10px) brightness(3);
     box-shadow: #00A75544 0 30px 60px;
+    z-index: 1;
 }
 
 .spacer {
@@ -103,6 +125,7 @@ nav ul li a{
     color: rgb(29, 29, 29);
     font-size: 26px;
     position: relative;
+    box-shadow: 5px 5px 10px rgba(10, 10, 10, 0.2)
 }
 
 nav ul li a::before {
@@ -118,6 +141,11 @@ nav ul li a::before {
 
 nav ul li:hover{
     cursor: pointer;
+    transform: translateY(-0.2rem);
+
+    & a {
+        box-shadow: 5px calc(5px + 0.2rem) 15px rgba(10, 10, 10, 0.2);
+    }
 }
 
 nav ul li:hover a::before {
@@ -131,7 +159,6 @@ nav ul li:hover:active {
 /* Style for the currently selected navbar page button */
 nav ul li.selected {
     transform: scale(1.15);
-    cursor: auto;
 
     & a {
         background: #000000;
