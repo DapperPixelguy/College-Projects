@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<div id="login-form" class="floatUp" >
+    <h4 class="form-title barlow-condensed">LOG IN</h4>
+    <form name="login" id="login" method="POST" action="/login">
+        <div class="form-input-wrapper">
+            <input id='email' type="text" name='email' placeholder=" ">
+            <label for="email">Email</label>
+        </div>
+
+        <div class="form-input-wrapper">
+            <input id='password' type="password" name='password' placeholder=" ">
+            <label for="password">Password</label>
+        </div>
+
+        <div class="remember-wrapper">
+            <input id="remember" type="checkbox" name="remember">
+            <label for="remember">Remember me</label>
+        </div>
+
+        <input class='form-button barlow-condensed' type="submit" value="LOG IN">
+    </form>
+    <h5 id="signup-reminder">Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign Up</a></h5>
+</div>
+{% endblock %}
