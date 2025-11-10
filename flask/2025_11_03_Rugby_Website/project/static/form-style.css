@@ -1,0 +1,107 @@
+#login-form {
+    background: rgb(39, 39, 39);
+    height: 29rem;
+    width: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 2rem;
+    position: relative;
+    box-shadow: 5px 5px 20px rgba(10, 10, 10, 0.6);
+    /*border: 1px #EEEEEE44 solid;*/
+    border-radius: 7px;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 80%;
+    height: 80%;
+    padding-top: 1.5rem;
+    /*box-shadow: 0 0 10px rgba(10, 10, 10, .8);*/
+}
+
+.form-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    /*width: 100%;*/
+    align-items: center;
+    position: relative;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 20px rgba(100, 100, 100, 1);
+
+    & label {
+        position: absolute;
+        font-size: 1.3rem;
+        top: 10px;
+        left: 0;
+        padding-left: 0.8rem;
+        color: rgba(29, 29, 29, 0.8);
+        transition: transform 0.2s, font-size 0.2s;
+    }
+
+    & input:focus + label, input:not(:placeholder-shown) + label
+    {
+        transform: translate(-8px, -8px);
+        font-size: 0.8rem;
+    }
+    & input {
+        width: 20rem;
+        height: 3rem;
+        border-radius: 7px;
+        background: rgba(255,255,255,.8);
+        padding-left: calc(0.8rem - 10px);
+        font-size: 1.2rem;
+        border: 1px solid rgba(10,10,10,.4);
+    }
+}
+
+.form-title {
+    position: relative;
+    font-size: 3.5rem;
+    color: #FFFFFF;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form-button{
+    width: 8rem;
+    height: 3rem;
+    font-size: 2rem;
+    position: relative;
+    top: 2rem;
+    background: #EEEEEE;
+    border-radius: 7px;
+    border: none;
+    transition: all 0.2s;
+    box-shadow: 0 5px 20px rgba(10, 10, 10, 0.1);
+}
+
+.form-button:hover {
+    cursor: pointer;
+}
+
+.form-button:hover:active {
+    background: #00A755;
+    color: #FFFFFF;
+    transform: scale(1.1);
+}
+
+.remember-wrapper {
+    & #remember {
+        transform: scale(1.75);
+    }
+    & label {
+        color: #FFFFFF;
+        padding-left: 1rem;
+    }
+}
+
+#signup-reminder {
+    color: #FFFFFFAA;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
