@@ -5,6 +5,8 @@
         <title>{% block title %}{%endblock%} - Devon RFU Colts</title>
         <link rel="icon" href="https://devonrfu.co.uk/wp-content/uploads/2025/03/devonrfu-logo.svg">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='form-style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='animations.css') }}">
         <!--Barlow Condensed for titles/large text-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +16,19 @@
         <header>
             <img src="https://devonrfu.co.uk/wp-content/uploads/2025/03/devonrfu-logo.svg" alt="Devon RFU logo" class="logo">
             <h1 id='h1-title' class="barlow-condensed">{{ self.title().upper() }}</h1>
+            <div id="header-profile">
+                {% if current_user.is_authenticated %}
+                <h4 class="">Hi, Gabriel</h4>
+                {% endif %}
+                <a href="{{ url_for('auth.login') }}"><img src="{{ url_for('static', filename='blank_profile.png') }}" alt="Profile Picture" id="profile-picture"></a>
+            </div>
         </header>
         <nav id="nav">
             <ul class="barlow-condensed">
                 <li id="fixtures"><a href="{{ url_for('main.fixtures') }}">FIXTURES</a></li>
                 <li><a>MALE GAME</a></li>
-                <li><a>OPTION 3</a></li>
+                <li><a href="{{ url_for('main.league_table') }}">LEAGUE TABLE</a></li>
+                <li><a>ABOUT US</a></li>
             </ul>
         </nav>
         <div id="img">
