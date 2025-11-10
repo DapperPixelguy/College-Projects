@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from .models import Fixture
 
 main = Blueprint('main', __name__)
 
@@ -8,7 +9,7 @@ def index():
 
 @main.route('/fixtures')
 def fixtures():
-    return render_template('fixtures.html')
+    return render_template('fixtures.html', data=Fixture.query.all())
 
 @main.route('/league-table')
 def league_table():
