@@ -171,7 +171,8 @@ nav ul li.selected {
 }
 
 .content {
-    background: #EEEEEE;
+    display: flex;
+    flex-direction: column;
     width: 80%;
     border-radius: 7px;
     height: 60%;
