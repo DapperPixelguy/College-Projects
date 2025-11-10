@@ -10,3 +10,7 @@ def index():
 def fixtures():
     return render_template('fixtures.html')
 
+@main.route('/league-table')
+def league_table():
+    return 'leeg table'
+
