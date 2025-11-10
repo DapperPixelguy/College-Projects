@@ -37,7 +37,10 @@ def create_app():
     def four_oh_four_handler(e):
         return 'Error 404'
 
-    from .main import main as main_blueprint
-    app.register_blueprint(main_blueprint)
+    from .main import main
+    app.register_blueprint(main)
+
+    from .auth import auth
+    app.register_blueprint(auth)
 
     return app
