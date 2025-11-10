@@ -4,6 +4,10 @@
 Login
 {% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='form-style.css') }}">
+{% endblock %}
+
 {% block content %}
 <div id="login-form" class="floatUp" >
     <h4 class="form-title barlow-condensed">LOG IN</h4>
