@@ -4,6 +4,8 @@
     <head>
         <title>{% block title %}{%endblock%} - Devon RFU Colts</title>
         <link rel="icon" href="https://devonrfu.co.uk/wp-content/uploads/2025/03/devonrfu-logo.svg">
+        <link rel="preload" href="static/Placeholder_view_vector.svg" as="image">
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='animations.css') }}">
         <!--Barlow Condensed for titles/large text-->
@@ -33,13 +35,14 @@
                 <li><a>ABOUT US</a></li>
             </ul>
         </nav>
-        <div id="img">
+        <div id="img" class="fadeIn">
             {% block content %}
             {% endblock %}
         </div>
     <script>
         const logo = document.querySelector('.logo')
         const nav = document.getElementById('nav')
+        let logoCooldown
 
         // Click on the logo to go to the home page
         logo.addEventListener('click', () => {
@@ -56,6 +59,30 @@
             })
         }
         window.addEventListener('DOMContentLoaded', highlightNavSelection)
+
+        $('.logo').mouseover(logoSpin)
+
+        async function logoSpin() {
+            const duration = 600
+            if (!logoCooldown && (Math.random()*100 < 3)){
+
+                logoCooldown = true
+                console.log('Spin')
+                const animation = [
+                    {transform: "rotate(0) scale(1)"},
+                    {transform: "rotate(180deg) scale(0.5)", filter: 'blur(2px)'},
+                    {transform: "rotate(365deg) scale(1)"}
+                ]
+                logo.animate(animation, {
+                    easing: 'ease-in-out',
+                    duration: duration
+                } )
+                setTimeout(()=>logoCooldown=false, 10000)
+
+            }
+        }
     </script>
+    {% block script %}
+    {% endblock %}
     </body>
 </html>
