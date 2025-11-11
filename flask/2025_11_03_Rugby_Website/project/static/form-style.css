@@ -1,6 +1,6 @@
 #login-form {
     background: rgb(39, 39, 39);
-    height: 29rem;
+    padding-bottom: 5rem;
     width: 28rem;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,21 @@
     box-shadow: 5px 5px 20px rgba(10, 10, 10, 0.6);
     /*border: 1px #EEEEEE44 solid;*/
     border-radius: 7px;
+}
 
+#signup-form {
+    background: rgb(39, 39, 39);
+    padding-bottom: 5rem;
+    /*height: 29rem;*/
+    width: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 2rem;
+    position: relative;
+    box-shadow: 5px 5px 20px rgba(10, 10, 10, 0.6);
+    /*border: 1px #EEEEEE44 solid;*/
+    border-radius: 7px;
 }
 
 form {
@@ -102,6 +116,7 @@ form {
 
 #signup-reminder {
     color: #FFFFFFAA;
-    margin-bottom: 1rem;
+    position: relative;
+    top: 3.5rem;
     font-size: 0.9rem;
 }
