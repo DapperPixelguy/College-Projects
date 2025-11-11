@@ -4,10 +4,17 @@
 Fixtures
 {% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='fixtures.css') }}">
+{% endblock %}
+
 {% block content %}
-<div class="content floatUp">
+<div class="fixture-container floatUp">
 {% for item in data %}
-    <p>{{ item.team1 }}</p>
+    <div class="fixture floatUp">
+        <div class="fixture-line"><h4 style="justify-self: start">DATE</h4><p class='middle barlow-condensed' style="justify-self: center">@</p><h4 style="justify-self: end">VENUE</h4></div>
+        <div class="fixture-line"><h4>{{ item.team1 }}</h4> <p class="barlow-condensed middle" style="justify-self: center">VS</p><h4>{{ item.team2 }}</h4></div>
+    </div>
 {% endfor %}
 {#    <h5 style="width:60%">For generations, Devon RFU has been at the heart of the game, uniting clubs, players, and fans#}
 {#        across the county. We champion rugby at every level, from grassroots development to elite competition, fostering#}
