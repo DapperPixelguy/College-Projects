@@ -10,17 +10,85 @@ Fixtures
 
 {% block content %}
 <div class="fixture-container floatUp">
-{% for item in data %}
-    <div class="fixture floatUp">
-        <div class="fixture-line"><h4 style="justify-self: start">DATE</h4><p class='middle barlow-condensed' style="justify-self: center">@</p><h4 style="justify-self: end">VENUE</h4></div>
-        <div class="fixture-line"><h4>{{ item.team1 }}</h4> <p class="barlow-condensed middle" style="justify-self: center">VS</p><h4>{{ item.team2 }}</h4></div>
-    </div>
-{% endfor %}
+{#{% for item in data %}#}
+{#<div class="fixture-wrapper">#}
+{#    <div class="fixture-info barlow-condensed">#}
+{#        <p style="justify-self: end">{{ item.date }}</p>#}
+{#        <p>{{ item.time }}</p>#}
+{#        <p>{{ item.venue }}</p>#}
+{#    </div>#}
+{#    <div class="fixture floatUp">#}
+{#        <div class="team1">#}
+{#            <h4 class="barlow-condensed">{{ item.team1 }}</h4>#}
+{#            <img class="team1-logo" src="{{ url_for('static', filename='daom-rugby.svg') }}">#}
+{#        </div>#}
+{##}
+{#         <p class="middle barlow-condensed" style="justify-self: center">VS</p>#}
+{##}
+{#        <div class="team2">#}
+{#            <img class="team2-logo" src="{{ url_for('static', filename='england-rugby.svg') }}">#}
+{#            <h4 class="barlow-condensed" style="justify-self: end">{{ item.team2 }}</h4>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#{% endfor %}#}
 {#    <h5 style="width:60%">For generations, Devon RFU has been at the heart of the game, uniting clubs, players, and fans#}
 {#        across the county. We champion rugby at every level, from grassroots development to elite competition, fostering#}
 {#        a culture of teamwork, respect, and community spirit. Whether you’re playing, coaching, or supporting, you’re#}
 {#        part of something bigger.</h5>#}
 </div>
+{% endblock %}
 
+{% block script %}
+<script>
+function loadLogo(url, element) {
+        let img = new Image()
+        img.src=url
+        img.onload = () => {
+            element.src = url
+        }
+}
 
+async function buildFixtures() {
+    const response = await fetch('/fixtures/fetch')
+    const fixtures = await response.json()
+    const container = document.querySelector('.fixture-container')
+
+    fixtures.forEach((f) => {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('fixture-wrapper');
+
+        const info = document.createElement('div');
+        info.classList.add('fixture-info', 'barlow-condensed');
+        info.innerHTML = `
+            <p style="justify-self: end">${f.date}</p>
+            <p>${f.time}</p>
+            <p>${f.venue}</p>
+        `;
+
+        const fixture = document.createElement('div');
+        fixture.classList.add('fixture', 'floatUp');
+        fixture.innerHTML =
+            `<div class="team1">
+                <h4 class="barlow-condensed">${f.team1.name}</h4>
+                <img class="team1-logo" src="static/Placeholder_view_vector.svg">
+            </div>
+
+            <p class="middle barlow-condensed" style="justify-self: center">VS</p>
+
+            <div class="team2">
+                <img class="team2-logo" src="static/Placeholder_view_vector.svg">
+                <h4 class="barlow-condensed" style="justify-self: end">${f.team2.name}</h4>
+            </div>`;
+        wrapper.appendChild(info);
+        wrapper.appendChild(fixture);
+        container.appendChild(wrapper);
+        loadLogo(f.team1.logo, fixture.querySelector('.team1-logo'))
+        loadLogo(f.team2.logo, fixture.querySelector('.team2-logo'))
+    })
+}
+
+document.addEventListener('DOMContentLoaded', buildFixtures)
+
+</script>
 {% endblock %}
