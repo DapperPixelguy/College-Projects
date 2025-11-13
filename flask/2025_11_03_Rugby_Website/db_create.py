@@ -4,7 +4,7 @@ from project.models import Fixture, Team
 
 teams = [{'name': 'Norf fc', 'logo': '/static/england-rugby.svg'}, {'name': 'Souf fc', 'logo': '/static/daom-rugby.svg'}]
 
-testFixtures = [{'team1': 'Norf fc', 'team2': 'Souf fc', 'venue': 'Example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '12:00'},{'team1': 'Souf fc', 'team2': 'Norf fc', 'venue': 'Another example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '13:15'},{'team1': 'Norf fc', 'team2': 'Norf fc', 'venue': 'Final example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '00:01'}]
+testFixtures = [{'team1': 'Norf fc', 'team2': 'Souf fc', 'venue': 'Example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '12:00'},{'team1': 'Souf fc', 'team2': 'Norf fc', 'venue': 'Another example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '13:15'},{'team1': 'Norf fc', 'team2': 'Norf fc', 'venue': 'Final example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '00:01'},{'team1': 'Norf fc', 'team2': 'Souf fc', 'venue': 'Example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '12:00'},{'team1': 'Souf fc', 'team2': 'Norf fc', 'venue': 'Another example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '13:15'}]
 
 
 with create_app().app_context():
