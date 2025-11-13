@@ -112,7 +112,9 @@ nav ul {
 }
 
 nav ul li {
-    transition: transform 0.2s;
+    @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.2s;
+    }
     position: relative;
     display: flex;
 }
@@ -140,21 +142,26 @@ nav ul li a::before {
     transition: background 0.2s
 }
 
+/* Animate the navbar buttons, respect reduced motion by only changing tab colour and cursor*/
+
 nav ul li:hover{
     cursor: pointer;
-    transform: translateY(-0.2rem);
+    @media (prefers-reduced-motion: no-preference) {
+        transform: translateY(-0.2rem);
 
-    & a {
-        box-shadow: 5px calc(5px + 0.2rem) 15px rgba(10, 10, 10, 0.2);
+        & a {
+            box-shadow: 5px calc(5px + 0.2rem) 15px rgba(10, 10, 10, 0.2);
+        }
     }
 }
 
 nav ul li:hover a::before {
     background: #00A755;
 }
-
-nav ul li:hover:active {
-    transform: scale(1.15);
+@media (prefers-reduced-motion: no-preference) {
+    nav ul li:hover:active {
+        transform: scale(1.15);
+    }
 }
 
 /* Style for the currently selected navbar page button */
