@@ -10,22 +10,32 @@ h4 {
 h5 {
     font-size: 1.5rem;
     color: #DDDDDD;
-    max-width: 45%;
 }
 
 .content-banner {
     position: relative;
     top: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     width: 90%;
     height: 35rem;
     max-width: 200rem;
     min-width: 60rem;
 
-    & div img {
-        width: 30rem
+    & .left{
+        display: flex;
+        flex-direction: column;
+        justify-content: left
+    }
+
+    & .right{
+        display: flex;
+        justify-content: right;
+
+        & img {
+            width: 37rem;
+            border: 4px #272727 solid;
+        }
     }
 }
