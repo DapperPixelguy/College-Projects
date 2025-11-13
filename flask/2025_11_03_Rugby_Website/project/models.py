@@ -6,6 +6,7 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(100))
+    accessLevel = db.Column(db.Integer)
 
 
 class Fixture(db.Model):
