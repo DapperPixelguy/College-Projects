@@ -15,3 +15,12 @@
 .fadeIn {
     animation: fadeIn 0.2s;
 }
+
+@media (prefers-reduced-motion) {
+    .floatUp {
+        animation: none;
+    }
+    .fadeIn {
+        animation: none;
+    }
+}
