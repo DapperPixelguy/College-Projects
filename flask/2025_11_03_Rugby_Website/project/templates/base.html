@@ -18,7 +18,7 @@
     </head>
     <body>
         <header>
-            <img src="https://devonrfu.co.uk/wp-content/uploads/2025/03/devonrfu-logo.svg" alt="Devon RFU logo" class="logo">
+            <img src="https://devonrfu.co.uk/wp-content/uploads/2025/03/devonrfu-logo.svg" alt="Devon RFU logo" class="logo" tabindex="0">
             <h1 id='h1-title' class="barlow-condensed">{{ self.title().upper() }}</h1>
             <div id="header-profile">
                 {% if current_user.is_authenticated %}
@@ -47,6 +47,13 @@
         // Click on the logo to go to the home page
         logo.addEventListener('click', () => {
                 window.location.href = '/'
+        })
+
+        // Make the logo accessible to keyboard navigation
+        logo.addEventListener('keypress', (event)=>{
+            if (event.key === 'Enter') {
+                window.location.href = '/'
+            }
         })
 
         //
