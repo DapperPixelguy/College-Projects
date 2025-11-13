@@ -42,6 +42,7 @@
     <script>
         const logo = document.querySelector('.logo')
         const nav = document.getElementById('nav')
+        const reducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true
         let logoCooldown
 
         // Click on the logo to go to the home page
@@ -67,8 +68,11 @@
         }
         window.addEventListener('DOMContentLoaded', highlightNavSelection)
 
-        $('.logo').mouseover(logoSpin)
+        // Disable the chance for the logo to spin if the user prefers reduced motion
 
+        if (!reducedMotion){
+            $('.logo').mouseover(logoSpin)
+        }
         async function logoSpin() {
             const duration = 600
             if (!logoCooldown && (Math.random()*100 < 3)){
