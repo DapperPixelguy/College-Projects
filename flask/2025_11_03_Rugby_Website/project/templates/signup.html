@@ -9,31 +9,52 @@ Sign Up
 {% endblock %}
 
 {% block content %}
-<div id="signup-form" class="floatUp" >
-    <h4 class="form-title barlow-condensed">SIGN UP</h4>
-    <form name="login" id="login" method="POST" action="/signup">
-        <div class="form-input-wrapper">
-            <input id='email' type="text" name='email' placeholder=" ">
-            <label for="email">Email</label>
+    <div>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    {% for category, message in messages %}
+        <div class="flashbox {{ category }}">
+            {{message.text}}
+            {% if message.link %}
+                Go to <a href="{{message.link}}">{{ message.linktext }}</a>.
+            {%endif%}
         </div>
+    {%endfor%}
+    {% endif %}
+    {% endwith %}
+    <div>
+    <div id="signup-form" class="floatUp" >
+        <h4 class="form-title barlow-condensed">SIGN UP</h4>
+        <form name="login" id="login" method="POST" action="/signup">
+{#            <div class="form-input-wrapper">#}
+{#                <input id='name' type="text" name='name' placeholder=" ">#}
+{#                <label for="name">Name</label>#}
+{#            </div>#}
 
-        <div class="form-input-wrapper">
-            <input id='password' type="password" name='password' placeholder=" ">
-            <label for="password">Password</label>
-        </div>
+            <div class="form-input-wrapper">
+                <input id='email' type="text" name='email' placeholder=" ">
+                <label for="email">Email</label>
+            </div>
 
-        <div class="form-input-wrapper">
-            <input id='password-confirm' type="password" name='password-confirm' placeholder=" ">
-            <label for="password-confirm">Confirm Password</label>
-        </div>
+            <div class="form-input-wrapper">
+                <input id='password' type="password" name='password' placeholder=" ">
+                <label for="password">Password</label>
+            </div>
 
-        <div class="remember-wrapper">
-            <input id="remember" type="checkbox" name="remember">
-            <label for="remember">Remember me</label>
-        </div>
+            <div class="form-input-wrapper">
+                <input id='password-confirm' type="password" name='password-confirm' placeholder=" ">
+                <label for="password-confirm">Confirm Password</label>
+            </div>
 
-        <input class='form-button barlow-condensed' type="submit" value="LOG IN">
-    </form>
-    <h5 id="signup-reminder">Already have an account? <a href="{{ url_for('auth.login') }}">Log In</a></h5>
+            <div class="remember-wrapper">
+                <input id="remember" type="checkbox" name="remember">
+                <label for="remember">Remember me</label>
+            </div>
+
+            <input class='form-button barlow-condensed' type="submit" value="SIGN UP">
+        </form>
+        <h5 id="signup-reminder">Already have an account? <a href="{{ url_for('auth.login') }}">Log In</a></h5>
 </div>
+</div>
+    </div>
 {% endblock %}
