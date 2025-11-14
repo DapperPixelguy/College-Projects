@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, jsonify
-from .models import Fixture
+from .models import Fixture, Result
 
 main = Blueprint('main', __name__)
 
@@ -25,10 +25,45 @@ def fetch_fixtures():
         'venue': x.venue,
         'date': str(x.date),
         'time': str(x.time)
-    } for x in Fixture.query.all()]
+    } for x in Fixture.query.order_by(Fixture.date, Fixture.time).all()]
     return jsonify(response)
 
 @main.route('/league-table')
 def league_table():
     return 'leeg table'
+
+@main.route('/results')
+def results():
+    return render_template('results.html', results=Result.query.all())
+
+@main.route('/results/fetch')
+def results_fetch():
+    results = (
+        Result.query
+        .join(Fixture)
+        .order_by(Fixture.date, Fixture.time)
+        .all()
+    )
+
+    response = [{
+        'team1_results': r.team1_score,
+        'team2_results': r.team2_score,
+        'fixture_id': r.fixture_id,
+        'fixture': {
+            'time': r.fixture.time.strftime('%H:%M'),
+            'date': r.fixture.date.strftime('%Y-%m-%d'),
+            'venue': r.fixture.venue,
+            'team1_rel': {
+                'logo': r.fixture.team1_rel.logo,
+                'name': r.fixture.team1_rel.name
+            },
+            'team2_rel': {
+                'logo': r.fixture.team2_rel.logo,
+                'name': r.fixture.team2_rel.name
+            }
+        }
+    } for r in results]
+
+    return jsonify(response)
+
 
