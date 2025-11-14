@@ -6,6 +6,7 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(100))
+    picture = db.Column(db.String(100), default='uploads/blank_profile.png')
     accessLevel = db.Column(db.Integer)
 
 
@@ -20,6 +21,14 @@ class Fixture(db.Model):
 
     team1_rel = db.relationship('Team', foreign_keys=[team1], back_populates='home_fixtures')
     team2_rel = db.relationship('Team', foreign_keys=[team2], back_populates='away_fixtures')
+
+class Result(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_score = db.Column(db.Integer, nullable=False)
+    team2_score = db.Column(db.Integer, nullable=False)
+    fixture_id = db.Column(db.Integer, db.ForeignKey('fixture.id'), nullable=False)
+
+    fixture = db.relationship('Fixture', backref='results')
 
 class Team(db.Model):
     id = db.Column(db.Integer, primary_key=True)
