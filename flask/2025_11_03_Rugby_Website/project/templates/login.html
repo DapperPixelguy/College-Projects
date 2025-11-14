@@ -9,6 +9,19 @@ Login
 {% endblock %}
 
 {% block content %}
+    <div>
+{% with messages = get_flashed_messages(with_categories=True) %}
+{% if messages %}
+{% for category, message in messages %}
+    <div class="flashbox {{ category }}">
+        {{message.text}}
+        {% if message.link %}
+            Go to <a href="{{message.link}}">{{ message.linktext }}</a>.
+        {%endif%}
+    </div>
+{%endfor%}
+{% endif %}
+{% endwith %}
 <div id="login-form" class="floatUp" >
     <h4 class="form-title barlow-condensed">LOG IN</h4>
     <form name="login" id="login" method="POST" action="/login">
@@ -31,4 +44,5 @@ Login
     </form>
     <h5 id="signup-reminder">Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign Up</a></h5>
 </div>
+    </div>
 {% endblock %}
