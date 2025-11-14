@@ -190,3 +190,27 @@ nav ul li.selected {
     font-style: normal;
     color: rgb(29, 29, 29)
 }
+
+.flashbox {
+            background: rgba(89, 145, 229, 1);
+            border-radius: 7px;
+            margin-bottom: -0.5rem;
+            margin-top: 1rem;
+            padding: 1em;
+            text-align: center;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .flashbox.error {
+            background: rgb(255, 98, 87);
+        }
+
+        .flashbox a{
+            text-decoration: none;
+            color: #4444FF
+        }
+
+        .flashbox a:visited {
+            color: #9000ff
+        }
