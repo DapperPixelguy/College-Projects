@@ -1,10 +1,14 @@
+import random
+
 from project import create_app, db
 from datetime import datetime
-from project.models import Fixture, Team
+from project.models import Fixture, Team, Result
+import random
 
-teams = [{'name': 'Norf fc', 'logo': '/static/england-rugby.svg'}, {'name': 'Souf fc', 'logo': '/static/daom-rugby.svg'}]
+teams = [{'name': 'Norf fc', 'logo': '/static/logos/england-rugby.svg'}, {'name': 'Souf fc', 'logo': '/static/logos/daom-rugby.svg'}]
 
 testFixtures = [{'team1': 'Norf fc', 'team2': 'Souf fc', 'venue': 'Example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '12:00'},{'team1': 'Souf fc', 'team2': 'Norf fc', 'venue': 'Another example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '13:15'},{'team1': 'Norf fc', 'team2': 'Norf fc', 'venue': 'Final example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '00:01'},{'team1': 'Norf fc', 'team2': 'Souf fc', 'venue': 'Example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '12:00'},{'team1': 'Souf fc', 'team2': 'Norf fc', 'venue': 'Another example venue', 'date': datetime.today().strftime('%d/%m/%Y'), 'time': '13:15'}]
+
 
 
 with create_app().app_context():
@@ -26,5 +30,15 @@ with create_app().app_context():
         data.venue = fixture['venue']
         data.time = datetime.strptime(fixture['time'], '%H:%M').time()
         print(data)
+        db.session.add(data)
+
+    results = [{'team1_score': random.randint(0, 10), 'team2_score': random.randint(0, 10), 'fixture_id': x.id}
+               for x in Fixture.query.all()]
+
+    for result in results:
+        data = Result()
+        data.team1_score = result['team1_score']
+        data.team2_score = result['team2_score']
+        data.fixture_id = result['fixture_id']
         db.session.add(data)
     db.session.commit()
