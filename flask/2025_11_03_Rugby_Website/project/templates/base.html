@@ -23,14 +23,17 @@
             <div id="header-profile">
                 {% if current_user.is_authenticated %}
                 <h4 class="">Hi, Gabriel</h4>
+                <a href="{{ url_for('auth.login') }}"><img src="{{ url_for('static', filename=current_user.picture) }}" alt="Profile Picture" id="profile-picture"></a>
                 {% endif %}
-                <a href="{{ url_for('auth.login') }}"><img src="{{ url_for('static', filename='blank_profile.png') }}" alt="Profile Picture" id="profile-picture"></a>
+                {% if not current_user.is_authenticated %}
+                <a href="{{ url_for('auth.login') }}"><img src="{{ url_for('static', filename='uploads/blank_profile.png') }}" alt="Profile Picture" id="profile-picture"></a>
+                {% endif %}
             </div>
         </header>
         <nav id="nav">
             <ul class="barlow-condensed">
                 <li id="fixtures"><a href="{{ url_for('main.fixtures') }}">FIXTURES</a></li>
-                <li><a>MALE GAME</a></li>
+                <li id="match"><a href="{{ url_for('main.results') }}">RESULTS</a></li>
                 <li><a href="{{ url_for('main.league_table') }}">LEAGUE TABLE</a></li>
                 <li><a>ABOUT US</a></li>
             </ul>
