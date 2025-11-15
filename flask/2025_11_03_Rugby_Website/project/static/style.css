@@ -47,6 +47,38 @@ header h1 {
     color: #EEEEEE;
     position: relative;
     top: -5px;
+    display: inline-block;
+    overflow: visible;
+}
+
+header h1 span {
+    background: #00A755;
+    padding: 0 7rem;
+    clip-path: polygon(5rem 0%, 100% 0%, calc(100% - 5rem) 100%, 0% 100%);
+}
+
+header h1::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    width: 6rem;
+    height: 100%;
+    background: white;
+    z-index: 1;
+    clip-path: polygon(5rem 0, 100% 0%, calc(100% - 5rem) 100%, 0 100%);
+    /* Optional: slight slant to match design */
+}
+
+header h1::after {
+    content: '';
+    position: absolute;
+    right: -2rem;
+    width: 6rem;
+    height: 100%;
+    background: white;
+    z-index: 1;
+    clip-path: polygon(5rem 0, 100% 0%, calc(100% - 5rem) 100%, 0 100%);
+    /* Optional: slight slant to match design */
 }
 
 header #header-profile {
