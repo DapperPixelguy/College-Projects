@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, redirect, url_for
 from .models import Fixture, Result
 
 main = Blueprint('main', __name__)
@@ -30,7 +30,7 @@ def fetch_fixtures():
 
 @main.route('/league-table')
 def league_table():
-    return 'leeg table'
+    return redirect(url_for('index.html'))
 
 @main.route('/results')
 def results():
