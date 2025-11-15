@@ -68,15 +68,15 @@ async function buildFixtures() {
         fixture.classList.add('fixture');
         fixture.innerHTML =
             `<div class="team1">
-                <h4 class="barlow-condensed">${f.fixture.team1_rel.name} | ${f.team1_results}</h4>
+                <h4 class="barlow-condensed">${f.fixture.team1_rel.name}</h4>
                 <img class="team1-logo" src="static/Placeholder_view_vector.svg">
             </div>
 
-            <p class="middle barlow-condensed" style="justify-self: center">VS</p>
+            <p class="middle barlow-condensed" style="justify-self: center">${f.team2_results} - ${f.team1_results}</p>
 
             <div class="team2">
                 <img class="team2-logo" src="static/Placeholder_view_vector.svg">
-                <h4 class="barlow-condensed" style="justify-self: end">${f.fixture.team2_rel.name} | ${f.team2_results}</h4>
+                <h4 class="barlow-condensed" style="justify-self: end">${f.fixture.team2_rel.name}</h4>
             </div>`;
         wrapper.appendChild(info);
         wrapper.appendChild(fixture);
