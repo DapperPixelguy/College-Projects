@@ -19,13 +19,14 @@
     <body>
         <header>
             <img src="https://devonrfu.co.uk/wp-content/uploads/2025/03/devonrfu-logo.svg" alt="Devon RFU logo" class="logo" tabindex="0">
-            <h1 id='h1-title' class="barlow-condensed">{{ self.title().upper() }}</h1>
+            <h1 id='h1-title' class="barlow-condensed"><span>{{ self.title().upper() }}</span></h1>
             <div id="header-profile">
                 {% if current_user.is_authenticated %}
                 <h4 class="">Hi, Gabriel</h4>
                 <a href="{{ url_for('auth.login') }}"><img src="{{ url_for('static', filename=current_user.picture) }}" alt="Profile Picture" id="profile-picture"></a>
                 {% endif %}
                 {% if not current_user.is_authenticated %}
+                    <h4 class="">Log in / Sign Up</h4>
                 <a href="{{ url_for('auth.login') }}"><img src="{{ url_for('static', filename='uploads/blank_profile.png') }}" alt="Profile Picture" id="profile-picture"></a>
                 {% endif %}
             </div>
