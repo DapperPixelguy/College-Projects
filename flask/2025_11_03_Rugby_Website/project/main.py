@@ -104,3 +104,27 @@ def fixture_create():
     return redirect(url_for('main.fixtures'))
     # return 'Bello! I am a minion!'
 
+@main.route('/profile')
+@login_required
+def profile():
+    return render_template('profile.html')
+
+
+@main.route('/profile/update', methods=['POST'])
+@login_required
+def profile_update():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    user = User.query.filter_by(email=current_user.email).first()
+
+    print(user.name)
+
+    if name:
+        user.name = name.title()
+        db.session.commit()
+
+    return redirect(url_for('main.profile'))
+
+
