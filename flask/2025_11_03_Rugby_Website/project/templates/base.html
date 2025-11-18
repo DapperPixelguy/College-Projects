@@ -22,8 +22,8 @@
             <h1 id='h1-title' class="barlow-condensed"><span>{{ self.title().upper() }}</span></h1>
             <div id="header-profile">
                 {% if current_user.is_authenticated %}
-                <h4 class="">Hi, Gabriel</h4>
-                <a href="{{ url_for('auth.login') }}"><img src="{{ url_for('static', filename=current_user.picture) }}" alt="Profile Picture" id="profile-picture"></a>
+                <h4 class="">Hi, {{ current_user.name }}</h4>
+                <a href="{{ url_for('main.admin') }}"><img src="{{ url_for('static', filename=current_user.picture) }}" alt="Profile Picture" id="profile-picture"></a>
                 {% endif %}
                 {% if not current_user.is_authenticated %}
                     <h4 class="">Log in / Sign Up</h4>
