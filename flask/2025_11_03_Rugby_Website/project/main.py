@@ -38,9 +38,24 @@ def league_table():
 
 @main.route('/league-table/fetch')
 def fetch_league_table():
-    response = [{
+    teams = Team.query.join(LeagueTable).order_by(LeagueTable.points).all()
+    response = [
+        {
+        'name': team.name,
+        'standing': {
+            'played': team.standing.played,
+            'won':    team.standing.won,
+            'draw':   team.standing.draw,
+            'lost':   team.standing.lost,
+            'pf':     team.standing.pf,
+            'pa':     team.standing.pa,
+            'pd':     team.standing.pd,
+            'bonus':  team.standing.bonus,
+            'points': team.standing.points 
+        }
+    } for team in teams]
 
-    }]
+    return jsonify(response)
 
 @main.route('/results')
 def results():
