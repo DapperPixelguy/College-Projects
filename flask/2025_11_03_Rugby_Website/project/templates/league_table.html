@@ -10,8 +10,40 @@ League Table
 
 {% block content %}
 
+<table class="table">
+    <tr class="header-row barlow-condensed">
+        <td>Name</td>
+        <td>Played</td>
+        <td>Won</td>
+        <td>Draw</td>
+        <td>Lost</td>
+        <td>Points For</td>
+        <td>Points Against</td>
+        <td>Points Difference</td>
+        <td>Bonus Points</td>
+        <td>Total Points</td>
+
+    </tr>
+    {% for team in teams %}
+    <tr>
+        <td>{{ team.name }}</td>
+        <td>{{ team.standing.played }}</td>
+        <td>{{ team.standing.won }}</td>
+        <td>{{ team.standing.drawn }}</td>
+        <td>{{ team.standing.lost }}</td>
+        <td>{{ team.standing.pf }}</td>
+        <td>{{ team.standing.pa }}</td>
+        <td>{{ team.standing.pd }}</td>
+        <td>{{ team.standing.bonus }}</td>
+        <td>{{ team.standing.points }}</td>
+    </tr>
+    {% endfor %}
+</table>>
+
 {% endblock %}
 
 {% block script %}
+<script>
 
+</script>
 {% endblock %}
