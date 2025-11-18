@@ -1,3 +1,5 @@
+from collections import UserList
+
 from flask_login import UserMixin
 from . import db
 
@@ -37,3 +39,22 @@ class Team(db.Model):
 
     home_fixtures = db.relationship('Fixture', back_populates='team1_rel', foreign_keys='Fixture.team1')
     away_fixtures = db.relationship('Fixture', back_populates='team2_rel', foreign_keys='Fixture.team2')
+
+    standing = db.relationship('LeagueTable', back_populates='team', uselist=False)
+
+class LeagueTable(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=False, unique=True)
+
+    played = db.Column(db.Integer, default=0)
+    won = db.Column(db.Integer, default=0)
+    draw = db.Column(db.Integer, default=0)
+    lost = db.Column(db.Integer, default=0)
+
+    pf = db.Column(db.Integer, default=0)
+    pa = db.Column(db.Integer, default=0)
+    pd = db.Column(db.Integer, default=0)
+    bonus = db.Column(db.Integer, default=0)
+    points = db.Column(db.Integer, default=0)
+
+    team = db.relationship('Team', back_populates='standing')
