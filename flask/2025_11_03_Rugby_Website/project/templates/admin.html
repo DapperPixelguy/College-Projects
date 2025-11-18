@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='fixtures.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='form-style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    {% for category, message in messages %}
+        <div class="flashbox {{ category }}">
+            {{message.text}}
+            {% if message.link %}
+                Go to <a href="{{message.link}}">{{ message.linktext }}</a>.
+            {%endif%}
+        </div>
+    {%endfor%}
+    {% endif %}
+    {% endwith %}
+    <div id="fixture-create" class="floatUp" >
+        <h4 class="form-title barlow-condensed"><span>Create Fixture</span></h4>
+        <form name="create-fixture" id="create-fixture" method="POST" action="/admin/fixture_create">
+
+            <div class="form-input-wrapper">
+                <select name="team1" id="team1" >
+                <option value="" disabled selected>Team 1 (home)</option>
+                    {% for team in teams %}
+                    <option value="{{ team.id }}">{{ team.name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="team1" hidden="hidden">Email</label>
+            </div>
+
+            <div class="form-input-wrapper">
+                <select name="team2" id="team2" >
+                <option value="" disabled selected>Team 2 (away)</option>
+                    {% for team in teams %}
+                    <option value="{{ team.id }}">{{ team.name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="team2" hidden="hidden">Email</label>
+            </div>
+
+            <div class="form-input-wrapper">
+                <input type="date" id="date" name="date">
+            </div>
+
+            <div class="form-input-wrapper">
+                <input type="time" id="time" name="time">
+            </div>
+
+            <div class="form-input-wrapper">
+                <input type="text" id="venue" name="venue" placeholder=" " autocomplete="one-time-code">
+                <label for="venue">Venue</label>
+            </div>
+
+            <div class="form-input-wrapper">
+            <input class='form-button barlow-condensed' type="submit" value="Create fixture">
+        </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
