@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='form-style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div>
+{% with messages = get_flashed_messages(with_categories=True) %}
+{% if messages %}
+{% for category, message in messages %}
+    <div class="flashbox {{ category }}">
+        {{message.text}}
+        {% if message.link %}
+            Go to <a href="{{message.link}}">{{ message.linktext }}</a>.
+        {%endif%}
+    </div>
+{%endfor%}
+{% endif %}
+{% endwith %}
+<div id="profile-form" class="floatUp" >
+    <h4 class="form-title barlow-condensed">Edit Profile</h4>
+    <form name="profile" id="profile" method="POST" action="/profile/update">
+
+        <div class="form-input-wrapper">
+            <input id='name' type="text" name='name' placeholder=" " value="{{ current_user.name }}" disabled>
+            <label for="name">Name</label>
+            <button type='button' onclick='toggleEdit(this)' class="edit"><img src="static/edit.svg" alt="A button to edit your profile details"></button>
+        </div>
+
+        <div class="form-input-wrapper">
+            <input id='email' type="text" name='email' placeholder=" " value="{{ current_user.email }}" disabled>
+            <label for="email">Email</label>
+            <button type='button' onclick='toggleEdit(this)' class="edit"><img src="static/edit.svg" alt="A button to edit your profile details"></button>
+        </div>
+
+        <div class="form-input-wrapper">
+            <input id='password' type="password" name='password' placeholder=" " disabled>
+            <label for="password">Password</label>
+            <button type='button' onclick='toggleEdit(this)' class="edit"><img src="static/edit.svg" alt="A button to edit your profile details"></button>
+        </div>
+
+        <input class='form-button barlow-condensed' type="submit" value="Save Changes">
+    </form>
+</div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('input[type=text]').forEach((i)=>{
+        i.disabled = true
+    })
+})
+function toggleEdit(elem) {
+    let input = elem.closest('div').querySelector('input[type=text]')
+    input.disabled = !input.disabled;
+    elem.closest('div').classList.toggle('focused')
+}
+</script>
+{% endblock %}
