@@ -7,7 +7,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100))
     password = db.Column(db.String(100))
     picture = db.Column(db.String(100), default='uploads/blank_profile.png')
-    accessLevel = db.Column(db.Integer)
+    accessLevel = db.Column(db.Integer, default=0)
 
 
 class Fixture(db.Model):
