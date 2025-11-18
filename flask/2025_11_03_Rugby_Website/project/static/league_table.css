@@ -1,0 +1,20 @@
+.table {
+    position: relative;
+    top: 2rem;
+    width: 110rem;
+    font-size: 1.5rem;
+
+    & tr {
+        text-align: center;
+        background: #EEEEEE;
+    }
+
+    & .header-row {
+        font-size: 1.5em;
+        text-align: center;
+        background: #00A755;
+        color: #FFFFFF;
+        position: sticky;
+        top: 5rem;
+    }
+}
