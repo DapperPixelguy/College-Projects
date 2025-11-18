@@ -18,6 +18,7 @@ def login():
 def login_post():
     email = request.form.get('email')
     password = request.form.get('password')
+    remember = request.form.get('remember')
 
     user = User.query.filter_by(email=email).first()
 
@@ -26,7 +27,7 @@ def login_post():
         return redirect(url_for('auth.login'))
 
     if check_password_hash(user.password, password):
-        login_user(user)
+        login_user(user, remember=remember)
         return redirect(url_for('main.index'))
     else:
         flash({'text': 'Incorrect email or password'}, category='error')
@@ -58,7 +59,9 @@ def signup_post():
     if password == confirm_password:
         new_user = User()
         new_user.password = generate_password_hash(password, salt_length=5)
+        new_user.name = email
         new_user.email = email
+        new_user.accessLevel = 2
         db.session.add(new_user)
         db.session.commit()
 
