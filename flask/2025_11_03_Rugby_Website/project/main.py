@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, jsonify, redirect, url_for, request
 from flask_login import login_required
 from .wrappers import *
-from .models import Fixture, Result, Team, User
+from .models import Fixture, Result, Team, User, LeagueTable
 from datetime import datetime
 from . import db
 
@@ -34,7 +34,13 @@ def fetch_fixtures():
 
 @main.route('/league-table')
 def league_table():
-    return redirect(url_for('main.index'))
+    return render_template('league_table.html', teams=Team.query.all())
+
+@main.route('/league-table/fetch')
+def fetch_league_table():
+    response = [{
+
+    }]
 
 @main.route('/results')
 def results():
