@@ -71,3 +71,36 @@ def results_fetch():
     return jsonify(response)
 
 
+@main.route('/admin')
+@login_required
+@access_level_required(2)
+def admin():
+    teams = Team.query.all()
+    return render_template('admin.html', teams=teams)
+
+@main.route('/admin/fixture_create', methods=['GET', 'POST'])
+@login_required
+@access_level_required(2)
+def fixture_create():
+
+    team1 = request.form.get('team1')
+    team2 = request.form.get('team2')
+    date = request.form.get('date')
+    time = request.form.get('time')
+    venue = request.form.get('venue')
+
+    print(date,time)
+    fixture = Fixture()
+
+    fixture.team1 = team1
+    fixture.team2 = team2
+    fixture.date = datetime.strptime(date, '%Y-%m-%d').date()
+    fixture.time = datetime.strptime(time, '%H:%M').time()
+    fixture.venue = venue
+
+    db.session.add(fixture)
+    db.session.commit()
+
+    return redirect(url_for('main.fixtures'))
+    # return 'Bello! I am a minion!'
+
