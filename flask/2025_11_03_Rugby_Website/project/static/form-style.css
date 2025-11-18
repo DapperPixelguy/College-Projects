@@ -46,6 +46,8 @@ form {
     position: relative;
     margin-bottom: 1.5rem;
     box-shadow: 0 5px 20px rgba(100, 100, 100, 1);
+    transition: filter 0.2s;
+    border-radius: 7px;
 
     & label {
         position: absolute;
@@ -70,6 +72,7 @@ form {
         padding-left: calc(0.8rem - 10px);
         font-size: 1.2rem;
         border: 1px solid rgba(10,10,10,.4);
+        padding-top: 0.5rem;
     }
 }
 
@@ -119,4 +122,91 @@ form {
     position: relative;
     top: 3.5rem;
     font-size: 0.9rem;
+}
+
+#fixture-create {
+    background: rgb(39,39,39);
+    text-align: center;
+    padding: 0 1rem;
+    border-radius: 7px;
+    box-shadow: 5px 5px 20px rgba(10, 10, 10, 0.6);
+
+    & form {
+        display: flex;
+        flex-direction: row;
+    }
+    & select {
+        width: auto;
+        padding: 0 1rem;
+        height: 3rem;
+        font-size: 1.2rem;
+        text-align: center;
+        background: #DDDDDD;
+        border-radius: 7px;
+        border: none;
+    }
+    & #date {
+        width: 12rem;
+        height: 3rem;
+    }
+    & #time {
+        width: auto;
+        padding: 0 1rem;
+    }
+    & #venue {
+        width: auto;
+    }
+    & .form-button {
+        top: 0;
+        width: auto;
+        height: 3rem;
+        background: #EEEEEE;
+        font-size: 1.5rem;
+        padding: 0 1rem;
+    }
+    & .form-button:hover:active {
+        background: #00A755;
+        color: #FFFFFF;
+        transform: scale(1);
+    }
+}
+
+#profile-form {
+    background: rgb(39, 39, 39);
+    padding-bottom: 5rem;
+    width: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 2rem;
+    position: relative;
+    box-shadow: 5px 5px 20px rgba(10, 10, 10, 0.6);
+    border-radius: 7px;
+
+    & input {
+        padding-top: 0.5rem;
+    }
+    & .form-button {
+        width: auto;
+        padding: 0 1rem;
+    }
+    & .edit {
+        display: flex;
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+        background: none;
+        border: none;
+
+        & img {
+            width: 2rem;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    & .focused {
+        filter: invert(1);
+    }
+
 }
