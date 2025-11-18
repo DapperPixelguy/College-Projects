@@ -10,3 +10,13 @@ def logged_out_required(f):
             return redirect(url_for('main.index'))
         return f(*args, **kwargs)
     return decorated_func
+
+def access_level_required(level):
+    def decorator(f):
+        @wraps(f)
+        def decorated_func(*args, **kwargs):
+            if current_user.accessLevel >= level:
+                return f(*args, **kwargs)
+            return redirect(url_for('main.index'))
+        return decorated_func
+    return decorator
