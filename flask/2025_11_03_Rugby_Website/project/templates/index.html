@@ -17,4 +17,49 @@ Home
     <div class="right"><img src="https://www.torbayweekly.co.uk/resizer/1200/700/true/2024_04_22/P36_Celebrations_for_Torquay_Colts-1713772997395.jpg--celebrations_for_torquay_colts.jpg?1713772997509"></div>
 </div>
 
+<div class="scrolling-picture">
+
+</div>
+
+    <button onclick="scrollLeftBtn()">Left</button>
+    <button onclick="scrollRight()">Right</button>
+
+{% endblock %}
+
+{% block script %}
+<script>
+
+const container = document.querySelector('.scrolling-picture')
+
+function getScrollAmount() {
+    const wrapper=container.querySelector('.wrapper')
+    return wrapper.getBoundingClientRect().width
+}
+
+function scrollRight() {
+    container.scrollBy({left: getScrollAmount(), behavior: "smooth"})
+}
+
+function scrollLeftBtn() {
+    container.scrollBy({left: -getScrollAmount(), behavior: "smooth"})
+}
+
+async function photoScroller() {
+    let response = await fetch('/photo-fetch')
+    let paths = await response.json()
+
+
+    paths.forEach(image => {
+        let wrapper = document.createElement('div')
+        wrapper.classList.add('wrapper')
+        let img = document.createElement('img')
+        img.src=image
+        wrapper.appendChild(img)
+        container.appendChild(wrapper)
+    })
+}
+
+photoScroller()
+
+</script>
 {% endblock %}
