@@ -16,15 +16,19 @@ Home
     </div>
     <div class="right"><img src="https://www.torbayweekly.co.uk/resizer/1200/700/true/2024_04_22/P36_Celebrations_for_Torquay_Colts-1713772997395.jpg--celebrations_for_torquay_colts.jpg?1713772997509"></div>
 </div>
+{% endblock %}
 
-<div class="scrolling-picture">
+{% block footer %}
+<div class="carousel-wrapper">
+    <div class="scrolling-picture">
 
+    </div>
+    <button class='left barlow-condensed' onclick="scrollLeftBtn()"></button>
+    <button class='right barlow-condensed' onclick="scrollRight()"></button>
 </div>
 
-    <button onclick="scrollLeftBtn()">Left</button>
-    <button onclick="scrollRight()">Right</button>
-
 {% endblock %}
+
 
 {% block script %}
 <script>
