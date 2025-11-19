@@ -33,10 +33,10 @@
         </header>
         <nav id="nav">
             <ul class="barlow-condensed">
-                <li id="fixtures"><a href="{{ url_for('main.fixtures') }}">FIXTURES</a></li>
-                <li id="match"><a href="{{ url_for('main.results') }}">RESULTS</a></li>
-                <li><a href="{{ url_for('main.league_table') }}">LEAGUE TABLE</a></li>
-                <li><a>ABOUT US</a></li>
+                <li id="fixtures"><a href="{{ url_for('main.fixtures') }}"><span>FIXTURES</span></a></li>
+                <li id="match"><a href="{{ url_for('main.results') }}"><span>RESULTS</span></a></li>
+                <li><a href="{{ url_for('main.league_table') }}"><span>LEAGUE TABLE</span></a></li>
+                <li><a><span>ABOUT US</span></a></li>
             </ul>
         </nav>
         <div id="img" class="fadeIn">
@@ -96,6 +96,13 @@
 
             }
         }
+
+
+
+new IntersectionObserver(
+  ([e]) => nav.classList.toggle('stuck', e.intersectionRatio < 1),
+  { threshold: 1, rootMargin: '-0.05px 100px 100px 100px' }
+).observe(nav);
     </script>
     {% block script %}
     {% endblock %}
