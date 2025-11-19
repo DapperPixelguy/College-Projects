@@ -37,5 +37,68 @@ League Table
 {% block script %}
 <script>
 
+async function loadTable () {
+    const table_body = document.querySelector('tbody')
+
+    table_body.innerHTML =`
+     <tr class="loading">
+        <td>Loading...</td>
+        <td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+     </tr>
+    `
+
+    try {
+        buildTable()
+    } catch (error) {
+
+    }
+
+}
+
+async function buildTable() {
+
+    let response = await fetch('/league-table/fetch')
+    let data = await response.json()
+    const table = document.querySelector('tbody')
+    table.innerHTML = ``
+    let counter = 0
+
+    data.forEach(team => {
+        const entry = document.createElement('tr')
+        const standing = team.standing
+        let name = document.createElement('td')
+
+        if (counter === 1) {
+            entry.classList.add('alternate')
+            counter --
+        } else {
+            counter ++
+        }
+
+
+
+        entry.classList.add('entry')
+        name.innerHTML = team.name
+        entry.appendChild(name)
+
+        Object.entries(standing).forEach(([key, value]) => {
+            let elem = document.createElement('td')
+            elem.innerHTML = value
+            entry.appendChild(elem)
+        })
+        table.appendChild(entry)
+    })
+}
+
+document.addEventListener('DOMContentLoaded', loadTable)
+
 </script>
 {% endblock %}
