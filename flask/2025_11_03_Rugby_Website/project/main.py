@@ -1,3 +1,5 @@
+import os
+
 from flask import Blueprint, render_template, jsonify, redirect, url_for, request
 from flask_login import login_required
 from .wrappers import *
@@ -147,5 +149,14 @@ def profile_update():
         db.session.commit()
 
     return redirect(url_for('main.profile'))
+
+@main.route('/photo-fetch')
+def photo_fetch():
+    response = []
+
+    for filename in os.listdir('project/static/photos'):
+        response.append(f'static/photos/{filename}')
+
+    return jsonify(response)
 
 
