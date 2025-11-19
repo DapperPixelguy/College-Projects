@@ -9,7 +9,7 @@
         background: #EEEEEE;
     }
 
-    & .header-row {
+    & .header-row th {
         font-size: 1.5em;
         text-align: center;
         background: #00A755;
@@ -17,4 +17,20 @@
         position: sticky;
         top: 5rem;
     }
+
+    & tbody tr.alternate td {
+        background: #999999;
+        color: #FFFFFF;
+    }
+}
+
+@keyframes loadingGradient {
+    0%   { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+.loading td {
+    animation: loadingGradient 1s infinite ease-in-out;
+    background: linear-gradient(90deg, #dddddd 0%, #555555 50%, #dddddd 100%);
+    background-size: 200%;
 }
