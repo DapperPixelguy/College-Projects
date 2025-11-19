@@ -11,33 +11,25 @@ League Table
 {% block content %}
 
 <table class="table">
-    <tr class="header-row barlow-condensed">
-        <td>Name</td>
-        <td>Played</td>
-        <td>Won</td>
-        <td>Draw</td>
-        <td>Lost</td>
-        <td>Points For</td>
-        <td>Points Against</td>
-        <td>Points Difference</td>
-        <td>Bonus Points</td>
-        <td>Total Points</td>
+    <thead class="header-row barlow-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Played</th>
+            <th>Won</th>
+            <th>Draw</th>
+            <th>Lost</th>
+            <th>Points For</th>
+            <th>Points Against</th>
+            <th>Points Difference</th>
+            <th>Bonus Points</th>
+            <th>Total Points</th>
+        </tr>
+    </thead>
 
-    </tr>
-    {% for team in teams %}
-    <tr>
-        <td>{{ team.name }}</td>
-        <td>{{ team.standing.played }}</td>
-        <td>{{ team.standing.won }}</td>
-        <td>{{ team.standing.drawn }}</td>
-        <td>{{ team.standing.lost }}</td>
-        <td>{{ team.standing.pf }}</td>
-        <td>{{ team.standing.pa }}</td>
-        <td>{{ team.standing.pd }}</td>
-        <td>{{ team.standing.bonus }}</td>
-        <td>{{ team.standing.points }}</td>
-    </tr>
-    {% endfor %}
+    <tbody>
+    {# Standings will be filled in here by js function #}
+    </tbody>
+
 </table>>
 
 {% endblock %}
