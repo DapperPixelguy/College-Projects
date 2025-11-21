@@ -23,8 +23,16 @@
             <h1 id='h1-title' class="barlow-condensed"><span>{{ self.title().upper() }}</span></h1>
             <div id="header-profile">
                 {% if current_user.is_authenticated %}
+                    <div id="profile-dropdown">
+                    <a class='barlow-condensed' href="/profile">Profile</a>
+                    {% if current_user.accessLevel >= 1 %}
+                    <a class='barlow-condensed' href="/admin">Admin</a>
+                    {% endif %}
+                    <a class='barlow-condensed' href="/logout">Log out</a>
+                </div>
                 <h4 class="">Hi, {{ current_user.name }}</h4>
                 <a href="{{ url_for('main.admin') }}"><img src="{{ url_for('static', filename=current_user.picture) }}" alt="Profile Picture" id="profile-picture"></a>
+
                 {% endif %}
                 {% if not current_user.is_authenticated %}
                     <h4 class="">Log in / Sign Up</h4>
