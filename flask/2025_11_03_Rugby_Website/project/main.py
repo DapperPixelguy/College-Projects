@@ -1,7 +1,10 @@
 import os
 
-from flask import Blueprint, render_template, jsonify, redirect, url_for, request
+import flask
+from flask import Blueprint, render_template, jsonify, redirect, url_for, request, flash, current_app
 from flask_login import login_required
+from werkzeug.utils import secure_filename
+
 from .wrappers import *
 from .models import Fixture, Result, Team, User, LeagueTable
 from datetime import datetime
@@ -61,7 +64,7 @@ def fetch_league_table():
     sort_col = sort_col.asc() if asc else sort_col.desc()
 
 
-    teams = Team.query.join(LeagueTable).order_by(sort_col).all()
+    teams = Team.query.join(LeagueTable).order_by(sort_col, LeagueTable.pd.desc()).all()
     for team in teams:
         print(team.standing.won, team.name)
     response = [
@@ -162,6 +165,22 @@ def profile_update():
     name = request.form.get('name')
     email = request.form.get('email')
     password = request.form.get('password')
+
+    picture = request.files.get('picture')
+
+    allowed_files = ['png', 'jpg', 'jpeg']
+
+    if picture:
+        print(picture.filename)
+        file = request.files['picture']
+        filename = secure_filename(file.filename)
+        if filename.split('.')[-1] in allowed_files:
+            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+            current_user.picture=f'uploads/{filename}'
+            db.session.commit()
+        else:
+            return redirect(url_for('main.profile'))
+
 
     user = User.query.filter_by(email=current_user.email).first()
 
