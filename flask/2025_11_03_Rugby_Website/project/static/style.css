@@ -106,6 +106,31 @@ header #profile-picture {
     border: 2px #EEEEEE solid;
 }
 
+header #header-profile #profile-dropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    clip-path: polygon(2.23rem 0, 100% 0, 100% 100%, 0% 100%);
+    padding-left: 2rem;
+    align-items: center;
+    bottom: -7rem;
+    z-index: 2;
+    background: #eeeeee;
+    width: 20rem;
+    height: 3rem;
+
+    & a {
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: black;
+        transition: color 0.2s;
+
+        &:hover {
+            color: #00A755;
+        }
+    }
+}
+
 
 #img {
     background: url("https://devonrfu.co.uk/wp-content/uploads/2022/06/drfu-homeslide.jpg") 100%;
