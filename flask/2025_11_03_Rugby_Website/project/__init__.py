@@ -14,6 +14,8 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
     app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/uploads')
 
+    app.json.sort_keys = False
+
     db.init_app(app)
     migrate.init_app(app, db)
 
