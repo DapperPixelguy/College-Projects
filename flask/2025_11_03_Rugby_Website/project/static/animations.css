@@ -111,7 +111,7 @@
     white-space: nowrap;
 
     & img {
-        max-width: 100%;
+        max-width: 90%;
         min-width: 90%;
     }
     & .wrapper {
