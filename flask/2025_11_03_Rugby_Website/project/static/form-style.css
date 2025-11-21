@@ -172,6 +172,8 @@ form {
 }
 
 #profile-form {
+    justify-self: center;
+    grid-column: 2;
     background: rgb(39, 39, 39);
     padding-bottom: 5rem;
     width: 28rem;
@@ -210,3 +212,31 @@ form {
     }
 
 }
+
+#picture-form {
+
+    & img.profile-picture {
+        height: 10rem;
+    }
+    justify-self: center;
+    grid-column: 3;
+    background: rgb(39, 39, 39);
+    padding-bottom: 5rem;
+    width: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 2rem;
+    position: relative;
+    box-shadow: 5px 5px 20px rgba(10, 10, 10, 0.6);
+    border-radius: 7px;
+
+    & input {
+        padding-top: 0.5rem;
+    }
+    & .form-button {
+        width: auto;
+        padding: 0 1rem;
+    }
+}
+
