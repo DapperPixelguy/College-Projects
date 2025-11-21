@@ -9,7 +9,7 @@ Profile
 {% endblock %}
 
 {% block content %}
-<div>
+<div class="grid-container">
 {% with messages = get_flashed_messages(with_categories=True) %}
 {% if messages %}
 {% for category, message in messages %}
@@ -22,43 +22,92 @@ Profile
 {%endfor%}
 {% endif %}
 {% endwith %}
-<div id="profile-form" class="floatUp" >
-    <h4 class="form-title barlow-condensed">Edit Profile</h4>
-    <form name="profile" id="profile" method="POST" action="/profile/update">
 
-        <div class="form-input-wrapper">
-            <input id='name' type="text" name='name' placeholder=" " value="{{ current_user.name }}" disabled>
-            <label for="name">Name</label>
-            <button type='button' onclick='toggleEdit(this)' class="edit"><img src="static/edit.svg" alt="A button to edit your profile details"></button>
-        </div>
+    <div id="profile-form" class="floatUp" >
+        <h4 class="form-title barlow-condensed">Edit Profile</h4>
+        <form name="profile" id="profile" method="POST" action="/profile/update">
 
-        <div class="form-input-wrapper">
-            <input id='email' type="text" name='email' placeholder=" " value="{{ current_user.email }}" disabled>
-            <label for="email">Email</label>
-            <button type='button' onclick='toggleEdit(this)' class="edit"><img src="static/edit.svg" alt="A button to edit your profile details"></button>
-        </div>
+            <div class="form-input-wrapper">
+                <input id='name' type="text" name='name' placeholder=" " value="{{ current_user.name }}" disabled>
+                <label for="name">Name</label>
+                <button type='button' onclick='toggleEdit(this)' class="edit"><img src="static/edit.svg" alt="A button to edit your profile details"></button>
+            </div>
 
-        <div class="form-input-wrapper">
-            <input id='password' type="password" name='password' placeholder=" " disabled>
-            <label for="password">Password</label>
-            <button type='button' onclick='toggleEdit(this)' class="edit"><img src="static/edit.svg" alt="A button to edit your profile details"></button>
-        </div>
+            <div class="form-input-wrapper">
+                <input id='email' type="text" name='email' placeholder=" " value="{{ current_user.email }}" disabled>
+                <label for="email">Email</label>
+                <button type='button' onclick='toggleEdit(this)' class="edit"><img src="static/edit.svg" alt="A button to edit your profile details"></button>
+            </div>
 
-        <input class='form-button barlow-condensed' type="submit" value="Save Changes">
-    </form>
-</div>
+            <div class="form-input-wrapper">
+                <input id='password' type="password" name='password' placeholder=" " disabled>
+                <label for="password">Password</label>
+                <button type='button' onclick='toggleEdit(this)' class="edit"><img src="static/edit.svg" alt="A button to edit your profile details"></button>
+            </div>
+
+            <input class='form-button barlow-condensed' type="submit" value="Save Changes">
+        </form>
     </div>
+
+    <div id="picture-form" class="floatUp">
+         <h4 class="form-title barlow-condensed">Profile Picture</h4>
+        <form name="profile-picture" id="profile-picture" method="POST" action="/profile/update" enctype="multipart/form-data">
+
+            <img id='picture-preview' alt='Profile Picture' class='profile-picture' src="{{ current_user.picture }}">
+
+            <div class="form-input-wrapper">
+                <input id='picture' type="file" accept='.jpg, .png, jpeg' name='picture' placeholder=" ">
+            </div>
+
+            <input class='form-button barlow-condensed' type="submit" value="Save Changes">
+        </form>
+
+    </div>
+</div>
 {% endblock %}
 
 {% block script %}
 <script>
+
+let imgInp = document.getElementById('picture')
+let preview = document.getElementById('picture-preview')
+let pictureKey = 'lastImage'
+
+const lastPicture = null
+
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve(reader.result)
+        reader.onerror = reject
+        reader.readAsDataURL(file)
+    })
+}
+
+imgInp.onchange = async () => {
+
+    const [file] = imgInp.files
+
+    if (file) {
+        const base64 = await fileToBase64(file)
+        preview.src = base64
+        localStorage.setItem(pictureKey, base64)
+    }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('input[type=text]').forEach((i)=>{
         i.disabled = true
     })
+
+    if (imgInp.files.length !== 0) {
+    if (localStorage.getItem(pictureKey)) {
+        console.log('YEAH')
+        document.getElementById('picture-preview').src = localStorage.getItem(pictureKey)
+    }}
 })
 function toggleEdit(elem) {
-    let input = elem.closest('div').querySelector('input[type=text]')
+    let input = elem.closest('div').querySelector('input[type=text], input[type=password] ')
     input.disabled = !input.disabled;
     elem.closest('div').classList.toggle('focused')
 }
