@@ -41,6 +41,18 @@ h5 {
 }
 
 @media (max-width: 1200px) {
+    .content-banner{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        align-items: center;
+
+        & .right, .left {
+            max-width: 80%;
+            margin: 0 auto;
+            justify-content: center;
+            text-align: center;
+        }
+    }
     .content-banner .right img {
         width: 20rem;
     }
