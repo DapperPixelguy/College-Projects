@@ -40,7 +40,30 @@ def league_table():
 
 @main.route('/league-table/fetch')
 def fetch_league_table():
-    teams = Team.query.join(LeagueTable).order_by(LeagueTable.points).all()
+    sort = request.args.get('sort', 'points')
+    asc = request.args.get('asc', 'false').lower() == 'true'
+
+    sortable = {
+            'name': Team.name,
+            'played': LeagueTable.played,
+            'won':    LeagueTable.won,
+            'draw':   LeagueTable.draw,
+            'lost':   LeagueTable.lost,
+            'pf':     LeagueTable.pf,
+            'pa':     LeagueTable.pa,
+            'pd':     LeagueTable.pd,
+            'bonus':  LeagueTable.bonus,
+            'points': LeagueTable.points
+    }
+
+    sort_col = sortable.get(sort.lower(), LeagueTable.points)
+
+    sort_col = sort_col.asc() if asc else sort_col.desc()
+
+
+    teams = Team.query.join(LeagueTable).order_by(sort_col).all()
+    for team in teams:
+        print(team.standing.won, team.name)
     response = [
         {
         'name': team.name,
