@@ -65,8 +65,33 @@ with create_app().app_context():
     db.session.commit()
 
     for team in Team.query.all():
-        table_entry = LeagueTable()
-        table_entry.team_id = team.id
+        won = random.randint(0, 20)
+        draw = random.randint(0, 20 - won)
+        lost = random.randint(0, 20 - won - draw)
+
+        pf = random.randint(50, 500)  # points for
+        pa = random.randint(50, 500)  # points against
+        pd = pf - pa  # points difference
+
+        bonus = random.randint(0, 5)  # bonus points
+
+        played = won + draw + lost
+
+        points = (won * 2) + (draw * 1) + bonus  # Or whatever scoring system you use
+
+        table_entry = LeagueTable(
+            team_id=team.id,
+            played=played,
+            won=won,
+            draw=draw,
+            lost=lost,
+            pf=pf,
+            pa=pa,
+            pd=pd,
+            bonus=bonus,
+            points=points
+        )
+
         db.session.add(table_entry)
 
     db.session.commit()
