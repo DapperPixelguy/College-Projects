@@ -34,6 +34,7 @@ Home
 <script>
 
 const container = document.querySelector('.scrolling-picture')
+let cooldown
 
 function getScrollAmount() {
     const wrapper=container.querySelector('.wrapper')
@@ -41,11 +42,20 @@ function getScrollAmount() {
 }
 
 function scrollRight() {
+    if (cooldown) return
+
     container.scrollBy({left: getScrollAmount(), behavior: "smooth"})
+
+    cooldown = true
+    setTimeout(()=> cooldown=false, 600)
 }
 
 function scrollLeftBtn() {
+    if (cooldown) return
+
     container.scrollBy({left: -getScrollAmount(), behavior: "smooth"})
+    cooldown = true
+    setTimeout(()=> cooldown=false, 800)
 }
 
 async function photoScroller() {
