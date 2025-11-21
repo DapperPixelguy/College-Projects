@@ -16,6 +16,12 @@
         color: #FFFFFF;
         position: sticky;
         top: 5rem;
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+            background: #008522;
+        }
     }
 
     & tbody tr.alternate td {
@@ -33,4 +39,41 @@
     animation: loadingGradient 1s infinite ease-in-out;
     background: linear-gradient(90deg, #dddddd 0%, #555555 50%, #dddddd 100%);
     background-size: 200%;
+}
+
+@media (max-width: 1300px) {
+    header h1 {
+        transform: scale(0.8);
+    }
+}
+
+@media (max-width: 900px){
+    header h1{
+        font-size: 4rem;
+        & span {
+            background: none;
+            clip-path: none;
+        }
+        &::before, &::after{
+            display: none;
+        }
+    }
+    header #header-profile {
+        transform: scale(0.9);
+    }
+    header .logo {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 650px){
+    header h1{
+        font-size: 2.6rem;
+    }
+}
+
+@media (max-width: 500px){
+    header h1 {
+        font-size: 1rem;
+    }
 }
