@@ -291,7 +291,7 @@ nav ul li:hover a::before {
         /*transform: scale(1.15);*/
         a {
         color: #EEEEEE;
-         pointer-events: none;
+
         & span {
             background: black;
             border-bottom: 0.4rem solid #00A755;
@@ -358,3 +358,13 @@ nav ul li.selected {
         .flashbox a:visited {
             color: #9000ff
         }
+
+.grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .flashbox {
+        grid-column: 1;
+    }
+}
