@@ -57,7 +57,8 @@ header h1 {
 }
 
 header h1 span {
-    background: #00A755;
+    /*background: #00A755;*/
+    /*background-image: url('green_noise.png');*/
     background-image: url('green_noise_v2.png');
     padding: 0 7rem;
     clip-path: polygon(5rem 0%, 100% 0%, calc(100% - 5rem) 100%, 0% 100%);
