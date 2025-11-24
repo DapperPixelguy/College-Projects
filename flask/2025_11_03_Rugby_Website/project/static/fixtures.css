@@ -73,6 +73,18 @@
     transform: translateY(0);
 }
 
+.fixture-wrapper.result {
+    & .fixture-info {
+        /*background: #EEEEEE;*/
+        /*color: #00A755;*/
+    }
+
+    & .fixture {
+        background: #EEEEEE;
+        color: #272727;
+    }
+}
+
 .fixture-wrapper:hover {
     @media (prefers-reduced-motion: no-preference) {
         transform: Scale(1.03);
