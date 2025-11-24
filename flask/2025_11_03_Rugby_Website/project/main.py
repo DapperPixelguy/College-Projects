@@ -23,6 +23,7 @@ def fixtures():
 @main.route('/fixtures/fetch')
 def fetch_fixtures():
     response = [{
+        'id': x.id,
         'team1': {
             'name': x.team1_rel.name,
             'logo': x.team1_rel.logo
@@ -33,8 +34,51 @@ def fetch_fixtures():
         },
         'venue': x.venue,
         'date': str(x.date),
-        'time': str(x.time)
+        'time': str(x.time),
+        **({
+            'result': {
+                'team1': x.result.team1_score,
+                'team2': x.result.team2_score
+            }
+        } if x.result else {})
     } for x in Fixture.query.order_by(Fixture.date, Fixture.time).all()]
+    return jsonify(response)
+
+@main.route('/fixtures/create-result', methods=['POST'])
+@access_level_required(2, requestonly=True)
+def create_result():
+    data = request.get_json()
+
+    fixture_id = data['id']
+    team1_score = data['team1_score']
+    team2_score = data['team2_score']
+
+    fixture = Fixture.query.filter_by(id=fixture_id).first()
+
+    fixture.result = Result(team1_score=team1_score, team2_score=team2_score)
+
+    db.session.commit()
+
+    print(fixture_id, team1_score, team2_score)
+
+    print(fixture.venue)
+
+    response = {
+        'id': fixture.id,
+        'team1': {
+            'name': fixture.team1_rel.name,
+            'logo': fixture.team1_rel.logo,
+            'score': fixture.result.team1_score
+        },
+        'team2': {
+            'name': fixture.team2_rel.name,
+            'logo': fixture.team2_rel.logo,
+            'score': fixture.result.team2_score
+        },
+        'date': str(fixture.date),
+        'venue': fixture.venue
+    }
+
     return jsonify(response)
 
 @main.route('/league-table')
