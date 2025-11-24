@@ -53,16 +53,16 @@ with create_app().app_context():
         db.session.add(data)
     db.session.commit()
 
-    results = [{'team1_score': random.randint(0, 10), 'team2_score': random.randint(0, 10), 'fixture_id': x.id}
-               for x in Fixture.query.all()]
-
-    for result in results:
-        data = Result()
-        data.team1_score = result['team1_score']
-        data.team2_score = result['team2_score']
-        data.fixture_id = result['fixture_id']
-        db.session.add(data)
-    db.session.commit()
+    # results = [{'team1_score': random.randint(0, 10), 'team2_score': random.randint(0, 10), 'fixture_id': x.id}
+    #            for x in Fixture.query.all()]
+    #
+    # for result in results:
+    #     data = Result()
+    #     data.team1_score = result['team1_score']
+    #     data.team2_score = result['team2_score']
+    #     data.fixture_id = result['fixture_id']
+    #     db.session.add(data)
+    # db.session.commit()
 
     for team in Team.query.all():
         won = random.randint(0, 20)
