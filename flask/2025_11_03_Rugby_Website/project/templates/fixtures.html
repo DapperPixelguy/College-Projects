@@ -37,6 +37,66 @@ Fixtures
 
 {% block script %}
 <script>
+
+async function createResult(elem) {
+
+    if (!{{ 'true' if current_user.is_authenticated else 'false'}}) {
+        return
+    }
+
+    if (parseInt({{ current_user.accessLevel }}) < 2) {
+    return;
+    }
+
+
+    const id = elem.dataset.fixtureId
+    const team1_score = 1
+    const team2_score = 2
+
+    const res = await fetch('/fixtures/create-result', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            'id': id,
+            'team1_score': team1_score,
+            'team2_score': team2_score
+        })
+    })
+
+    f = await res.json()
+
+    console.log(f)
+
+    let info = elem.querySelector('.fixture-info')
+    let fixture = elem.querySelector('.fixture')
+    info.innerHTML = `
+            <p style="justify-self: end">${f.date}</p>
+            <p>Concluded</p>
+            <p>${f.venue}</p>
+            `;
+
+            fixture.innerHTML =
+            `<div class="team1">
+                <h4 class="barlow-condensed">${f.team1.name}</h4>
+                <img class="team1-logo" src="static/Placeholder_view_vector.svg">
+            </div>
+
+            <p class="middle barlow-condensed" style="justify-self: center">${f.team1.score} - ${f.team2.score}</p>
+
+            <div class="team2">
+                <img class="team2-logo" src="static/Placeholder_view_vector.svg">
+                <h4 class="barlow-condensed" style="justify-self: end">${f.team2.name}</h4>
+            </div>`
+
+    data = await res
+    console.log(data)
+
+    loadLogo(f.team1.logo, fixture.querySelector('.team1-logo'))
+    loadLogo(f.team2.logo, fixture.querySelector('.team2-logo'))
+
+    elem.classList.add('result')
+}
+
 function loadLogo(url, element) {
         let img = new Image()
         img.src=url
@@ -66,7 +126,10 @@ async function buildFixtures() {
 
     fixtures.forEach((f) => {
         const wrapper = document.createElement('div');
+        let isResult = !!f.result
         wrapper.classList.add('fixture-wrapper');
+        wrapper.dataset.fixtureId = f.id
+        wrapper.addEventListener('click', () => createResult(wrapper))
 
         if (!reducedMotion && playAnim) {
             setTimeout(() => {
@@ -89,8 +152,9 @@ async function buildFixtures() {
 
         const fixture = document.createElement('div');
         fixture.classList.add('fixture');
-        fixture.innerHTML =
-            `<div class="team1">
+        if (!isResult) {
+            fixture.innerHTML =
+                `<div class="team1">
                 <h4 class="barlow-condensed">${f.team1.name}</h4>
                 <img class="team1-logo" src="static/Placeholder_view_vector.svg">
             </div>
@@ -101,6 +165,27 @@ async function buildFixtures() {
                 <img class="team2-logo" src="static/Placeholder_view_vector.svg">
                 <h4 class="barlow-condensed" style="justify-self: end">${f.team2.name}</h4>
             </div>`;
+        } else if (isResult) {
+            info.innerHTML = `
+            <p style="justify-self: end">${f.date}</p>
+            <p>Concluded</p>
+            <p>${f.venue}</p>
+            `;
+
+            fixture.innerHTML =
+            `<div class="team1">
+                <h4 class="barlow-condensed">${f.team1.name}</h4>
+                <img class="team1-logo" src="static/Placeholder_view_vector.svg">
+            </div>
+
+            <p class="middle barlow-condensed" style="justify-self: center">${f.result.team1} - ${f.result.team2}</p>
+
+            <div class="team2">
+                <img class="team2-logo" src="static/Placeholder_view_vector.svg">
+                <h4 class="barlow-condensed" style="justify-self: end">${f.team2.name}</h4>
+            </div>`
+            wrapper.classList.add('result')
+        }
         wrapper.appendChild(info);
         wrapper.appendChild(fixture);
         container.appendChild(wrapper);
