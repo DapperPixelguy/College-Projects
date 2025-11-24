@@ -24,13 +24,15 @@ class Fixture(db.Model):
     team1_rel = db.relationship('Team', foreign_keys=[team1], back_populates='home_fixtures')
     team2_rel = db.relationship('Team', foreign_keys=[team2], back_populates='away_fixtures')
 
+    result_id = db.Column(db.Integer, db.ForeignKey('result.id'))
+    result = db.relationship('Result', back_populates='fixture', uselist=False)
+
 class Result(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     team1_score = db.Column(db.Integer, nullable=False)
     team2_score = db.Column(db.Integer, nullable=False)
-    fixture_id = db.Column(db.Integer, db.ForeignKey('fixture.id'), nullable=False)
 
-    fixture = db.relationship('Fixture', backref='results')
+    fixture = db.relationship('Fixture', back_populates='result')
 
 class Team(db.Model):
     id = db.Column(db.Integer, primary_key=True)
