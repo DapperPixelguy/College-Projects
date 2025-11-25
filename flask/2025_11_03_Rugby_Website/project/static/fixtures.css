@@ -1,3 +1,7 @@
+:root:has(.no-doc-scroll) {
+    overflow: hidden;
+}
+
 .fixture-container {
     display: flex;
     flex-direction: column;
@@ -9,6 +13,8 @@
     min-width: 60rem;
     top: 2rem;
     position: relative;
+    max-height: 50rem;
+
 }
 
 .fixture-info {
@@ -88,5 +94,134 @@
 .fixture-wrapper:hover {
     @media (prefers-reduced-motion: no-preference) {
         transform: Scale(1.03);
+    }
+}
+
+.blur {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 2;
+    display: none;
+    opacity: 1;
+}
+
+.score-enter-wrapper{
+    position: fixed;
+    display: none;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50rem;
+    height: 20rem;
+    z-index: 3;
+    filter: drop-shadow(5px 5px 20px);
+    opacity: 1;
+
+    &::before {
+        background: #00A755;
+        position: fixed;
+        content: '';
+        width: 25rem;
+        height: 20rem;
+        right: -5rem;
+        top: 55%;
+        transform: translateY(-55%);
+        clip-path: polygon(21rem 0%, calc(100% - 2rem) 0%, calc(100% - 9rem) 100%, calc(100% - 11rem) 100%);
+    }
+
+    &::after {
+        background: #00A755;
+        position: fixed;
+        content: '';
+        width: 25rem;
+        height: 20rem;
+        left: -17rem;
+        top: 55%;
+        transform: translateY(-55%);
+        clip-path: polygon(21rem 0%, calc(100% - 2rem) 0%, calc(100% - 9rem) 100%, calc(100% - 11rem) 100%);
+    }
+}
+
+.score-enter {
+    position: relative;
+    background: #272727;
+    width: 50rem;
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    clip-path: polygon(7rem 0%, 100% 0%, calc(100% - 7rem) 100%, 0% 100%);
+
+
+    & h1 {
+        color: #FFFFFF;
+        justify-items: start;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    & .input-wrapper {
+        display: grid;
+        gap: 2rem;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    & .score-input {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        & label {
+            color: #FFFFFF;
+            font-size: 1.8rem;
+        }
+    }
+
+    & input {
+        height: 4rem;
+        width: 10rem;
+        position: relative;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    & input[type=number] {
+        appearance: textfield;
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+    }
+
+    & label {
+
+    }
+
+    & #submit{
+        height: 3rem;
+        width: 15rem;
+        margin-top: 2rem;
+        font-size: 2rem;
+        background: #EEEEEE;
+        border: none;
+        cursor: pointer;
+    }
+
+    & #exit {
+        position: absolute;
+        right: 2rem;
+        top: 0.5rem;
+        background: none;
+        border: none;
+        color: #FFFFFF;
+        font-size: 2.5rem;
+        width: 2rem;
+        cursor: pointer;
     }
 }
