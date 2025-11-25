@@ -58,6 +58,34 @@ def create_result():
 
     fixture.result = Result(team1_score=team1_score, team2_score=team2_score)
 
+    team1_league_entry = LeagueTable.query.filter_by(team_id=fixture.team1).first()
+    team2_league_entry = LeagueTable.query.filter_by(team_id=fixture.team2).first()
+
+    team1_league_entry.pf += int(team1_score)
+    team1_league_entry.pa += int(team2_score)
+
+    team2_league_entry.pf += int(team2_score)
+    team2_league_entry.pa += int(team1_score)
+
+    team1_league_entry.played += 1
+    team2_league_entry.played += 1
+
+    if team1_score == team2_score:
+        team1_league_entry.draw += 1
+        team2_league_entry.draw += 1
+    else:
+        if team1_score > team2_score:
+            team1_league_entry.points += 4
+            team1_league_entry.won += 1
+            team2_league_entry.lost += 1
+        if team2_score > team1_score:
+            team2_league_entry.points += 4
+            team2_league_entry.won += 1
+            team1_league_entry.lost += 1
+
+    team1_league_entry.pd = team1_league_entry.pf - team1_league_entry.pa
+    team2_league_entry.pd = team2_league_entry.pf - team2_league_entry.pa
+
     db.session.commit()
 
     print(fixture_id, team1_score, team2_score)
@@ -107,9 +135,10 @@ def fetch_league_table():
     sort_col = sortable.get(sort.lower(), LeagueTable.points)
 
     sort_col = sort_col.asc() if asc else sort_col.desc()
+    sort_col2 = LeagueTable.pd.asc() if asc else LeagueTable.pd.desc()
 
 
-    teams = Team.query.join(LeagueTable).order_by(sort_col, LeagueTable.pd.desc()).all()
+    teams = Team.query.join(LeagueTable).order_by(sort_col, sort_col2).all()
     for team in teams:
         print(team.standing.won, team.name)
     response = [
