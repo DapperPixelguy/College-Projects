@@ -45,6 +45,7 @@ def fetch_fixtures():
     return jsonify(response)
 
 @main.route('/fixtures/create-result', methods=['POST'])
+@login_required
 @access_level_required(2, requestonly=True)
 def create_result():
     data = request.get_json()
