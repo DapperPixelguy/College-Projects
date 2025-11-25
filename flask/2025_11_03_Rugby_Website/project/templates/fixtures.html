@@ -10,35 +10,111 @@ Fixtures
 
 {% block content %}
 <div class="fixture-container">
-{#{% for item in data %}#}
-{#<div class="fixture-wrapper">#}
-{#    <div class="fixture-info barlow-condensed">#}
-{#        <p style="justify-self: end">{{ item.date }}</p>#}
-{#        <p>{{ item.time }}</p>#}
-{#        <p>{{ item.venue }}</p>#}
-{#    </div>#}
-{#    <div class="fixture floatUp">#}
-{#        <div class="team1">#}
-{#            <h4 class="barlow-condensed">{{ item.team1 }}</h4>#}
-{#            <img class="team1-logo" src="{{ url_for('static', filename='daom-rugby.svg') }}">#}
-{#        </div>#}
-{##}
-{#         <p class="middle barlow-condensed" style="justify-self: center">VS</p>#}
-{##}
-{#        <div class="team2">#}
-{#            <img class="team2-logo" src="{{ url_for('static', filename='england-rugby.svg') }}">#}
-{#            <h4 class="barlow-condensed" style="justify-self: end">{{ item.team2 }}</h4>#}
-{#        </div>#}
-{#    </div>#}
-{#</div>#}
-{#{% endfor %}#}
 </div>
+<div class="blur">
+
+</div>
+<div class="score-enter-wrapper">
+    <div class="score-enter">
+    <button id="exit" class="barlow-condensed" onclick="score_toggle()">x</button>
+    <h1 class="barlow-condensed">Enter scores</h1>
+    <div class="input-wrapper">
+        <div class="score-input">
+            <label id='team1-label' class="barlow-condensed" for="team1">{ TEAM 1 } SCORE</label>
+            <input class='barlow-condensed' placeholder=" " id="team1" type="number">
+        </div>
+        <div class="score-input">
+            <label id='team2-label' class='barlow-condensed' for="team2">{ TEAM 2 } SCORE</label>
+            <input class='barlow-condensed' placeholder=" " id="team2" type="number">
+        </div>
+    </div>
+        <input class="barlow-condensed" type="submit" value="SUBMIT" id="submit">
+</div>
+
+</div>
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 {% endblock %}
 
 {% block script %}
 <script>
 
-async function createResult(elem) {
+const blur = document.querySelector('.blur')
+const popup = document.querySelector('.score-enter-wrapper')
+let score_debounce
+const submitbutton = document.getElementById('submit')
+
+{# Function to validate, and submit scores to createResult #}
+
+function submit_scores(elem){
+    let team1_input = popup.querySelector('#team1').value
+    let team2_input = popup.querySelector('#team2').value
+
+    if (parseInt(team1_input) >= 0 && parseInt(team2_input) >= 0) {
+        elem.removeEventListener('click', elem.score_toggle_handler)
+
+        score_toggle()
+        createResult(elem, team1_input, team2_input)
+    }
+}
+
+{# Function to check if an outside click is detected, so score enter can be closed #}
+
+function outsideClickHandler(event) {
+    if (popup.contains(event.target)) return
+
+    score_toggle()
+}
+
+{# Function to toggle the score entry box #}
+
+function score_toggle(elem) {
+    if (elem) {
+        submitbutton.onclick = () => submit_scores(elem)
+    }
+    if (score_debounce){
+        return
+    }
+
+    score_debounce = true
+    setTimeout(()=>{
+        score_debounce = false
+    }, 300)
+
+    const visible = getComputedStyle(popup).display !== 'none'
+
+    const keyframes = visible
+    ? [{opacity: 1}, {opacity: 0}]
+    : [{opacity: 0}, {opacity: 1}]
+
+    console.log(elem)
+    popup.animate(keyframes, {duration: 200})
+    blur.animate(keyframes, {duration: 200})
+
+    if (!visible){
+        blur.style.display = 'block'
+        popup.style.display = 'block'
+
+        document.getElementById('team1-label').textContent=
+            `${elem.querySelector('.team1').querySelector('h4').textContent}`
+
+        document.getElementById('team2-label').textContent=
+            `${elem.querySelector('.team2').querySelector('h4').textContent}`
+
+        window.addEventListener('click', outsideClickHandler)
+    }
+
+    if (visible) {
+        setTimeout(()=>{
+            popup.style.display = 'none'
+            blur.style.display = 'none'
+        }, 200)
+        window.removeEventListener('click',outsideClickHandler)
+    }
+}
+
+async function createResult(elem, team1_score, team2_score) {
 
     if (!{{ 'true' if current_user.is_authenticated else 'false'}}) {
         return
@@ -48,14 +124,13 @@ async function createResult(elem) {
     return;
     }
 
-
     const id = elem.dataset.fixtureId
-    const team1_score = 1
-    const team2_score = 2
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
 
     const res = await fetch('/fixtures/create-result', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json',
+        'X-CSRFToken': csrfToken},
         body: JSON.stringify({
             'id': id,
             'team1_score': team1_score,
@@ -129,7 +204,12 @@ async function buildFixtures() {
         let isResult = !!f.result
         wrapper.classList.add('fixture-wrapper');
         wrapper.dataset.fixtureId = f.id
-        wrapper.addEventListener('click', () => createResult(wrapper))
+
+        if ({{ 'true' if current_user.accessLevel >= 2 else 'false'}}){
+            wrapper.style.cursor = 'pointer'
+        }
+
+        {#wrapper.addEventListener('click', () => createResult(wrapper))#}
 
         if (!reducedMotion && playAnim) {
             setTimeout(() => {
@@ -165,6 +245,8 @@ async function buildFixtures() {
                 <img class="team2-logo" src="static/Placeholder_view_vector.svg">
                 <h4 class="barlow-condensed" style="justify-self: end">${f.team2.name}</h4>
             </div>`;
+            wrapper.score_toggle_handler = () => score_toggle(wrapper)
+            wrapper.addEventListener('click', wrapper.score_toggle_handler)
         } else if (isResult) {
             info.innerHTML = `
             <p style="justify-self: end">${f.date}</p>
