@@ -15,10 +15,21 @@ def access_level_required(level, requestonly=False):
     def decorator(f):
         @wraps(f)
         def decorated_func(*args, **kwargs):
-            if current_user.is_authenticated and current_user.accessLevel >= level:
-                return f(*args, **kwargs)
-            if requestonly:
-                return jsonify({'Error': 'You are not authorized to access this page'}), 405
-            return redirect(url_for('main.index'))
+
+            # Check if authenticated
+            if not current_user.is_authenticated:
+                if requestonly:
+                    return jsonify({'error': 'Unauthenticated'}), 401
+                return redirect(url_for('main.index'))
+
+            # Check if level is high enough
+            if current_user.accessLevel < level:
+                if requestonly:
+                    return jsonify({'error': 'Forbidden'}), 403
+                return redirect(url_for('main.index'))
+
+            # Both are satisfied, continue as normal
+            return f(*args, **kwargs)
+
         return decorated_func
     return decorator
