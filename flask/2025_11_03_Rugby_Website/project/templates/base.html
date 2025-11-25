@@ -24,15 +24,14 @@
             <h1 id='h1-title' class="barlow-condensed"><span>{{ self.title().upper() }}</span></h1>
             <div id="header-profile">
                 {% if current_user.is_authenticated %}
-                    <div id="profile-dropdown">
-                    <a class='barlow-condensed' href="/profile">Profile</a>
+                <div id="profile-dropdown">
                     {% if current_user.accessLevel >= 1 %}
                     <a class='barlow-condensed' href="/admin">Admin</a>
                     {% endif %}
                     <a class='barlow-condensed' href="/logout">Log out</a>
                 </div>
-                <h4 class="">Hi, {{ current_user.name }}</h4>
-                <a href="{{ url_for('main.admin') }}"><img src="{{ url_for('static', filename=current_user.picture) }}" alt="Profile Picture" id="profile-picture"></a>
+                <h4 class="">Hi, {{ current_user.name|truncate(15, leeway=2) }}</h4>
+                <a href="{{ url_for('main.profile') }}"><img src="{{ url_for('static', filename=current_user.picture) }}" alt="Profile Picture" id="profile-picture"></a>
 
                 {% endif %}
                 {% if not current_user.is_authenticated %}
@@ -46,6 +45,7 @@
                 <li id="fixtures"><a href="{{ url_for('main.fixtures') }}"><span>FIXTURES</span></a></li>
                 <li id="match"><a href="{{ url_for('main.results') }}"><span>RESULTS</span></a></li>
                 <li id="league"><a href="{{ url_for('main.league_table') }}"><span>LEAGUE TABLE</span></a></li>
+                <li id="archive"><a href="{{ url_for('main.league_table') }}"><span>ARCHIVE</span></a></li>
                 <li><a><span>ABOUT US</span></a></li>
             </ul>
         </nav>
