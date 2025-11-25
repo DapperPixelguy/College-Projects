@@ -52,6 +52,7 @@ Sign Up
             </div>
 
             <input class='form-button barlow-condensed' type="submit" value="SIGN UP">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         </form>
         <h5 id="signup-reminder">Already have an account? <a href="{{ url_for('auth.login') }}">Log In</a></h5>
 </div>
