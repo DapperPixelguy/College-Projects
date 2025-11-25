@@ -14,7 +14,9 @@ Match Results
 
 {% block script %}
 <script>
-    function loadLogo(url, element) {
+
+let accessLevel = {{ current_user.accessLevel if current_user.accessLevel else 0 }}
+function loadLogo(url, element) {
         let img = new Image()
         img.src=url
         img.onload = () => {
@@ -23,7 +25,7 @@ Match Results
 }
 
 async function buildFixtures() {
-    const animKey = 'rAnimationLastPlayed'
+    const animKey = 'animationLastPlayed'
     const cooldown = 5 * 60 * 1000
     const lastPlayed = parseInt(localStorage.getItem(animKey)) || 0
     const now = Date.now()
@@ -35,7 +37,7 @@ async function buildFixtures() {
         playAnim = true
         localStorage.setItem(animKey, now)
     }
-    const response = await fetch('/results/fetch')
+    const response = await fetch('/fixtures/fetch')
     const fixtures = await response.json()
     const container = document.querySelector('.fixture-container')
     const reducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true
@@ -43,7 +45,23 @@ async function buildFixtures() {
 
     fixtures.forEach((f) => {
         const wrapper = document.createElement('div');
+        let isResult = !!f.result
         wrapper.classList.add('fixture-wrapper');
+        wrapper.dataset.fixtureId = f.id
+
+        if (!f.result){
+            return
+        }
+
+        let date = new Date(f.date)
+
+        date=date.toLocaleDateString("en-GB")
+
+        if (accessLevel >= 2){
+            wrapper.style.cursor = 'pointer'
+        }
+
+        {#wrapper.addEventListener('click', () => createResult(wrapper))#}
 
         if (!reducedMotion && playAnim) {
             setTimeout(() => {
@@ -59,30 +77,41 @@ async function buildFixtures() {
         const info = document.createElement('div');
         info.classList.add('fixture-info', 'barlow-condensed');
         info.innerHTML = `
-            <p style="justify-self: end">${f.fixture.date}</p>
-            <p>${f.fixture.time}</p>
-            <p>${f.fixture.venue}</p>
+            <p style="justify-self: end">${date}</p>
+            <p>${f.time}</p>
+            <p>${f.venue}</p>
         `;
 
         const fixture = document.createElement('div');
         fixture.classList.add('fixture');
-        fixture.innerHTML =
+        if (!isResult) {
+            fixture.innerHTML = ``
+        } else if (isResult) {
+            info.innerHTML = `
+            <p style="justify-self: end">${f.date}</p>
+            <p>Concluded</p>
+            <p>${f.venue}</p>
+            `;
+
+            fixture.innerHTML =
             `<div class="team1">
-                <h4 class="barlow-condensed">${f.fixture.team1_rel.name}</h4>
+                <h4 class="barlow-condensed">${f.team1.name}</h4>
                 <img class="team1-logo" src="static/Placeholder_view_vector.svg">
             </div>
 
-            <p class="middle barlow-condensed" style="justify-self: center">${f.team2_results} - ${f.team1_results}</p>
+            <p class="middle barlow-condensed" style="justify-self: center">${f.result.team1} - ${f.result.team2}</p>
 
             <div class="team2">
                 <img class="team2-logo" src="static/Placeholder_view_vector.svg">
-                <h4 class="barlow-condensed" style="justify-self: end">${f.fixture.team2_rel.name}</h4>
-            </div>`;
+                <h4 class="barlow-condensed" style="justify-self: end">${f.team2.name}</h4>
+            </div>`
+            wrapper.classList.add('result')
+        }
         wrapper.appendChild(info);
         wrapper.appendChild(fixture);
         container.appendChild(wrapper);
-        loadLogo(f.fixture.team1_rel.logo, fixture.querySelector('.team1-logo'))
-        loadLogo(f.fixture.team2_rel.logo, fixture.querySelector('.team2-logo'))
+        loadLogo(f.team1.logo, fixture.querySelector('.team1-logo'))
+        loadLogo(f.team2.logo, fixture.querySelector('.team2-logo'))
         animTime = animTime + 1
     })
 }
