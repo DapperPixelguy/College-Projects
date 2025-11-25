@@ -60,6 +60,7 @@ Admin
                 <input type="text" id="venue" name="venue" placeholder=" " autocomplete="one-time-code">
                 <label for="venue">Venue</label>
             </div>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
 
             <div class="form-input-wrapper">
             <input class='form-button barlow-condensed' type="submit" value="Create fixture">
