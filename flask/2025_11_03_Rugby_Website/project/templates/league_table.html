@@ -52,7 +52,7 @@ function toggleSort(sort) {
     loadTable(current_sort, current_asc)
 }
 
-async function loadTable (sort='played', asc='false') {
+async function loadTable (sort='points', asc='false') {
     const table_body = document.querySelector('tbody')
 
     if (!table_built){
