@@ -44,12 +44,16 @@ const blur = document.querySelector('.blur')
 const popup = document.querySelector('.score-enter-wrapper')
 let score_debounce
 const submitbutton = document.getElementById('submit')
+let accessLevel = {{ current_user.accessLevel if current_user.accessLevel else 0 }}
 
 {# Function to validate, and submit scores to createResult #}
 
 function submit_scores(elem){
     let team1_input = popup.querySelector('#team1').value
     let team2_input = popup.querySelector('#team2').value
+
+    popup.querySelector('#team1').value = ''
+    popup.querySelector('#team2').value = ''
 
     if (parseInt(team1_input) >= 0 && parseInt(team2_input) >= 0) {
         elem.removeEventListener('click', elem.score_toggle_handler)
@@ -70,6 +74,10 @@ function outsideClickHandler(event) {
 {# Function to toggle the score entry box #}
 
 function score_toggle(elem) {
+    if (accessLevel < 2) {
+        return
+    }
+
     if (elem) {
         submitbutton.onclick = () => submit_scores(elem)
     }
@@ -93,6 +101,7 @@ function score_toggle(elem) {
     blur.animate(keyframes, {duration: 200})
 
     if (!visible){
+        popup.classList.add('no-doc-scroll')
         blur.style.display = 'block'
         popup.style.display = 'block'
 
@@ -106,6 +115,7 @@ function score_toggle(elem) {
     }
 
     if (visible) {
+        popup.classList.remove('no-doc-scroll')
         setTimeout(()=>{
             popup.style.display = 'none'
             blur.style.display = 'none'
@@ -205,7 +215,11 @@ async function buildFixtures() {
         wrapper.classList.add('fixture-wrapper');
         wrapper.dataset.fixtureId = f.id
 
-        if ({{ 'true' if current_user.accessLevel >= 2 else 'false'}}){
+        let date = new Date(f.date)
+
+        date=date.toLocaleDateString("en-GB")
+
+        if (accessLevel >= 2){
             wrapper.style.cursor = 'pointer'
         }
 
@@ -225,7 +239,7 @@ async function buildFixtures() {
         const info = document.createElement('div');
         info.classList.add('fixture-info', 'barlow-condensed');
         info.innerHTML = `
-            <p style="justify-self: end">${f.date}</p>
+            <p style="justify-self: end">${date}</p>
             <p>${f.time}</p>
             <p>${f.venue}</p>
         `;
