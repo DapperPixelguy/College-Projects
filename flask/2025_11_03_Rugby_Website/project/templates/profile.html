@@ -46,6 +46,7 @@ Profile
             </div>
 
             <input class='form-button barlow-condensed' type="submit" value="Save Changes">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         </form>
     </div>
 
@@ -60,6 +61,7 @@ Profile
             </div>
 
             <input class='form-button barlow-condensed' type="submit" value="Save Changes">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         </form>
 
     </div>
