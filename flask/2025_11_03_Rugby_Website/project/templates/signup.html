@@ -9,7 +9,7 @@ Sign Up
 {% endblock %}
 
 {% block content %}
-    <div>
+<div>
     {% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
     {% for category, message in messages %}
@@ -26,10 +26,6 @@ Sign Up
     <div id="signup-form" class="floatUp" >
         <h4 class="form-title barlow-condensed">SIGN UP</h4>
         <form name="login" id="login" method="POST" action="/signup">
-{#            <div class="form-input-wrapper">#}
-{#                <input id='name' type="text" name='name' placeholder=" ">#}
-{#                <label for="name">Name</label>#}
-{#            </div>#}
 
             <div class="form-input-wrapper">
                 <input id='email' type="text" name='email' placeholder=" ">
@@ -55,7 +51,7 @@ Sign Up
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         </form>
         <h5 id="signup-reminder">Already have an account? <a href="{{ url_for('auth.login') }}">Log In</a></h5>
-</div>
-</div>
     </div>
+    </div>
+</div>
 {% endblock %}
