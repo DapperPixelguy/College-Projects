@@ -1,5 +1,7 @@
 const container = document.querySelector('.scrolling-picture')
 const carousel = document.querySelector('.carousel-wrapper')
+const blur = document.querySelector('.blur')
+const blownUp = document.querySelector('.blow-up')
 let cooldown
 
 function getScrollAmount() {
@@ -36,16 +38,50 @@ function scrollLeftBtn() {
 async function photoScroller() {
     let response = await fetch('/photo-fetch')
     let paths = await response.json()
+    let placeholder = 'static/Placeholder_view_vector.svg'
 
 
     paths.forEach(image => {
         let wrapper = document.createElement('div')
         wrapper.classList.add('wrapper')
         let img = document.createElement('img')
-        img.src=image
+        img.src=placeholder
+
+        // Have photos change from placeholders once loaded
+        let real = new Image()
+        real.src = image
+        real.onload = () => {
+            img.src=image
+        }
+
         wrapper.appendChild(img)
         container.appendChild(wrapper)
+
+        img.addEventListener('click', function () {
+            blowUp(this)
+        })
     })
+}
+
+function blowUp(elem) {
+
+    function closeHandler(e) {
+        if (e.target === blur) {
+            blur.style.display = 'none'
+            blownUp.style.display = 'none'
+            blownUp.classList.remove('no-doc-scroll')
+            document.removeEventListener('click', closeHandler)
+        }
+    }
+
+    blownUp.src = elem.src
+    console.log(elem.src)
+
+    blur.style.display = 'block'
+    blownUp.style.display = 'block'
+    blownUp.classList.add('no-doc-scroll')
+
+    document.addEventListener('click', closeHandler)
 }
 
 document.addEventListener('DOMContentLoaded', photoScroller)
