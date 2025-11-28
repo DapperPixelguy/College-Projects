@@ -198,7 +198,7 @@ def results_fetch():
 @login_required
 @access_level_required(2)
 def admin():
-    teams = Team.query.all()
+    teams = Team.query.order_by(Team.name).all()
     return render_template('admin.html', teams=teams)
 
 @main.route('/admin/fixture_create', methods=['GET', 'POST'])
