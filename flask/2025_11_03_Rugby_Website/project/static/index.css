@@ -67,3 +67,13 @@ h5 {
 }
 }
 
+.blow-up {
+    width: 60%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    display: none;
+}
+
