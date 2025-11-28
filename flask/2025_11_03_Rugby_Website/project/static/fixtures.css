@@ -1,7 +1,3 @@
-:root:has(.no-doc-scroll) {
-    overflow: hidden;
-}
-
 .fixture-container {
     display: flex;
     flex-direction: column;
@@ -95,17 +91,6 @@
     @media (prefers-reduced-motion: no-preference) {
         transform: Scale(1.03);
     }
-}
-
-.blur {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(5px);
-    z-index: 2;
-    display: none;
-    opacity: 1;
 }
 
 .score-enter-wrapper{
