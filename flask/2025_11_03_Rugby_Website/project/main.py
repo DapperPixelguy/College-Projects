@@ -51,8 +51,8 @@ def create_result():
     data = request.get_json()
 
     fixture_id = data['id']
-    team1_score = data['team1_score']
-    team2_score = data['team2_score']
+    team1_score = int(data['team1_score'])
+    team2_score = int(data['team2_score'])
 
     fixture = Fixture.query.filter_by(id=fixture_id).first()
 
@@ -73,15 +73,25 @@ def create_result():
     if team1_score == team2_score:
         team1_league_entry.draw += 1
         team2_league_entry.draw += 1
+
+        team1_league_entry.points += 2
+        team2_league_entry.points += 2
     else:
         if team1_score > team2_score:
             team1_league_entry.points += 4
             team1_league_entry.won += 1
             team2_league_entry.lost += 1
+
+            if team1_score - 7 <= team2_score:
+                team2_league_entry.bonus += 1
+
         if team2_score > team1_score:
             team2_league_entry.points += 4
             team2_league_entry.won += 1
             team1_league_entry.lost += 1
+
+            if team2_score - 7 <= team1_score:
+                team1_league_entry.bonus += 1
 
     team1_league_entry.pd = team1_league_entry.pf - team1_league_entry.pa
     team2_league_entry.pd = team2_league_entry.pf - team2_league_entry.pa
