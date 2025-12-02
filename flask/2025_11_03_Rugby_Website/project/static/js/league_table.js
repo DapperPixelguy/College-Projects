@@ -1,10 +1,20 @@
-
 let current_sort = 'played'
 let current_asc = false
 let table_built = false
 let selected_league_elem = document.querySelector('button')
-selected_league_elem.classList.add('selected')
-let selected_league = '1'
+let lastSortKey = 'lastSort'
+let selected_league = localStorage.getItem(lastSortKey) || '1'
+
+
+function loadPage(league='1'){
+    document.querySelectorAll('button').forEach(o=>{
+        if (o.value === league){
+            o.classList.add('selected')
+            selected_league_elem = o
+        }
+    })
+    loadTable(undefined,undefined,league)
+}
 
 function changeLeague(elem){
     if (selected_league !== elem.value) {
@@ -15,6 +25,9 @@ function changeLeague(elem){
         table_built = false
         loadTable(undefined, undefined, selected_league)
     }
+
+    localStorage.setItem(lastSortKey, selected_league)
+
 }
 
 function toggleSort(sort) {
@@ -104,8 +117,6 @@ async function buildTable(sort, asc, league) {
             counter ++
         }
 
-
-
         entry.classList.add('entry')
         name.innerHTML = team.name
         entry.appendChild(name)
@@ -119,4 +130,4 @@ async function buildTable(sort, asc, league) {
     })
 }
 
-document.addEventListener('DOMContentLoaded', ()=> loadTable())
+document.addEventListener('DOMContentLoaded', ()=> loadPage(selected_league))
