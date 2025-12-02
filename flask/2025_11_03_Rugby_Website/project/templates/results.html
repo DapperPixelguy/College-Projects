@@ -9,7 +9,32 @@ Match Results
 {% endblock %}
 
 {% block content %}
-    <div class="fixture-container"></div>
+<div class="fixture-container">
+</div>
+<div class="blur">
+
+</div>
+<div class="score-enter-wrapper">
+    <div class="score-enter">
+    <button id="exit" class="barlow-condensed" onclick="score_toggle()">x</button>
+    <h1 class="barlow-condensed">Enter scores</h1>
+    <div class="input-wrapper">
+        <div class="score-input">
+            <label id='team1-label' class="barlow-condensed" for="team1">{ TEAM 1 } SCORE</label>
+            <input class='barlow-condensed' placeholder=" " id="team1" type="number">
+        </div>
+        <div class="score-input">
+            <label id='team2-label' class='barlow-condensed' for="team2">{ TEAM 2 } SCORE</label>
+            <input class='barlow-condensed' placeholder=" " id="team2" type="number">
+        </div>
+    </div>
+        <input class="barlow-condensed" type="submit" value="SUBMIT" id="submit">
+</div>
+
+</div>
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 {% endblock %}
 
 {% block script %}
