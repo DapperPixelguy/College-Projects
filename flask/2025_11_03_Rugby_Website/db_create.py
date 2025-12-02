@@ -2,7 +2,7 @@ import random
 
 from project import create_app, db
 from datetime import datetime
-from project.models import Fixture, Team, Result, LeagueTable
+from project.models import Fixture, Team, Result, LeagueTable, League
 import os
 import re
 
@@ -45,7 +45,7 @@ for file in os.listdir('project/static/logos'):
 #     {'team1': 'Oakridge Orcas', 'team2': 'Riverside Rangers', 'venue': 'Example Venue', 'date': '14/11/2025', 'time': '12:00'}
 # ]
 
-
+leagues = ['Northern Premier League', 'Southern Championship Division', 'Central Elite Rugby League', 'Western Counties Shield League', 'Metropolitan Sports Premier Division']
 
 
 with create_app().app_context():
@@ -56,6 +56,13 @@ with create_app().app_context():
         data.name= team['name']
         data.logo = team['logo']
         db.session.add(data)
+    db.session.commit()
+
+    for league in leagues:
+        x = League()
+        x.name = league
+        db.session.add(x)
+
     db.session.commit()
 
     teams_db = Team.query.all()
@@ -91,6 +98,7 @@ with create_app().app_context():
         data.date = datetime.strptime(fixture['date'], '%d/%m/%Y').date()
         data.venue = fixture['venue']
         data.time = datetime.strptime(fixture['time'], '%H:%M').time()
+        data.league = random.choice(League.query.all())
         print(data)
         db.session.add(data)
     db.session.commit()
@@ -106,34 +114,9 @@ with create_app().app_context():
     #     db.session.add(data)
     # db.session.commit()
 
-    for team in Team.query.all():
-        # won = random.randint(0, 20)
-        # draw = random.randint(0, 20 - won)
-        # lost = random.randint(0, 20 - won - draw)
-        #
-        # pf = random.randint(50, 500)  # points for
-        # pa = random.randint(50, 500)  # points against
-        # pd = pf - pa  # points difference
-        #
-        # bonus = random.randint(0, 5)  # bonus points
-        #
-        # played = won + draw + lost
-        #
-        # points = (won * 2) + (draw * 1) + bonus  # Or whatever scoring system you use
-        #
-        # table_entry = LeagueTable(
-        #     team_id=team.id,
-        #     played=played,
-        #     won=won,
-        #     draw=draw,
-        #     lost=lost,
-        #     pf=pf,
-        #     pa=pa,
-        #     pd=pd,
-        #     bonus=bonus,
-        #     points=points
-        # )
-        table_entry = LeagueTable(team_id=team.id)
-        db.session.add(table_entry)
-
+    for fixture in Fixture.query.all():
+        table_entry_team1 = LeagueTable(team_id=fixture.team1, league_id=fixture.league.id)
+        db.session.add(table_entry_team1)
+        table_entry_team2 = LeagueTable(team_id=fixture.team2, league_id=fixture.league.id)
+        db.session.add(table_entry_team2)
     db.session.commit()
