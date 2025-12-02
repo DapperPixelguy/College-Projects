@@ -13,7 +13,7 @@ body {
     font-family: "Proxima Nova", sans-serif;
     display: flex;
     flex-direction: column;
-    height: 200vh;
+    min-height: 100vh;
     background: rgb(39, 39, 39)
 }
 
@@ -141,14 +141,25 @@ header #header-profile #profile-dropdown {
 
 
 #img {
-    background: url("https://devonrfu.co.uk/wp-content/uploads/2022/06/drfu-homeslide.jpg") 100%;
-    height: 100vh;
+    position: relative;
+    flex: 1 0 auto;
+    min-height: calc(100vh + 0.8rem);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    background-size: cover;
+
     padding-top: 1em;
+
+    &::before {
+        position: absolute;
+        inset: 0;
+        content: '';
+        background: url("https://devonrfu.co.uk/wp-content/uploads/2022/06/drfu-homeslide.jpg") 100%;
+        background-size: cover;
+        height: 57rem;
+    }
+
 }
 
 nav {
@@ -387,4 +398,87 @@ nav ul li.selected {
     z-index: 2;
     display: none;
     opacity: 1;
+}
+
+footer {
+    top: calc(100%);
+    position: relative;
+    width: 100%;
+    height: 15rem;
+    border-top: 1px solid #00A755;
+    background: #272727 url('tex-dark.jpg');
+    box-shadow: 0 -5px 5px rgba(125,125,125,.5);
+
+    & .footer-content {
+        display: grid;
+        grid-template-columns: 0.5fr 1fr;
+        align-content: center;
+        justify-content: center;
+        height: 100%;
+        width: 80%;
+        margin: 0 auto;
+        /*background: rgba(255,0,0,.5);*/
+
+        & img {
+            justify-self: center;
+        }
+
+        & .footer-links {
+           display: flex;
+            flex-direction: row;
+            width: 80%;
+            gap: 10rem;
+            position: relative;
+            top: -1.5rem;
+
+            & .footer-link {
+                display: flex;
+                flex-direction: column;
+
+                & h4 {
+                    font-size: 3rem;
+                    border-bottom: 1px solid #EEEEEE;
+                    padding: 0 1rem;
+                    margin-bottom: 10px;
+                    color: #EEEEEE;
+                }
+
+                & ul {
+                    position: relative;
+                    top: 0.5rem;
+                    list-style-position:outside;
+                    /*list-style-type: symbols(cyclic '>');*/
+                    list-style-type: none;
+                    color: #FFFFFF;
+
+                    & li {
+                        margin-bottom: 10px;
+                        font-weight: 700;
+                        line-height: 1.5rem;
+                        display: flex;
+                        font-size: 1.1rem;
+
+                        &::before {
+                            content: '>';
+                            position: absolute;
+                            left: -20px;
+                            font-size: 1.5rem;
+                            color: #00A755;
+                            font-weight: 700
+                        }
+
+                        /*&::marker {*/
+                        /*    font-weight: 900;*/
+                        /*    font-size: 1.5rem;*/
+                        /*    color: #00A755;*/
+                        /*}*/
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
 }
