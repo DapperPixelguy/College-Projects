@@ -1,11 +1,9 @@
 let fixtureCreate = document.getElementById('fixture-create')
-let select = document.querySelectorAll('select')
+let select = document.querySelectorAll('.team-select')
 
-select.forEach((s)=>{
-    s.addEventListener('change', ()=>{
-        disableSelected()
-    })
-})
+select.forEach((s)=>s.addEventListener('change', disableSelected))
+
+document.addEventListener('DOMContentLoaded', disableSelected)
 
 function disableSelected(){
 
