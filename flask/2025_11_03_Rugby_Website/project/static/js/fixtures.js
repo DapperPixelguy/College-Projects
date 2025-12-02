@@ -4,6 +4,23 @@ let score_debounce
 const submitbutton = document.getElementById('submit')
 let accessLevel = window.ACCESS_LEVEL
 let isAuthenticated = window.IS_AUTHENTICATED
+const team_filter = document.querySelector('#team-select')
+const league_filter = document.querySelector('#league-select')
+const container = document.querySelector('.fixture-container')
+
+// Function to check if team_filter has changed, and update fixtures as according
+
+team_filter.addEventListener('change', ()=>{
+    container.innerHTML = ''
+    buildFixtures(team_filter.value, league_filter.value)
+})
+
+// Function to check if league_filter has changed
+
+league_filter.addEventListener('change', ()=>{
+    container.innerHTML = ''
+    buildFixtures(team_filter.value, league_filter.value)
+})
 
 // Function to validate, and submit scores to createResult
 
@@ -70,6 +87,15 @@ function score_toggle(elem) {
         document.getElementById('team2-label').textContent=
             `${elem.querySelector('.team2').querySelector('h4').textContent}`
 
+        if (elem.classList.contains('result')){
+            let scores = elem.querySelector('.middle').textContent.split('-')
+            let score1 = parseInt(scores[0])
+            let score2 = parseInt(scores[1])
+
+            document.getElementById('team1').value=score1
+            document.getElementById('team2').value=score2
+        }
+
         window.addEventListener('click', outsideClickHandler)
     }
 
@@ -117,6 +143,7 @@ async function createResult(elem, team1_score, team2_score) {
             <p style="justify-self: end">${f.date}</p>
             <p>Concluded</p>
             <p>${f.venue}</p>
+            <p class="barlow-condensed league">${f.league.name}</p>
             `;
 
             fixture.innerHTML =
@@ -149,7 +176,7 @@ function loadLogo(url, element) {
         }
 }
 
-async function buildFixtures() {
+async function buildFixtures(team_filter, league_filter) {
     const animKey = 'animationLastPlayed'
     const cooldown = 5 * 60 * 1000
     const lastPlayed = parseInt(localStorage.getItem(animKey)) || 0
@@ -162,9 +189,12 @@ async function buildFixtures() {
         playAnim = true
         localStorage.setItem(animKey, now)
     }
-    const response = await fetch('/fixtures/fetch')
+
+    let response
+
+    response = await fetch(`/fixtures/fetch?team=${team_filter}&league=${league_filter}`)
+
     const fixtures = await response.json()
-    const container = document.querySelector('.fixture-container')
     const reducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true
     let animTime = 0.3
 
@@ -199,10 +229,12 @@ async function buildFixtures() {
             <p style="justify-self: end">${date}</p>
             <p>${f.time}</p>
             <p>${f.venue}</p>
-        `;
+            <p class="barlow-condensed league">${f.league.name}</p>`;
 
         const fixture = document.createElement('div');
         fixture.classList.add('fixture');
+        wrapper.score_toggle_handler = () => score_toggle(wrapper)
+        wrapper.addEventListener('click', wrapper.score_toggle_handler)
         if (!isResult) {
             fixture.innerHTML =
                 `<div class="team1">
@@ -216,13 +248,12 @@ async function buildFixtures() {
                 <img class="team2-logo" src="static/Placeholder_view_vector.svg">
                 <h4 class="barlow-condensed" style="justify-self: end">${f.team2.name}</h4>
             </div>`;
-            wrapper.score_toggle_handler = () => score_toggle(wrapper)
-            wrapper.addEventListener('click', wrapper.score_toggle_handler)
         } else if (isResult) {
             info.innerHTML = `
             <p style="justify-self: end">${f.date}</p>
             <p>Concluded</p>
             <p>${f.venue}</p>
+            <p class="barlow-condensed league">${f.league.name}</p>
             `;
 
             fixture.innerHTML =
@@ -248,4 +279,4 @@ async function buildFixtures() {
     })
 }
 
-document.addEventListener('DOMContentLoaded', buildFixtures)
+document.addEventListener('DOMContentLoaded', ()=>buildFixtures(team_filter.value, league_filter.value))
