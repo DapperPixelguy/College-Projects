@@ -406,7 +406,7 @@ footer {
     position: relative;
     width: 100%;
     height: 15rem;
-    border-top: 1px solid #00A755;
+    border-top: 2px solid black;
     background: #272727 url('tex-dark.jpg');
     box-shadow: 0 -5px 5px rgba(125,125,125,.5);
 
