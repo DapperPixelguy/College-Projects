@@ -9,6 +9,22 @@ Match Results
 {% endblock %}
 
 {% block content %}
+<div class="fixture-header fadeIn">
+<label for="team-select" hidden="hidden">Team</label>
+<select class="barlow-condensed" name="team-select" id="team-select">
+    <option value="all" selected>All teams</option>
+    {% for team in teams %}
+    <option value="{{ team.id }}">{{ team.name }}</option>
+    {% endfor %}
+</select>
+<h4 class="barlow-condensed">Filter</h4>
+<select class="barlow-condensed" name="league-select" id="league-select">
+    <option value="all" selected>All leagues</option>
+    {% for league in leagues %}
+    <option value="{{ league.id }}">{{ league.name }}</option>
+    {% endfor %}
+</select>
+</div>
 <div class="fixture-container">
 </div>
 <div class="blur">
