@@ -9,20 +9,28 @@ League Table
 {% endblock %}
 
 {% block content %}
-
+<div class="table-header floatUp">
+{% for league in leagues %}
+    <button class='barlow-condensed' onclick='changeLeague(this)' value="{{ league.id }}"><span>{{ league.name }}</span></button>
+{% endfor %}
+{#<select id="league-select" class="barlow-condensed">#}
+{#    <option value="1">League 1</option>#}
+{#    <option value="2">League 2</option>#}
+{#</select>#}
+</div>
 <table class="table floatUp">
     <thead class="header-row barlow-condensed">
         <tr>
-        <th onclick="toggleSort('name')">Name</th>
-        <th onclick="toggleSort('played')">Played</th>
-        <th onclick="toggleSort('won')">Won</th>
-        <th onclick="toggleSort('draw')">Draw</th>
-        <th onclick="toggleSort('lost')">Lost</th>
-        <th onclick="toggleSort('pf')">Points For</th>
-        <th onclick="toggleSort('pa')">Points Against</th>
-        <th onclick="toggleSort('pd')">Points Difference</th>
-        <th onclick="toggleSort('bonus')">Bonus Points</th>
-        <th onclick="toggleSort('points')">Total Points</th>
+            <th onclick="toggleSort('name')">Name</th>
+            <th onclick="toggleSort('played')">Played</th>
+            <th onclick="toggleSort('won')">Won</th>
+            <th onclick="toggleSort('draw')">Draw</th>
+            <th onclick="toggleSort('lost')">Lost</th>
+            <th onclick="toggleSort('pf')">Points For</th>
+            <th onclick="toggleSort('pa')">Points Against</th>
+            <th onclick="toggleSort('pd')">Points Difference</th>
+            <th onclick="toggleSort('bonus')">Bonus Points</th>
+            <th onclick="toggleSort('points')">Total Points</th>
         </tr>
     </thead>
 
@@ -30,7 +38,7 @@ League Table
     {# Standings will be filled in here by js function #}
     </tbody>
 
-</table>>
+</table>
 
 {% endblock %}
 
@@ -40,6 +48,25 @@ League Table
 let current_sort = 'played'
 let current_asc = false
 let table_built = false
+let selected_league_elem = document.querySelector('button')
+selected_league_elem.classList.add('selected')
+let selected_league = '1'
+{#selected_league_elem.addEventListener('change', ()=>{#}
+{#    selected_league = selected_league_elem.value#}
+{#    table_built = false#}
+{#    loadTable(undefined,undefined,selected_league)#}
+{#/})#}
+
+function changeLeague(elem){
+    if (selected_league !== elem.value) {
+        selected_league_elem.classList.remove('selected')
+        selected_league_elem = elem
+        selected_league_elem.classList.add('selected')
+        selected_league = elem.value
+        table_built = false
+        loadTable(undefined, undefined, selected_league)
+    }
+}
 
 function toggleSort(sort) {
     if (current_sort === sort) {
@@ -49,10 +76,10 @@ function toggleSort(sort) {
         current_asc = false
     }
 
-    loadTable(current_sort, current_asc)
+    loadTable(current_sort, current_asc, selected_league)
 }
 
-async function loadTable (sort='points', asc='false') {
+async function loadTable (sort='points', asc='false', league='1') {
     const table_body = document.querySelector('tbody')
 
     if (!table_built){
@@ -73,7 +100,7 @@ async function loadTable (sort='points', asc='false') {
     ` }
 
     try {
-        buildTable(sort, asc)
+        buildTable(sort, asc, league)
 
     } catch (error) {
 
@@ -98,9 +125,9 @@ function updateTable(data) {
 
 }
 
-async function buildTable(sort, asc) {
+async function buildTable(sort, asc, league) {
 
-    let response = await fetch(`/league-table/fetch?sort=${sort}&asc=${asc}`)
+    let response = await fetch(`/league-table/fetch?league=${league}&sort=${sort}&asc=${asc}`)
     let data = await response.json()
 
     if (table_built) {
@@ -143,7 +170,7 @@ async function buildTable(sort, asc) {
     })
 }
 
-document.addEventListener('DOMContentLoaded', () => loadTable())
+document.addEventListener('DOMContentLoaded', ()=> loadTable())
 
 </script>
 {% endblock %}
