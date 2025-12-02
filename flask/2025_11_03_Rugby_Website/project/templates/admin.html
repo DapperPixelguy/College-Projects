@@ -24,13 +24,13 @@ Admin
     {%endfor%}
     {% endif %}
     {% endwith %}
-    <div id="fixture-create" class="floatUp" >
+    <div id="fixture-create" class="floatUp">
         <h4 class="form-title barlow-condensed"><span>Create Fixture</span></h4>
         <form name="create-fixture" id="create-fixture" method="POST" action="/admin/fixture_create">
 
             <div class="form-input-wrapper">
-                <select name="team1" id="team1" >
-                <option value="" disabled selected>Team 1 (home)</option>
+                <select name="team1" id="team1" class="team-select">
+                <option value="" selected hidden>Team 1 (home)</option>
                     {% for team in teams %}
                     <option value="{{ team.id }}">{{ team.name }}</option>
                     {% endfor %}
@@ -39,8 +39,8 @@ Admin
             </div>
 
             <div class="form-input-wrapper">
-                <select name="team2" id="team2" >
-                <option value="" disabled selected>Team 2 (away)</option>
+                <select name="team2" id="team2" class="team-select">
+                <option value="" selected hidden>Team 2 (away)</option>
                     {% for team in teams %}
                     <option value="{{ team.id }}">{{ team.name }}</option>
                     {% endfor %}
@@ -63,6 +63,7 @@ Admin
 
             <div class="form-input-wrapper">
                 <select name="league" id="league">
+                <option value="" selected hidden>League</option>
                     {% for league in leagues %}
                         <option value="{{ league.id }}">{{ league.name }}</option>
                     {% endfor %}
