@@ -78,7 +78,7 @@ with create_app().app_context():
 
     testFixtures = []
 
-    for i in range(5):  # generate 5 fixtures
+    for i in range(12):  # generate 5 fixtures
         team1, team2 = random.sample(team_names, 2)  # ensures no duplicates
 
         testFixtures.append({
