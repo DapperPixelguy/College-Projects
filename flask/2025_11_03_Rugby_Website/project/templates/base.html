@@ -57,6 +57,27 @@
         {% block footer %}
 
         {% endblock %}
+    <footer>
+    <div class="footer-content">
+        <img alt='Devon RFU logo' src="{{ url_for('static', filename='whitelogo.svg') }}">
+        <div class="footer-links">
+            <div class="footer-link">
+                <h4 class="barlow-condensed">Contact Us</h4>
+                <ul>
+                    <li>
+                        Email
+                    </li>
+                    <li>
+                        Discord
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-link">
+                <h4 class="barlow-condensed">Social Links</h4>
+            </div>
+        </div>
+    </div>
+    </footer>
     <script src="{{ url_for('static', filename='js/global.js') }}"></script>
     {% block script %}
     {% endblock %}
