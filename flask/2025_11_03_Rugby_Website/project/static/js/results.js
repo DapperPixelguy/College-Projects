@@ -1,9 +1,26 @@
-let accessLevel = window.ACCESS_LEVEL
 const blur = document.querySelector('.blur')
 const popup = document.querySelector('.score-enter-wrapper')
 let score_debounce
 const submitbutton = document.getElementById('submit')
+let accessLevel = window.ACCESS_LEVEL
 let isAuthenticated = window.IS_AUTHENTICATED
+const team_filter = document.querySelector('#team-select')
+const league_filter = document.querySelector('#league-select')
+const container = document.querySelector('.fixture-container')
+
+// Function to check if team_filter has changed, and update fixtures as according
+
+team_filter.addEventListener('change', ()=>{
+    container.innerHTML = ''
+    buildFixtures(team_filter.value, league_filter.value)
+})
+
+// Function to check if league_filter has changed
+
+league_filter.addEventListener('change', ()=>{
+    container.innerHTML = ''
+    buildFixtures(team_filter.value, league_filter.value)
+})
 
 // Function to validate, and submit scores to createResult
 
@@ -126,6 +143,7 @@ async function createResult(elem, team1_score, team2_score) {
             <p style="justify-self: end">${f.date}</p>
             <p>Concluded</p>
             <p>${f.venue}</p>
+            <p class="barlow-condensed league">${f.league.name}</p>
             `;
 
             fixture.innerHTML =
@@ -149,6 +167,7 @@ async function createResult(elem, team1_score, team2_score) {
 
     elem.classList.add('result')
 }
+
 function loadLogo(url, element) {
         let img = new Image()
         img.src=url
@@ -157,7 +176,7 @@ function loadLogo(url, element) {
         }
 }
 
-async function buildFixtures() {
+async function buildFixtures(team_filter, league_filter) {
     const animKey = 'animationLastPlayed'
     const cooldown = 5 * 60 * 1000
     const lastPlayed = parseInt(localStorage.getItem(animKey)) || 0
@@ -170,9 +189,12 @@ async function buildFixtures() {
         playAnim = true
         localStorage.setItem(animKey, now)
     }
-    const response = await fetch('/fixtures/fetch')
+
+    let response
+
+    response = await fetch(`/fixtures/fetch?team=${team_filter}&league=${league_filter}`)
+
     const fixtures = await response.json()
-    const container = document.querySelector('.fixture-container')
     const reducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true
     let animTime = 0.3
 
@@ -181,10 +203,6 @@ async function buildFixtures() {
         let isResult = !!f.result
         wrapper.classList.add('fixture-wrapper');
         wrapper.dataset.fixtureId = f.id
-
-        if (!f.result){
-            return
-        }
 
         let date = new Date(f.date)
 
@@ -211,19 +229,18 @@ async function buildFixtures() {
             <p style="justify-self: end">${date}</p>
             <p>${f.time}</p>
             <p>${f.venue}</p>
-        `;
+            <p class="barlow-condensed league">${f.league.name}</p>`;
 
         const fixture = document.createElement('div');
+        fixture.classList.add('fixture');
         wrapper.score_toggle_handler = () => score_toggle(wrapper)
         wrapper.addEventListener('click', wrapper.score_toggle_handler)
-        fixture.classList.add('fixture');
-        if (!isResult) {
-            fixture.innerHTML = ``
-        } else if (isResult) {
+        if (isResult) {
             info.innerHTML = `
             <p style="justify-self: end">${f.date}</p>
             <p>Concluded</p>
             <p>${f.venue}</p>
+            <p class="barlow-condensed league">${f.league.name}</p>
             `;
 
             fixture.innerHTML =
@@ -239,14 +256,15 @@ async function buildFixtures() {
                 <h4 class="barlow-condensed" style="justify-self: end">${f.team2.name}</h4>
             </div>`
             wrapper.classList.add('result')
-        }
-        wrapper.appendChild(info);
+             wrapper.appendChild(info);
         wrapper.appendChild(fixture);
         container.appendChild(wrapper);
         loadLogo(f.team1.logo, fixture.querySelector('.team1-logo'))
         loadLogo(f.team2.logo, fixture.querySelector('.team2-logo'))
         animTime = animTime + 1
+        }
+
     })
 }
 
-document.addEventListener('DOMContentLoaded', buildFixtures)
+document.addEventListener('DOMContentLoaded', ()=>buildFixtures(team_filter.value, league_filter.value))
