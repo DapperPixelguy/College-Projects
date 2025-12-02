@@ -158,6 +158,7 @@ header #header-profile #profile-dropdown {
         background: url("https://devonrfu.co.uk/wp-content/uploads/2022/06/drfu-homeslide.jpg") 100%;
         background-size: cover;
         height: 57rem;
+        z-index: -1;
     }
 
 }
