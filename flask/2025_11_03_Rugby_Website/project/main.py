@@ -4,9 +4,9 @@ import flask
 from flask import Blueprint, render_template, jsonify, redirect, url_for, request, flash, current_app
 from flask_login import login_required
 from werkzeug.utils import secure_filename
-
+from sqlalchemy import or_
 from .wrappers import *
-from .models import Fixture, Result, Team, User, LeagueTable
+from .models import Fixture, Result, Team, User, LeagueTable, League
 from datetime import datetime
 from . import db
 
@@ -18,12 +18,46 @@ def index():
 
 @main.route('/fixtures')
 def fixtures():
-    return render_template('fixtures.html', data=Fixture.query.all())
+    return render_template('fixtures.html', data=Fixture.query.all(), leagues=League.query.all(), teams=Team.query.order_by(Team.name).all())
 
 @main.route('/fixtures/fetch')
 def fetch_fixtures():
+
+    team_filter = request.args.get('team')
+    league_filter = request.args.get('league')
+
+    if team_filter != 'all':
+        if league_filter != 'all':
+            fixture_list = (
+                Fixture.query
+                .filter(or_(Fixture.team1 == team_filter, Fixture.team2 == team_filter), Fixture.league_id==league_filter)
+                .order_by(Fixture.date, Fixture.time)
+                .all()
+            )
+        elif league_filter == 'all':
+            fixture_list = (
+                Fixture.query
+                .filter(or_(Fixture.team1 == team_filter, Fixture.team2 == team_filter))
+                .order_by(Fixture.date, Fixture.time)
+                .all()
+            )
+    elif team_filter == 'all':
+        if league_filter != 'all':
+            fixture_list = (
+                Fixture.query
+                .filter(Fixture.league_id==league_filter)
+                .order_by(Fixture.date, Fixture.time)
+                .all()
+            )
+        elif league_filter == 'all':
+            fixture_list = Fixture.query.order_by(Fixture.date, Fixture.time).all()
+
+
     response = [{
         'id': x.id,
+        'league': {
+          'name': x.league.name,
+        },
         'team1': {
             'name': x.team1_rel.name,
             'logo': x.team1_rel.logo
