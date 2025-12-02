@@ -60,6 +60,15 @@ Admin
                 <input type="text" id="venue" name="venue" placeholder=" " autocomplete="one-time-code">
                 <label for="venue">Venue</label>
             </div>
+
+            <div class="form-input-wrapper">
+                <select name="league" id="league">
+                    {% for league in leagues %}
+                        <option value="{{ league.id }}">{{ league.name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="league" hidden>League</label>
+            </div>
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
 
             <div class="form-input-wrapper">
