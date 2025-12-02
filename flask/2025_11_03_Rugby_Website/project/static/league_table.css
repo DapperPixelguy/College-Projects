@@ -1,3 +1,40 @@
+.table-header{
+    display: flex;
+    background: #00A755;
+    width: 110rem;
+    position: relative;
+    top: 2rem;
+    height: 5rem;
+    justify-content:  center;
+
+    & button {
+        background: none;
+        border: none;
+        text-align: left;
+        font-size: clamp(10px, 1.5rem, 5rem);
+        color: #ffffff;
+        cursor: pointer;
+        width: 100%;
+        transition: transform 0s;
+
+        &.selected {
+            background: #272727;
+            color: #FFFFFF;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px black;
+            transition: transform 0.15s, box-shadow 0.15s;
+            /*border-top: 5px #EEEEEE solid;*/
+            /*border-bottom: 5px #EEEEEE solid;*/
+
+        }
+        & span {
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+    }
+}
+
 .table {
     position: relative;
     top: 2rem;
