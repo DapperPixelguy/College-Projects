@@ -1,3 +1,51 @@
+.fixture-header{
+    position: relative;
+    top: 2rem;
+    background: #00A755;
+    max-width: 130rem;
+    width: 80%;
+    height: 5rem;
+    min-width: 60rem;
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+
+    & h4{
+        font-size: 3rem;
+        color: #FFFFFF;
+        text-align: center;
+    }
+
+    & #team-select{
+        height: 80%;
+        border-radius: 7px;
+        border: none;
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 2rem;
+        left: 1rem;
+        position: relative;
+        -webkit-appearance: none;
+        background: #272727 url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="white"/></svg>') no-repeat right 10px center;
+        box-shadow: 0 0 10px rgba(10,10,10,.4);
+    }
+
+    & #league-select {
+        height: 80%;
+        border-radius: 7px;
+        border: none;
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 2rem;
+        right: 1rem;
+        position: relative;
+        -webkit-appearance: none;
+        background: #272727 url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="white"/></svg>') no-repeat right 10px center;
+        box-shadow: 0 0 10px rgba(10,10,10,.4);
+    }
+}
+
 .fixture-container {
     display: flex;
     flex-direction: column;
@@ -20,6 +68,11 @@
     border-radius: 7px 7px 0 0;
     align-items: center;
     gap: 3rem;
+    & .league {
+        position: absolute;
+        left: 2rem;
+        top: 0;
+    }
 }
 
 .fixture {
@@ -68,6 +121,7 @@
     }
     opacity: 0;
     transform: translateY(-20px);
+    /*clip-path: polygon(5rem 0%, 100% 0%, calc(100% - 5rem) 100%, 0% 100%);*/
 }
 
 .fixture-wrapper.show {
