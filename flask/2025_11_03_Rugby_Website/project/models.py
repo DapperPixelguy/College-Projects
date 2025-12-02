@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
 
 class Fixture(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    league_id = db.Column(db.Integer, db.ForeignKey('league.id'))
     date = db.Column(db.Date, nullable=False)
     time = db.Column(db.Time, nullable=False)
     venue = db.Column(db.String(100), nullable=False)
@@ -27,12 +28,14 @@ class Fixture(db.Model):
     result_id = db.Column(db.Integer, db.ForeignKey('result.id'))
     result = db.relationship('Result', back_populates='fixture', uselist=False)
 
+    league = db.relationship('League', back_populates='fixtures', uselist=False)
+
 class Result(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     team1_score = db.Column(db.Integer, nullable=False)
     team2_score = db.Column(db.Integer, nullable=False)
 
-    fixture = db.relationship('Fixture', back_populates='result')
+    fixture = db.relationship('Fixture', back_populates='result', uselist=False)
 
 class Team(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -42,11 +45,13 @@ class Team(db.Model):
     home_fixtures = db.relationship('Fixture', back_populates='team1_rel', foreign_keys='Fixture.team1')
     away_fixtures = db.relationship('Fixture', back_populates='team2_rel', foreign_keys='Fixture.team2')
 
-    standing = db.relationship('LeagueTable', back_populates='team', uselist=False)
+    standings = db.relationship('LeagueTable', back_populates='team')
+
 
 class LeagueTable(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    team_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=False, unique=True)
+    team_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=False)
+    league_id = db.Column(db.Integer, db.ForeignKey('league.id'), nullable=False)
 
     played = db.Column(db.Integer, default=0)
     won = db.Column(db.Integer, default=0)
@@ -59,4 +64,13 @@ class LeagueTable(db.Model):
     bonus = db.Column(db.Integer, default=0)
     points = db.Column(db.Integer, default=0)
 
-    team = db.relationship('Team', back_populates='standing')
+    league = db.relationship('League', back_populates='entries')
+    team = db.relationship('Team', back_populates='standings')
+
+
+class League(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+
+    entries = db.relationship('LeagueTable', back_populates='league')
+    fixtures = db.relationship('Fixture', back_populates='league')
