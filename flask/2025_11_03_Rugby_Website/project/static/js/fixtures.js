@@ -94,6 +94,9 @@ function score_toggle(elem) {
 
             document.getElementById('team1').value=score1
             document.getElementById('team2').value=score2
+        } else {
+            document.getElementById('team1').value=''
+            document.getElementById('team2').value=''
         }
 
         window.addEventListener('click', outsideClickHandler)
