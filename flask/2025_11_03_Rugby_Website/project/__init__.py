@@ -13,7 +13,7 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = b'3ad0767063b202579f17581039ce85d58fccb4de45be604607ff2d33e1a3d86f'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
     app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/uploads')
 
     app.json.sort_keys = False
