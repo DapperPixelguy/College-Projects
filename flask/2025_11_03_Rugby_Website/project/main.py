@@ -75,8 +75,83 @@ def fetch_fixtures():
                 'team2': x.result.team2_score
             }
         } if x.result else {})
-    } for x in Fixture.query.order_by(Fixture.date, Fixture.time).all()]
+    } for x in fixture_list]
     return jsonify(response)
+
+
+@main.route('/league-table/update')
+def update_league_table():
+
+    fixtures = Fixture.query.all()
+
+    results = [r.result for r in fixtures if r.result]
+
+    teams = Team.query.all()
+
+    try:
+        LeagueTable.__table__.drop(db.engine, checkfirst=True)
+        LeagueTable.__table__.create(db.engine)
+
+        for fixture in Fixture.query.all():
+            league1 = LeagueTable(team_id=fixture.team1, league_id=fixture.league.id)
+            db.session.add(league1)
+            league2 = LeagueTable(team_id=fixture.team2, league_id=fixture.league.id)
+            db.session.add(league2)
+
+        db.session.commit()
+
+        for result in results:
+            team1 = LeagueTable.query.filter_by(team_id=result.fixture.team1, league_id=result.fixture.league.id).first()
+            team2 = LeagueTable.query.filter_by(team_id=result.fixture.team2, league_id=result.fixture.league.id).first()
+
+            print(team1.played)
+
+            team1_score = result.team1_score
+            team2_score = result.team2_score
+
+            team1.pf += team1_score
+            team1.pa += team2_score
+
+            team1.pd = team1.pf - team1.pa
+
+            team2.pf += team2_score
+            team2.pa += team1_score
+
+            team2.pd = team2.pf - team2.pa
+
+            # If not draw
+            if team1_score > team2_score or team2_score > team1_score:
+                winner, loser = (team1, team2) if team1_score > team2_score else (team2, team1)
+                winner_score, loser_score = (team1_score, team2_score) if team1_score > team2_score else (team2_score, team1_score)
+
+                winner.played += 1
+                loser.played += 1
+
+                winner.won += 1
+                loser.lost += 1
+
+                winner.points += 4
+
+                if (winner_score - loser_score) <= 7:
+                    loser.bonus += 1
+
+            # If draw
+            if team1_score == team2_score:
+                team1.points += 2
+                team2.points += 2
+
+                team1.played += 1
+                team2.played += 1
+
+                team1.draw += 1
+                team2.draw += 1
+
+        db.session.commit()
+
+    except Exception as e:
+        current_app.logger.error(f'Error updating league table: {e}. League entries remain unchanged.')
+
+    return redirect(url_for('main.league_table'))
 
 @main.route('/fixtures/create-result', methods=['POST'])
 @login_required
@@ -91,46 +166,9 @@ def create_result():
     fixture = Fixture.query.filter_by(id=fixture_id).first()
 
     fixture.result = Result(team1_score=team1_score, team2_score=team2_score)
-
-    team1_league_entry = LeagueTable.query.filter_by(team_id=fixture.team1).first()
-    team2_league_entry = LeagueTable.query.filter_by(team_id=fixture.team2).first()
-
-    team1_league_entry.pf += int(team1_score)
-    team1_league_entry.pa += int(team2_score)
-
-    team2_league_entry.pf += int(team2_score)
-    team2_league_entry.pa += int(team1_score)
-
-    team1_league_entry.played += 1
-    team2_league_entry.played += 1
-
-    if team1_score == team2_score:
-        team1_league_entry.draw += 1
-        team2_league_entry.draw += 1
-
-        team1_league_entry.points += 2
-        team2_league_entry.points += 2
-    else:
-        if team1_score > team2_score:
-            team1_league_entry.points += 4
-            team1_league_entry.won += 1
-            team2_league_entry.lost += 1
-
-            if team1_score - 7 <= team2_score:
-                team2_league_entry.bonus += 1
-
-        if team2_score > team1_score:
-            team2_league_entry.points += 4
-            team2_league_entry.won += 1
-            team1_league_entry.lost += 1
-
-            if team2_score - 7 <= team1_score:
-                team1_league_entry.bonus += 1
-
-    team1_league_entry.pd = team1_league_entry.pf - team1_league_entry.pa
-    team2_league_entry.pd = team2_league_entry.pf - team2_league_entry.pa
-
     db.session.commit()
+
+    update_league_table()
 
     print(fixture_id, team1_score, team2_score)
 
@@ -149,19 +187,27 @@ def create_result():
             'score': fixture.result.team2_score
         },
         'date': str(fixture.date),
-        'venue': fixture.venue
+        'venue': fixture.venue,
+        'league': {
+            'name': fixture.league.name
+        }
     }
 
     return jsonify(response)
 
+
+
 @main.route('/league-table')
 def league_table():
-    return render_template('league_table.html', teams=Team.query.all())
+    return render_template('league_table.html', teams=Team.query.all(), leagues=League.query.all())
 
 @main.route('/league-table/fetch')
 def fetch_league_table():
     sort = request.args.get('sort', 'points')
     asc = request.args.get('asc', 'false').lower() == 'true'
+    league = request.args.get('league', 'league1').lower()
+
+
 
     sortable = {
             'name': Team.name,
@@ -182,24 +228,28 @@ def fetch_league_table():
     sort_col2 = LeagueTable.pd.asc() if asc else LeagueTable.pd.desc()
 
 
-    teams = Team.query.join(LeagueTable).order_by(sort_col, sort_col2).all()
+    teams = Team.query.join(LeagueTable).join(League).filter(League.id == league).order_by(sort_col, sort_col2).all()
+    print('-------------team-----------------')
+
+    response = []
     for team in teams:
-        print(team.standing.won, team.name)
-    response = [
+        standing = LeagueTable.query.filter_by(team_id=team.id, league_id=league).first()
+        print(standing.won, team.name)
+        response.append(
         {
         'name': team.name,
         'standing': {
-            'played': team.standing.played,
-            'won':    team.standing.won,
-            'draw':   team.standing.draw,
-            'lost':   team.standing.lost,
-            'pf':     team.standing.pf,
-            'pa':     team.standing.pa,
-            'pd':     team.standing.pd,
-            'bonus':  team.standing.bonus,
-            'points': team.standing.points 
+            'played': standing.played,
+            'won':    standing.won,
+            'draw':   standing.draw,
+            'lost':   standing.lost,
+            'pf':     standing.pf,
+            'pa':     standing.pa,
+            'pd':     standing.pd,
+            'bonus':  standing.bonus,
+            'points': standing.points
         }
-    } for team in teams]
+        })
 
     return jsonify(response)
 
@@ -243,7 +293,7 @@ def results_fetch():
 @access_level_required(2)
 def admin():
     teams = Team.query.order_by(Team.name).all()
-    return render_template('admin.html', teams=teams)
+    return render_template('admin.html', teams=teams, leagues=League.query.all())
 
 @main.route('/admin/fixture_create', methods=['GET', 'POST'])
 @login_required
@@ -255,6 +305,7 @@ def fixture_create():
     date = request.form.get('date')
     time = request.form.get('time')
     venue = request.form.get('venue')
+    league = request.form.get('league')
 
     print(date,time)
     fixture = Fixture()
@@ -264,6 +315,18 @@ def fixture_create():
     fixture.date = datetime.strptime(date, '%Y-%m-%d').date()
     fixture.time = datetime.strptime(time, '%H:%M').time()
     fixture.venue = venue
+    fixture.league_id = int(league)
+
+    # Check if league entries already exist
+
+    if not LeagueTable.query.filter_by(team_id=team1, league_id=league).first():
+        new_league = LeagueTable(team_id=team1, league_id=league)
+        db.session.add(new_league)
+
+    if not LeagueTable.query.filter_by(team_id=team2, league_id=league).first():
+        new_league = LeagueTable(team_id=team2, league_id=league)
+        db.session.add(new_league)
+
 
     db.session.add(fixture)
     db.session.commit()
