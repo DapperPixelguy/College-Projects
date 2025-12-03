@@ -412,11 +412,11 @@ footer {
 
     & .footer-content {
         display: grid;
-        grid-template-columns: 0.5fr 1fr;
+        grid-template-columns: 1fr 2fr 1fr;
         align-content: center;
         justify-content: center;
         height: 100%;
-        width: 80%;
+        width: 70%;
         margin: 0 auto;
         /*background: rgba(255,0,0,.5);*/
 
@@ -425,6 +425,7 @@ footer {
         }
 
         & .footer-links {
+            justify-self: center;
            display: flex;
             flex-direction: row;
             width: 80%;
