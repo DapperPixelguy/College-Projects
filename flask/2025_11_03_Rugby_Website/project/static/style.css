@@ -412,7 +412,7 @@ footer {
 
     & .footer-content {
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-columns: 1fr 0.7fr 1fr;
         align-content: center;
         justify-content: center;
         height: 100%;
@@ -426,12 +426,32 @@ footer {
 
         & .footer-links {
             justify-self: center;
-           display: flex;
+            display: flex;
             flex-direction: row;
             width: 80%;
             gap: 10rem;
             position: relative;
             top: -1.5rem;
+            justify-content: left;
+
+            &.ul-left {
+              justify-content: right;
+            }
+
+            &.ul-left .footer-link ul li {
+                align-self: end;
+                &::after {
+                    content: '<';
+                    position: absolute;
+                    right: -20px;
+                    font-size: 1.5rem;
+                    color: #00A755;
+                    font-weight: 700
+                    }
+                &::before {
+                    content: ''
+                }
+            }
 
             & .footer-link {
                 display: flex;
@@ -452,6 +472,8 @@ footer {
                     /*list-style-type: symbols(cyclic '>');*/
                     list-style-type: none;
                     color: #FFFFFF;
+                    display: flex;
+                    flex-direction: column;
 
                     & li {
                         margin-bottom: 10px;
@@ -459,6 +481,7 @@ footer {
                         line-height: 1.5rem;
                         display: flex;
                         font-size: 1.1rem;
+                        align-self: start;
 
                         &::before {
                             content: '>';
@@ -468,19 +491,9 @@ footer {
                             color: #00A755;
                             font-weight: 700
                         }
-
-                        /*&::marker {*/
-                        /*    font-weight: 900;*/
-                        /*    font-size: 1.5rem;*/
-                        /*    color: #00A755;*/
-                        /*}*/
                     }
                 }
-
             }
-
         }
-
     }
-
 }
