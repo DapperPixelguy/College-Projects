@@ -3,6 +3,7 @@ import os
 import flask
 from flask import Blueprint, render_template, jsonify, redirect, url_for, request, flash, current_app
 from flask_login import login_required
+from werkzeug.security import generate_password_hash
 from werkzeug.utils import secure_filename
 from sqlalchemy import or_
 from .wrappers import *
@@ -307,6 +308,11 @@ def fixture_create():
     venue = request.form.get('venue')
     league = request.form.get('league')
 
+    for key in request.form.keys():
+        if not request.form.get(key):
+            flash({'text': 'Some fields were left empty'}, 'error')
+            return redirect(url_for('main.admin'))
+
     print(date,time)
     fixture = Fixture()
 
@@ -370,6 +376,24 @@ def profile_update():
     if name:
         user.name = name.title()
         db.session.commit()
+
+    if email:
+        user_check = User.query.filter_by(email=email).first()
+
+        if not user_check:
+            user.email = email
+            db.session.commit()
+        else:
+            flash({'text': 'User with that email already exists'}, 'error')
+
+    if password:
+        if len(password) > 3:
+            user.password = generate_password_hash(password)
+            db.session.commit()
+        else:
+            flash({'text': 'Password must be at least 3 characters long'}, 'error')
+
+
 
     return redirect(url_for('main.profile'))
 
