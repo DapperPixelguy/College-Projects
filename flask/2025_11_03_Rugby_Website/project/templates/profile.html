@@ -13,7 +13,7 @@ Profile
 {% with messages = get_flashed_messages(with_categories=True) %}
 {% if messages %}
 {% for category, message in messages %}
-    <div class="flashbox {{ category }}">
+    <div class="flashbox {{ category }}" style="grid-column: 2">
         {{message.text}}
         {% if message.link %}
             Go to <a href="{{message.link}}">{{ message.linktext }}</a>.
