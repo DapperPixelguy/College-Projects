@@ -406,4 +406,8 @@ def photo_fetch():
 
     return jsonify(response)
 
+@main.route('/feedback')
+def feedback():
+    return render_template('feedback.html')
+
 
