@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Feedback
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}">
+{% endblock %}
+
+{% block content %}
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfzs8ncMWCv4yrvkNURu1hWWHhC9aUxGffu2rBuuFRrZBYzEA/viewform?embedded=true" width="640" height="839" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+{% endblock %}
