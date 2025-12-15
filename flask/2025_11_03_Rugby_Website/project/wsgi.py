@@ -3,6 +3,6 @@ from ..db_create import db_create
 
 app = create_app()
 
-db_create()
+# db_create()
 
 # run_threader()
