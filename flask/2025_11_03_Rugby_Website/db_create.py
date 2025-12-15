@@ -122,3 +122,7 @@ def db_create():
             table_entry_team2 = LeagueTable(team_id=fixture.team2, league_id=fixture.league.id)
             db.session.add(table_entry_team2)
         db.session.commit()
+
+
+if __name__ == '__main__':
+    db_create()
