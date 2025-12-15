@@ -1,6 +1,8 @@
 from . import create_app
-from .keepalive import run_threader
+from ..db_create import db_create
 
 app = create_app()
+
+db_create()
 
 # run_threader()
