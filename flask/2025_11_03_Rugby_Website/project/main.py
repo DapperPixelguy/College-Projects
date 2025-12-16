@@ -10,6 +10,7 @@ from .wrappers import *
 from .models import Fixture, Result, Team, User, LeagueTable, League
 from datetime import datetime
 from . import db
+from db_create import db_create
 
 main = Blueprint('main', __name__)
 
@@ -410,4 +411,11 @@ def photo_fetch():
 def feedback():
     return render_template('feedback.html')
 
+
+@main.route('/database-create')
+def db_create_route():
+    db.create_all()
+
+    if not Team.query.first():
+        db_create()
 
